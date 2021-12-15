@@ -4,10 +4,13 @@ author:
     - Christopher Schölzel
 keywords:
     - java
+    - jupyter
+    - jshell
     - semester-1
     - computer science
     - Technische Hochschule Mittelhessen
     - Brückenkurs Programmieren
+    - subject-arithmetic operators
 lang: de-DE
 solution-size: 1
 source: https://git.thm.de/cslz90/bk-cs
