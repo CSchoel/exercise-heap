@@ -21,7 +21,7 @@ source: https://git.thm.de/cslz90/bk-cs
 Eine sehr einfache Formel zur Berechnung des eigenen "Normalgewichtes" lautet wie folgt:
 
 $$
-\\text{Körpergröße}_{\\text{cm}} - 100
+\text{Körpergröße}_{\text{cm}} - 100
 $$
 
 Versuche einmal diese Rechnung für deine Körpergröße mit Java auszuführen.
