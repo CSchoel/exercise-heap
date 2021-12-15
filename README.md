@@ -46,4 +46,5 @@ I plan on using tags for almost any semantic information that further identifies
 * Exercise context (exam, graded homework, learning material)
 * Exercise subject (loops, if-expressions, sorting algorithms, ...)
 * Required preexisting knowledge (loops, if-expressions, sorting algorithms, ...)
+* Programming language (python, java, ...)
 * ...
