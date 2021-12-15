@@ -9,7 +9,7 @@ import datetime
 import re
 from pathlib import Path
 
-dest = Path(__file__) / f"../../exercises/{datetime.date.today().year}"
+dest = Path(__file__).parent / f"../../exercises/{datetime.date.today().year}"
 
 if __name__ == '__main__':
     exdir = Path(sys.argv[1])
