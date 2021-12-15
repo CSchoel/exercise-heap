@@ -34,7 +34,7 @@ if __name__ == '__main__':
             - python
             - semester-1
             - bioinformatics
-        lang: en-US
+        lang: de-DE
         solution-size: {sum([len(x.read_text(encoding="utf-8").splitlines()) for x in (ex / "src").listdir()])}
         ---
         """ + desctext)
