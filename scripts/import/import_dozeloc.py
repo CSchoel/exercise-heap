@@ -21,6 +21,9 @@ if __name__ == '__main__':
         shutil.copytree(ex / "test", destdir / "test", dirs_exist_ok=True)
         if (ex / "src").exists():
             shutil.copytree(ex / "src", destdir / "sol", dirs_exist_ok=True)
+        for res in [x for x in (ex / "test").iterdir() if x.suffix != ".py"]:
+            (destdir / "res").mkdir(exist_ok=True)
+            shutil.copy2(res, destdir / "res" / res.name)
         desc = next(x for x in ex.iterdir() if x.suffix == ".md")
         desctext = desc.read_text(encoding="utf-8")
         desctext_dest = textwrap.dedent(f"""
