@@ -17,9 +17,11 @@ if __name__ == '__main__':
         if not (ex / "test").is_dir():
             continue
         destdir =(dest / ex.name)
-        destdir.mkdir(exist_ok=True)
-        shutil.copy2(ex / "test", destdir / "test")
-        shutil.copy2(ex / "src", destdir / "sol")
+        destdir.mkdir(parents=True, exist_ok=True)
+        shutil.copytree(ex / "test", destdir / "test", dirs_exist_ok=True)
+        if (ex / "src").exists():
+            shutil.copytree(ex / "src", destdir / "sol", dirs_exist_ok=True)
+        print(ex)
         desc = next(x for x in ex.iterdir() if x.suffix == ".md")
         desctext = desc.read_text(encoding="utf-8")
         desctext_dest = textwrap.dedent(f"""
