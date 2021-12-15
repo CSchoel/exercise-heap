@@ -47,4 +47,5 @@ I plan on using tags for almost any semantic information that further identifies
 * Exercise subject (loops, if-expressions, sorting algorithms, ...)
 * Required preexisting knowledge (loops, if-expressions, sorting algorithms, ...)
 * Programming language (python, java, ...)
+* Name of course (Grundlagen der Informatik, Algorithmen und Datenstrukturen)
 * ...

@@ -41,6 +41,8 @@ if __name__ == '__main__':
             - python
             - semester-1
             - bioinformatics
+            - Technische Hochschule Mittelhessen
+            - Grundlagen der Informatik
         lang: de-DE
         solution-size: {sol_size}
         ---
