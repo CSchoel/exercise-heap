@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # imports exercise folder written for Dozeloc into heap format
-# usage: ./import_dozeloc.py exercise-folder
+# usage: ./import_dozeloc.py exercise-folder course_name
 
 import sys
 import textwrap
@@ -9,7 +9,7 @@ import datetime
 import re
 from pathlib import Path
 
-dest = Path(__file__).parent / f"../../exercises/{datetime.date.today().year}"
+dest = Path(__file__).parent / f"../../exercises/{datetime.date.today().year}" / sys.argv[2]
 
 if __name__ == '__main__':
     exdir = Path(sys.argv[1])
