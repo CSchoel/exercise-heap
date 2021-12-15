@@ -7,6 +7,9 @@ keywords:
     - python
     - semester-1
     - bioinformatics
+    - Technische Hochschule Mittelhessen
+    - Justus-Liebig-Universität
+    - Grundlagen der Informatik
 lang: de-DE
 solution-size: 4
 ---
