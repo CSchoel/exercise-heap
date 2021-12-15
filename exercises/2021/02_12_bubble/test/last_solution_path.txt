@@ -1,0 +1,1 @@
+/mnt/data/Dokumente/Berufliches/2013-THM/Lehre/GDI-BIM/bimgdi-cs/2021_wise/dozeloc/dozeloc.py

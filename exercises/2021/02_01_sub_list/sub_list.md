@@ -1,0 +1,26 @@
+---
+title: Sublist
+author:
+    - GDI-Tutoren
+    - Christopher Schölzel
+keywords:
+    - python
+    - semester-1
+    - bioinformatics
+lang: de-DE
+solution-size: 6
+---
+
+# Sublist
+
+Gegeben sei folgende Liste mit Werten:
+
+```Python
+l = [22, 260, 118, 250, 91, 449, 272, 228, 376, 205, 407,
+238, 450, 426, 391, 320, 492, 288, 228, 174]
+```
+
+Seien es ruhig irgendwelche Werte eines dubiosen Experiments.
+Nun möchten wir aber nur einen Teil der großen Liste l für weitere Zwecke nutzen, also eine unter-Liste oder sub-Liste von l.
+Diese soll die Elemente ab Element 376 bis zum Element 391 aus l enthalten, aber hier wird's umständlich! Wir wollen das ganze ohne Schleifen erledigen.
+Speiche die unter-Liste von l in einer neuen Variable mit dem Namen `result` in der Datei `sublist.py`, dann hats der Test einfacher.
