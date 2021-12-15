@@ -26,7 +26,7 @@ if __name__ == '__main__':
         desctext = desc.read_text(encoding="utf-8")
         desctext_dest = textwrap.dedent(f"""
         ---
-        title: {re.search(r"^# (.*)$",desctext).group(1)}
+        title: {re.search(r"^# (.*)$",desctext, flags=re.RegexFlag.M).group(1)}
         author:
             - GDI-Tutoren
             - Christopher Schölzel
