@@ -26,6 +26,11 @@ if __name__ == '__main__':
             shutil.copy2(res, destdir / "res" / res.name)
         desc = next(x for x in ex.iterdir() if x.suffix == ".md")
         desctext = desc.read_text(encoding="utf-8")
+        sol_size = sum([
+            len(x.read_text(encoding="utf-8").splitlines())
+            for x in (ex / "src").iterdir()
+            if x.suffix == ".py"
+        ])
         desctext_dest = textwrap.dedent(f"""
         ---
         title: {re.search(r"^# (.*)$",desctext, flags=re.RegexFlag.M).group(1)}
@@ -37,7 +42,7 @@ if __name__ == '__main__':
             - semester-1
             - bioinformatics
         lang: de-DE
-        solution-size: {sum([len(x.read_text(encoding="utf-8").splitlines()) for x in (ex / "src").iterdir()])}
+        solution-size: {sol_size}
         ---
         """ + desctext)
         (destdir / desc.name).write_text(desctext_dest, encoding="utf-8")
