@@ -42,6 +42,7 @@ if __name__ == '__main__':
             - semester-1
             - bioinformatics
             - Technische Hochschule Mittelhessen
+            - Justus-Liebig-Universität
             - Grundlagen der Informatik
         lang: de-DE
         solution-size: {sol_size}

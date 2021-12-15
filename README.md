@@ -48,4 +48,5 @@ I plan on using tags for almost any semantic information that further identifies
 * Required preexisting knowledge (loops, if-expressions, sorting algorithms, ...)
 * Programming language (python, java, ...)
 * Name of course (Grundlagen der Informatik, Algorithmen und Datenstrukturen)
+* Name of institution (Technische Hochschule Mittelhessen, Justus-Liebig-Universität)
 * ...
