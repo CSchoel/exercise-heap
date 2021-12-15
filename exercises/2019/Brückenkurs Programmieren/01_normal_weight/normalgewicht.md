@@ -9,7 +9,7 @@ keywords:
     - semester-1
     - computer science
     - Technische Hochschule Mittelhessen
-    - Brückenkurs Programmieren
+    - course-Brückenkurs Programmieren
     - subject-arithmetic operators
 lang: de-DE
 solution-size: 1
