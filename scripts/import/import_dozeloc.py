@@ -31,7 +31,7 @@ if __name__ == '__main__':
             for x in (ex / "src").iterdir()
             if x.suffix == ".py"
         ])
-        desctext_dest = textwrap.dedent(f"""
+        desctext_dest = textwrap.dedent(f"""\
         ---
         title: {re.search(r"^# (.*)$",desctext, flags=re.RegexFlag.M).group(1)}
         author:
@@ -44,5 +44,7 @@ if __name__ == '__main__':
         lang: de-DE
         solution-size: {sol_size}
         ---
-        """ + desctext)
+        
+        """)
+        desctext_dest += desctext
         (destdir / desc.name).write_text(desctext_dest, encoding="utf-8")
