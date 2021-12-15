@@ -8,7 +8,7 @@ The exercise texts, however, will be mainly in German, since I teach at German u
 ## Structure of the heap
 
 I choose the word "heap" for this project, because like heap memory in Java or other programming languages it represents a rather unstructured data storage, that nonetheless can be used efficiently with the right tools and links.
-Since I think any organization approach based on a single hierarchy that could be mapped to the file system is doomed to fail anyway, I simply use the year in which the exercise was first created as the folder structure.
+Since I think any organization approach based on a single hierarchy that could be mapped to the file system is doomed to fail anyway, I simply use the year in which the exercise was first created and the course or project from which they originate as the folder structure.
 This at least allows me to quickly find newer exercises and prevents folders from growing unboundedly.
 The actual *semantic* organization then is done by adding tags/keywords to the individual exercises.
 
