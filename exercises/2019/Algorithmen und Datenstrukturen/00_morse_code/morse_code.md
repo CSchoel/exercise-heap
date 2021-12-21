@@ -10,7 +10,7 @@ keywords:
     - institution: Technische Hochschule Mittelhessen
     - course: Algorithmen und Datenstrukturen
 lang: de-DE
-solution-size: 10
+solution-size: 53
 source: https://git.thm.de/cslz90/infomagic
 id: d53bbddd-5438-4e3e-a5dc-043358defd30
 ---
