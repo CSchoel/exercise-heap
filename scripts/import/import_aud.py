@@ -23,18 +23,39 @@ if __name__ == '__main__':
     )]
     dst.mkdir(exist_ok=True, parents=True)
     for ex in exfiles:
-        d = dst / (ex.parent.parent.name + "_" + ex.parent.name)
-        d.mkdir(exist_ok=True)
-        shutil.copy2(ex, d / ex.name)
-    exit(0)
+        destdir = dst / (ex.parent.parent.name + "_" + ex.parent.name)
+        destdir.mkdir(exist_ok=True)
 
+        desctext = ex.read_text(encoding="utf-8")
+        desctext_dest = textwrap.dedent(f"""\
+        ---
+        title: {ex.name}
+        author:
+            - AuD-Tutoren
+            - Christopher Schölzel
+        keywords:
+            - language: java
+            - semester: 2
+            - major: computer science
+            - institution: Technische Hochschule Mittelhessen
+            - course: Algorithmen und Datenstrukturen
+        lang: de-DE
+        solution-size: 0
+        ---
 
-    exdir = Path(sys.argv[1])
-    for ex in exdir.iterdir():
-        if not (ex / "test").is_dir():
-            continue
+        """)
+        desctext_dest += desctext
+        (destdir / ex.name).write_text(desctext_dest, encoding="utf-8")
+
+        continue
+
+        sol_size = sum([
+            len(x.read_text(encoding="utf-8").splitlines())
+            for x in (ex / "src").iterdir()
+            if x.suffix == ".py"
+        ])
+
         destdir =(dest / ex.name)
-        destdir.mkdir(parents=True, exist_ok=True)
         shutil.copytree(ex / "test", destdir / "test", dirs_exist_ok=True)
         if (ex / "src").exists():
             shutil.copytree(ex / "src", destdir / "sol", dirs_exist_ok=True)
