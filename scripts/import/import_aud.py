@@ -6,11 +6,20 @@ import textwrap
 import shutil
 import datetime
 import re
+import glob
+import os
 from pathlib import Path
 
-dest = Path(__file__).parent / f"../../exercises/{datetime.date.today().year}" / sys.argv[2]
-
 if __name__ == '__main__':
+    os.chdir(Path(__file__).parent)
+    exfiles = glob.glob(Path(sys.argv[1]) / "*/*/*.md")
+    exfiles = [Path(x) for x in exfiles]
+    exfiles = [x for x in exfiles if not (x.name.endswith("-solution") or x.name.endswith("-korr"))]
+    for ex in exfiles:
+        print(ex)
+    exit(0)
+    
+
     exdir = Path(sys.argv[1])
     for ex in exdir.iterdir():
         if not (ex / "test").is_dir():
