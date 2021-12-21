@@ -4,9 +4,6 @@
 import sys
 import textwrap
 import shutil
-import datetime
-import re
-import os
 from pathlib import Path
 
 if __name__ == '__main__':
