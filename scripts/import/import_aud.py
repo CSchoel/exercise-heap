@@ -29,7 +29,7 @@ if __name__ == '__main__':
         desctext = ex.read_text(encoding="utf-8")
         desctext_dest = textwrap.dedent(f"""\
         ---
-        title: {ex.name}
+        title: {ex.stem}
         author:
             - AuD-Tutoren
             - Christopher Schölzel
@@ -47,6 +47,10 @@ if __name__ == '__main__':
         desctext_dest += desctext
         (destdir / ex.name).write_text(desctext_dest, encoding="utf-8")
 
+        sol = ex.parent / (ex.stem + "-solution.md")
+        if sol.exists():
+            (destdir / "sol").mkdir(exist_ok=True)
+            shutil.copy2(sol, destdir / "sol" / sol.name)
         continue
 
         sol_size = sum([
