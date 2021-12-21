@@ -6,19 +6,24 @@ import textwrap
 import shutil
 import datetime
 import re
-import glob
 import os
 from pathlib import Path
 
 if __name__ == '__main__':
     os.chdir(Path(__file__).parent)
-    exfiles = glob.glob(Path(sys.argv[1]) / "*/*/*.md")
-    exfiles = [Path(x) for x in exfiles]
-    exfiles = [x for x in exfiles if not (x.name.endswith("-solution") or x.name.endswith("-korr"))]
+    exfiles = Path(sys.argv[1]).glob("*/*/*.md")
+    exfiles = [
+        x for x in exfiles
+        if not (
+            x.stem.endswith("-solution")
+            or x.stem.endswith("-korr")
+            or x.stem.endswith("-gami")
+            or x.stem.endswith("kriterien")
+    )]
     for ex in exfiles:
         print(ex)
     exit(0)
-    
+
 
     exdir = Path(sys.argv[1])
     for ex in exdir.iterdir():
