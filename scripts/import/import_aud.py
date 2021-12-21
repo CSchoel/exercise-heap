@@ -23,7 +23,7 @@ if __name__ == '__main__':
     )]
     dst.mkdir(exist_ok=True, parents=True)
     for ex in exfiles:
-        d = dst / ex.parent.name
+        d = dst / (ex.parent.parent.name + "_" + ex.parent.name)
         d.mkdir(exist_ok=True)
         shutil.copy2(ex, d / ex.name)
     exit(0)
