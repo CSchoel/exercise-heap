@@ -18,15 +18,20 @@ def patch_header(fname, func):
     if header.start() != 0:
         raise Exception(f"{p} has a YAML block, which is not at the beginning of the file but at postion {header.start()}")
     rest = text[header.end():]
-    metadata = yaml.safe_load(io.StringIO(header.group(1)))
-    func(metadata)
-    new_text = os.linesep.join(["---", yaml.dump(metadata), "---"]) + rest
-    print(new_text)
-    # p.write_text(text)
+    header = header.group(1).strip()
+    new_header = os.linesep.join(["---", func(header), "---"])
+    print(new_header)
+    # p.write_text(new_header + rest)
+
+def add_attribute(header, att, valfunc):
+    if re.search(f"^{att}:", header) is not None:
+        # only add if not already present
+        return header
+    return os.linesep.join([header, f"{att}: {valfunc(header)}"])
 
 
 if __name__ == "__main__":
     os.chdir(Path(__file__).parent)
     for x in glob.glob("../../exercises/*/*/*/*.md"):
         p = Path(x)
-        patch_header(x, lambda x: print(x))
+        patch_header(x, lambda h: add_attribute(h, "id", lambda x: 0))
