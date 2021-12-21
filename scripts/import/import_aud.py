@@ -10,8 +10,9 @@ import os
 from pathlib import Path
 
 if __name__ == '__main__':
-    os.chdir(Path(__file__).parent)
-    exfiles = Path(sys.argv[1]).glob("*/*/*.md")
+    src = Path(sys.argv[1])
+    dst = Path(sys.argv[2])
+    exfiles = src.glob("*/*/*.md")
     exfiles = [
         x for x in exfiles
         if not (
@@ -20,8 +21,11 @@ if __name__ == '__main__':
             or x.stem.endswith("-gami")
             or x.stem.endswith("kriterien")
     )]
+    dst.mkdir(exist_ok=True, parents=True)
     for ex in exfiles:
-        print(ex)
+        d = dst / ex.parent.name
+        d.mkdir(exist_ok=True)
+        shutil.copy2(ex, d / ex.name)
     exit(0)
 
 
