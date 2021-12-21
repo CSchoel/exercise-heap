@@ -5,6 +5,7 @@ from pathlib import Path
 import glob
 import os
 import re
+import uuid
 
 def patch_header(fname, func):
     p = Path(fname)
@@ -31,4 +32,4 @@ if __name__ == "__main__":
     os.chdir(Path(__file__).parent)
     for x in glob.glob("../../exercises/*/*/*/*.md"):
         p = Path(x)
-        patch_header(x, lambda h: add_attribute(h, "id", lambda x: 0))
+        patch_header(x, lambda h: add_attribute(h, "id", lambda x: uuid.uuid4()))
