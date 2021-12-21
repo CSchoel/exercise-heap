@@ -4,52 +4,66 @@ import java.util.function.Function;
 
 public class Cons<A> implements ImmutableList<A> {
 
-    private A elem;
-    private ImmutableList<A> next;
-
-    public Cons(A elem, ImmutableList<A> next) {
-        this.elem = elem;
-        this.next = next;
+    private final A element;
+    private final ImmutableList<A> tail;
+    public Cons(A element, ImmutableList<A> tail) {
+        this.element = element;
+        this.tail = tail;
     }
-
     @Override
     public ImmutableList<A> cons(A elem) {
-        next = next.cons(this.elem);
-        this.elem = elem;
-        return this;
+        return new Cons<A>(elem, this);
     }
 
     @Override
     public ImmutableList<A> append(A elem) {
-        return new Cons<A>(this.elem, next.append(elem));
+        return appendImpl(elem, this);
+    }
+
+    private ImmutableList<A> appendImpl(A elem, ImmutableList<A> current) {
+        if(current instanceof Cons) {
+            Cons<A> currentCons = (Cons<A>) current;
+            return new Cons<A>(currentCons.element, appendImpl(elem, currentCons.tail));
+        } else {
+            //current is Nil == empty list
+            return new Cons<A>(elem, current);
+        }
     }
 
     @Override
     public int size() {
-        return next.size() + 1;
+        return 1 + tail.size();
     }
+
 
     @Override
     public A getAt(int idx) throws IndexOutOfBoundsException {
-        if (idx < 0) throw new IndexOutOfBoundsException("Index out of bounds!");
-        return idx == 0 ? elem : next.getAt(--idx);
+        return (idx==0) ? element : tail.getAt(idx-1);
     }
 
     @Override
     public <B> ImmutableList<B> map(Function<A, B> fn) {
-        ImmutableList<B> tmp = new Nil<>();
-        for (int i = 0; i < size(); i++) tmp = tmp.append(fn.apply(getAt(i)));
-        return tmp;
+        return new Cons<B>(fn.apply(this.element), this.tail.map(fn));
     }
 
     @Override
     public String toString() {
-        return "Cons(" + elem.toString() + ", " + next.toString() + ")";
+        return String.format("Cons(%s, %s)", element.toString(), tail.toString());
     }
 
     @Override
-    public boolean equals(Object o) {
-        return o instanceof Cons && elem.equals(((Cons) o).elem) && next.equals(((Cons) o).next);
+    public boolean equals(Object other) {
+        if(other == null) return false;
+        else if(other instanceof Cons) {
+            Cons<A> otherCons = (Cons<A>) other;
+            return this.element.equals(otherCons.element) && this.tail.equals(otherCons.tail);
+        } else {
+            return false;
+        }
     }
 
+    @Override
+    public int hashCode() {
+        return toString().hashCode();
+    }
 }

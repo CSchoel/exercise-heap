@@ -2,16 +2,16 @@ package linkedlist;
 
 import java.util.function.Function;
 
-public class Nil<A> implements ImmutableList<A> {
+class Nil<A> implements ImmutableList<A> {
 
     @Override
     public ImmutableList<A> cons(A elem) {
-        return append(elem);
+        return new Cons<A>(elem, this);
     }
 
     @Override
     public ImmutableList<A> append(A elem) {
-        return new Cons<>(elem, this);
+        return cons(elem);
     }
 
     @Override
@@ -21,12 +21,12 @@ public class Nil<A> implements ImmutableList<A> {
 
     @Override
     public A getAt(int idx) throws IndexOutOfBoundsException {
-        throw new IndexOutOfBoundsException("Index out of bounds!");
+        throw new IndexOutOfBoundsException("Nil is empty");
     }
 
     @Override
     public <B> ImmutableList<B> map(Function<A, B> fn) {
-        return new Nil<>();
+        return new Nil<B>();
     }
 
     @Override
@@ -35,8 +35,16 @@ public class Nil<A> implements ImmutableList<A> {
     }
 
     @Override
-    public boolean equals(Object o) {
-        return o instanceof Nil;
+    public boolean equals(Object other) {
+        if(other == null) {
+            return false;
+        } else {
+            return other instanceof Nil || this == other;
+        }
     }
 
+    @Override
+    public int hashCode() {
+        return toString().hashCode();
+    }
 }
