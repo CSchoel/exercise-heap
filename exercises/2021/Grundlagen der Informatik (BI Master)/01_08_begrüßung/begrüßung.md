@@ -12,6 +12,7 @@ keywords:
     - Grundlagen der Informatik
 lang: de-DE
 solution-size: 4
+id: dddc9d97-89b9-484f-aa13-32711436eb08
 ---
 
 # Begrüßung

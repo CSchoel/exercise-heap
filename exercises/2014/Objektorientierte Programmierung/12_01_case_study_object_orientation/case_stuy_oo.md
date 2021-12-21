@@ -12,6 +12,7 @@ keywords:
 lang: de-DE
 solution-size: 100
 source: https://git.thm.de/cslz90/oop-cs
+id: c30bc00b-0646-4eb9-bf20-e7b42f5a7d8f
 ---
 
 # Fallstudie zur Objektorientierung

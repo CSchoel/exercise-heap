@@ -12,6 +12,7 @@ keywords:
     - Grundlagen der Informatik
 lang: de-DE
 solution-size: 6
+id: be19a95b-98cb-42e9-806a-698f362861ed
 ---
 
 # Fibonacci iterativ

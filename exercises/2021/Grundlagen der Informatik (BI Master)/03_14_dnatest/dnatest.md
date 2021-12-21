@@ -12,6 +12,7 @@ keywords:
     - Grundlagen der Informatik
 lang: de-DE
 solution-size: 18
+id: 4ff99da4-dd28-44a7-9bf5-2f6f84b7c960
 ---
 
 # DNA Test

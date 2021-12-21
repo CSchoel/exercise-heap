@@ -12,6 +12,7 @@ keywords:
     - Grundlagen der Informatik
 lang: de-DE
 solution-size: 5
+id: 227e3715-1cc9-41b1-9723-a79d5d890822
 ---
 
 # Reversed string

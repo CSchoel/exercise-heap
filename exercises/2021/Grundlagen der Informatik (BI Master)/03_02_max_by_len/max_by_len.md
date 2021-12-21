@@ -12,6 +12,7 @@ keywords:
     - Grundlagen der Informatik
 lang: de-DE
 solution-size: 2
+id: 27883b5d-2148-419b-807d-aaf2230c0de3
 ---
 
 # Maximale Länge

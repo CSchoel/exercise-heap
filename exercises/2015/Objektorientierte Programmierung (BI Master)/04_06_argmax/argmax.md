@@ -14,6 +14,7 @@ keywords:
 lang: de-DE
 solution-size: 5
 source: https://git.thm.de/cslz90/bimoop-cs
+id: 04818910-f33a-48c0-896e-fbdddc51e0c5
 ---
 
 # Argmax

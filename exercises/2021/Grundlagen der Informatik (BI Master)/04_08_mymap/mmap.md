@@ -12,6 +12,7 @@ keywords:
     - Grundlagen der Informatik
 lang: de-DE
 solution-size: 10
+id: dcfb9961-7416-475e-97c0-07c7185918d9
 ---
 
 # Eigene Map-Funktion

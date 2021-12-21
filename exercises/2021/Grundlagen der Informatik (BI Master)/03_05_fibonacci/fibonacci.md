@@ -12,6 +12,7 @@ keywords:
     - Grundlagen der Informatik
 lang: de-DE
 solution-size: 8
+id: fd0b3e6e-280c-4720-8ac8-84cc086395b7
 ---
 
 # Fibonacci

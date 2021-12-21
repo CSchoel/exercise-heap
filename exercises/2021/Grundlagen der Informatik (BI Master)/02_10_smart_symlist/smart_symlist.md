@@ -12,6 +12,7 @@ keywords:
     - Grundlagen der Informatik
 lang: de-DE
 solution-size: 5
+id: 6366079b-e030-4ab9-b91f-e7e1b9ba40e2
 ---
 
 # Schlaue symmetrische Listen

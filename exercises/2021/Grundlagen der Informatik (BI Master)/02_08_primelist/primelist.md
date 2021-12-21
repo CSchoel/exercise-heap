@@ -12,6 +12,7 @@ keywords:
     - Grundlagen der Informatik
 lang: de-DE
 solution-size: 9
+id: 6ffaf037-ec7d-4e7e-b36a-b75ebcba45cc
 ---
 
 # Prime Numbers

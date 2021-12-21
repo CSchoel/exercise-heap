@@ -12,6 +12,7 @@ keywords:
     - Grundlagen der Informatik
 lang: de-DE
 solution-size: 9
+id: e05d01c5-5d7b-40ea-96e1-ab747c8f5a4c
 ---
 
 # Dictionary Comprehensions

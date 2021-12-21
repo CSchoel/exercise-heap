@@ -12,6 +12,7 @@ keywords:
     - Grundlagen der Informatik
 lang: de-DE
 solution-size: 6
+id: 88118e53-dde0-4b23-84e9-4b909aab984d
 ---
 
 # Bubblesort

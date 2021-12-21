@@ -12,6 +12,7 @@ keywords:
     - Grundlagen der Informatik
 lang: de-DE
 solution-size: 8
+id: 685cd658-689d-4ecb-b440-a5366be3db24
 ---
 
 # Splitting 

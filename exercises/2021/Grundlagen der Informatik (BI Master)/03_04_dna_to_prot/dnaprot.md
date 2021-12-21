@@ -12,6 +12,7 @@ keywords:
     - Grundlagen der Informatik
 lang: de-DE
 solution-size: 30
+id: 8e38392c-2669-45ec-b2a6-93750759e45a
 ---
 
 # DNA to Protein

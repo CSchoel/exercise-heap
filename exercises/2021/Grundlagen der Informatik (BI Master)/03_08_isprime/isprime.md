@@ -12,6 +12,7 @@ keywords:
     - Grundlagen der Informatik
 lang: de-DE
 solution-size: 6
+id: 9ac81c9d-afc5-430b-8464-bf874b5881b5
 ---
 
 # isPrime

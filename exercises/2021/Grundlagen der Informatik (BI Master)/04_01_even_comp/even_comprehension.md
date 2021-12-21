@@ -12,6 +12,7 @@ keywords:
     - Grundlagen der Informatik
 lang: de-DE
 solution-size: 2
+id: fcfcb4bb-2f0e-46a2-98fe-a7d93dd65021
 ---
 
 # Gerade Zahlen Comprehension

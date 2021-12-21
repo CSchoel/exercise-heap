@@ -12,6 +12,7 @@ keywords:
     - Grundlagen der Informatik
 lang: de-DE
 solution-size: 8
+id: df741775-eb9e-40f2-945b-3c3abf2ff6a5
 ---
 
 # Sortieren nach Anzahl der Teiler

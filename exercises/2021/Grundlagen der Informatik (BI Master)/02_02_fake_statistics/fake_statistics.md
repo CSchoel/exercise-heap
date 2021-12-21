@@ -12,6 +12,7 @@ keywords:
     - Grundlagen der Informatik
 lang: de-DE
 solution-size: 13
+id: 580e5fb2-8bb9-4b8a-a4c8-ddbd55a48edd
 ---
 
 # Fake Statistics

@@ -12,6 +12,7 @@ keywords:
     - Grundlagen der Informatik
 lang: de-DE
 solution-size: 16
+id: 5e78f0c6-03eb-44e5-a8a6-e0bdd67e6814
 ---
 
 # Skip

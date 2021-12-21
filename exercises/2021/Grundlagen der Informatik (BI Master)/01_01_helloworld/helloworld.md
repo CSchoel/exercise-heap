@@ -12,6 +12,7 @@ keywords:
     - Grundlagen der Informatik
 lang: de-DE
 solution-size: 1
+id: 4c20a410-2dc1-4457-8fb6-e1c5d09b099d
 ---
 
 # Hello World

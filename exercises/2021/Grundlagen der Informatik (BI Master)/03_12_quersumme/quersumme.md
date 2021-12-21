@@ -12,6 +12,7 @@ keywords:
     - Grundlagen der Informatik
 lang: de-DE
 solution-size: 3
+id: c8768e9e-f308-47a4-a385-0f740fde3b13
 ---
 
 # Quersumme

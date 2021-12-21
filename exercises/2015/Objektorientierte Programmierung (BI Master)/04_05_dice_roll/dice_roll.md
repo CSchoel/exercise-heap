@@ -13,6 +13,7 @@ keywords:
 lang: de-DE
 solution-size: 5
 source: https://git.thm.de/cslz90/bimoop-cs
+id: 33c397fb-251b-4539-93d8-c63e1e6af328
 ---
 
 # Würfelwurf

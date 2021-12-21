@@ -12,6 +12,7 @@ keywords:
     - Grundlagen der Informatik
 lang: de-DE
 solution-size: 11
+id: 6224fc75-94f0-484a-a93a-88302e65a210
 ---
 
 # Symmetrische Listen

@@ -12,6 +12,7 @@ keywords:
     - Grundlagen der Informatik
 lang: de-DE
 solution-size: 7
+id: f861b8cf-3bf6-4786-8efc-601df3c73a28
 ---
 
 # Divisor sum

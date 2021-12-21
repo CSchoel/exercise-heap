@@ -13,6 +13,7 @@ keywords:
 lang: de-DE
 solution-size: 3
 source: https://git.thm.de/cslz90/bimoop-cs
+id: 59735765-bdaf-4287-be9a-7fa6c2ac3d04
 ---
 
 # Michaelis-Menten

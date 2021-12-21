@@ -12,6 +12,7 @@ keywords:
     - Grundlagen der Informatik
 lang: de-DE
 solution-size: 7
+id: a793de10-be6e-4a8a-a4cd-bcb6e8a4bc9b
 ---
 
 # Generator Comprehension

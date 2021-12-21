@@ -14,6 +14,7 @@ keywords:
 lang: de-DE
 solution-size: 5
 source: https://git.thm.de/cslz90/bimoop-cs
+id: ca3acf1d-e7bd-4a06-b293-b23820dfb16b
 ---
 
 # Fakultät

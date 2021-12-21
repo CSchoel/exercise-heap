@@ -14,6 +14,7 @@ keywords:
 lang: de-DE
 solution-size: 1
 source: https://git.thm.de/cslz90/bk-cs
+id: bcd7a658-22f8-4894-a1d4-61a05acd1a6b
 ---
 
 # Aufgabe 01 - Normalgewicht

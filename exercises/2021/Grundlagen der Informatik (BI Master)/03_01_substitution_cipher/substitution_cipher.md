@@ -12,6 +12,7 @@ keywords:
     - Grundlagen der Informatik
 lang: de-DE
 solution-size: 2
+id: 0a6d5a16-8349-449b-8647-774746ddf85d
 ---
 
 # Substitution Cipher

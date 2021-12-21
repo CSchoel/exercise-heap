@@ -12,6 +12,7 @@ keywords:
     - Grundlagen der Informatik
 lang: de-DE
 solution-size: 1
+id: 2338acd0-a50a-47bd-907e-e55ebc37be6c
 ---
 
 # Warscheinlichkeit

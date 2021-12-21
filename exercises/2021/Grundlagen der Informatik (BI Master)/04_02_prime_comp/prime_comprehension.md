@@ -12,6 +12,7 @@ keywords:
     - Grundlagen der Informatik
 lang: de-DE
 solution-size: 2
+id: 29b4fccc-2b42-425b-af2d-2689f207934a
 ---
 
 # Primzahlen Comprehension

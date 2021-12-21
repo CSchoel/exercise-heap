@@ -13,6 +13,7 @@ keywords:
 lang: de-DE
 solution-size: 5
 source: https://git.thm.de/cslz90/bimoop-cs
+id: 8a8c9848-a0b6-4d3b-8c36-608b84568d4c
 ---
 
 # Poissonverteilung

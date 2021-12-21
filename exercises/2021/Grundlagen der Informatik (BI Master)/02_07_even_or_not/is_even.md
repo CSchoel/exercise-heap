@@ -12,6 +12,7 @@ keywords:
     - Grundlagen der Informatik
 lang: de-DE
 solution-size: 5
+id: 50c5d608-b71c-4dec-9b0c-dc7f7016e4c8
 ---
 
 # Is Even

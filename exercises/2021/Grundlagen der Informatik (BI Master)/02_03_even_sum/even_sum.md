@@ -12,6 +12,7 @@ keywords:
     - Grundlagen der Informatik
 lang: de-DE
 solution-size: 3
+id: 47b62df1-b36c-49df-a329-882de48dbda0
 ---
 
 # Even Sum

@@ -12,6 +12,7 @@ keywords:
     - Grundlagen der Informatik
 lang: de-DE
 solution-size: 10
+id: fcac20f9-7d14-4209-9e82-e8d5dcbce320
 ---
 
 # File I/O

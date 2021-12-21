@@ -12,6 +12,7 @@ keywords:
     - Grundlagen der Informatik
 lang: de-DE
 solution-size: 5
+id: 1dc49cf0-2ef7-4ed1-9c71-30a2c34720b5
 ---
 
 # Variablenzoo

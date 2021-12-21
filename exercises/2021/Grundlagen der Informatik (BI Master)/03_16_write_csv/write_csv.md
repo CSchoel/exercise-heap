@@ -12,6 +12,7 @@ keywords:
     - Grundlagen der Informatik
 lang: de-DE
 solution-size: 9
+id: b8761069-25ad-417f-a21e-425722478088
 ---
 
 # Write CSV
