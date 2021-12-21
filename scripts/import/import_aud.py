@@ -12,7 +12,7 @@ from pathlib import Path
 if __name__ == '__main__':
     src = Path(sys.argv[1])
     dst = Path(sys.argv[2])
-    exfiles = src.glob("*/*/*.md")
+    exfiles = list(src.glob("*/*/*.md")) + list(src.glob("*/Bonus/*/*.md"))
     exfiles = [
         x for x in exfiles
         if not (
