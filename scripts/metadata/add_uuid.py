@@ -1,13 +1,10 @@
 #!/bin/env python3
 # Adds UUID to all exercises
 
-import yaml
 from pathlib import Path
 import glob
 import os
 import re
-import warnings
-import io
 
 def patch_header(fname, func):
     p = Path(fname)
