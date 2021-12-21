@@ -54,45 +54,8 @@ if __name__ == '__main__':
         if sol.exists():
             (destdir / "sol").mkdir(exist_ok=True)
             shutil.copy2(sol, destdir / "sol" / sol.name)
-        continue
 
-        sol_size = sum([
-            len(x.read_text(encoding="utf-8").splitlines())
-            for x in (ex / "src").iterdir()
-            if x.suffix == ".py"
-        ])
-
-        destdir =(dest / ex.name)
-        shutil.copytree(ex / "test", destdir / "test", dirs_exist_ok=True)
-        if (ex / "src").exists():
-            shutil.copytree(ex / "src", destdir / "sol", dirs_exist_ok=True)
-        for res in [x for x in (ex / "test").iterdir() if x.suffix != ".py"]:
-            (destdir / "res").mkdir(exist_ok=True)
-            shutil.copy2(res, destdir / "res" / res.name)
-        desc = next(x for x in ex.iterdir() if x.suffix == ".md")
-        desctext = desc.read_text(encoding="utf-8")
-        sol_size = sum([
-            len(x.read_text(encoding="utf-8").splitlines())
-            for x in (ex / "src").iterdir()
-            if x.suffix == ".py"
-        ])
-        desctext_dest = textwrap.dedent(f"""\
-        ---
-        title: {re.search(r"^# (.*)$",desctext, flags=re.RegexFlag.M).group(1)}
-        author:
-            - GDI-Tutoren
-            - Christopher Schölzel
-        keywords:
-            - python
-            - semester-1
-            - bioinformatics
-            - Technische Hochschule Mittelhessen
-            - Justus-Liebig-Universität
-            - Grundlagen der Informatik
-        lang: de-DE
-        solution-size: {sol_size}
-        ---
-        
-        """)
-        desctext_dest += desctext
-        (destdir / desc.name).write_text(desctext_dest, encoding="utf-8")
+        soldir = ex.parent / "musterloesung"
+        if soldir.exists():
+            (destdir / "sol").mkdir(exist_ok=True)
+            shutil.copytree(soldir, destdir / "sol", dirs_exist_ok=True)
