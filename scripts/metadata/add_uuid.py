@@ -7,7 +7,7 @@ import os
 import re
 import uuid
 
-def patch_header(fname, func):
+def patch_header(fname, func, dry_run=False):
     p = Path(fname)
     text = p.read_text(encoding="utf-8")
     header = re.search(r"^---$(.+?)^---$", text, flags=re.M | re.S)
@@ -18,8 +18,11 @@ def patch_header(fname, func):
     rest = text[header.end():]
     header = header.group(1).strip()
     new_header = os.linesep.join(["---", func(header), "---"])
-    print(new_header)
-    # p.write_text(new_header + rest)
+    new_text = new_header + rest
+    if dry_run:
+        print(new_text)
+    else:
+        p.write_text(new_text)
 
 def add_attribute(header, att, valfunc):
     if re.search(f"^{att}:", header) is not None:
