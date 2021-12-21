@@ -50,3 +50,11 @@ I plan on using tags for almost any semantic information that further identifies
 * Name of course (Grundlagen der Informatik, Algorithmen und Datenstrukturen)
 * Name of institution (Technische Hochschule Mittelhessen, Justus-Liebig-Universität)
 * ...
+
+## General notes
+
+### Source code
+
+Source code for tests and solutions should be self-contained.
+If it depends on other code that cannot be simply installed as a package, this code has to be copied to the exercise folder.
+Note that this can be a major pain in the ass, if you have a folder for common code but need to determine which exercise needs which file from this folder.
