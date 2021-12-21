@@ -32,8 +32,8 @@ author:
     - First Author
     - Second Author
 keywords:
-    - first tag
-    - second tag
+    - category: value
+    - category: value
 lang: en-US
 solution-size: 17 # lines of code / number of sentences / ...
 ---
@@ -50,6 +50,8 @@ I plan on using tags for almost any semantic information that further identifies
 * Name of course (Grundlagen der Informatik, Algorithmen und Datenstrukturen)
 * Name of institution (Technische Hochschule Mittelhessen, Justus-Liebig-Universität)
 * ...
+
+They should be treated as [semantic triples](https://en.wikipedia.org/wiki/Semantic_triple) with the exercise as the subject, the category as the verb and the value as the object.
 
 ## General notes
 
