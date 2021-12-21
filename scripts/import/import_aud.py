@@ -23,7 +23,10 @@ if __name__ == '__main__':
     )]
     dst.mkdir(exist_ok=True, parents=True)
     for ex in exfiles:
-        destdir = dst / (ex.parent.parent.name + "_" + ex.parent.name)
+        if ex.parent.parent.name == "Bonus":
+            destdir = dst / (ex.parent.parent.parent.name + "_Bonus_" + ex.parent.name)
+        else:
+            destdir = dst / (ex.parent.parent.name + "_" + ex.parent.name)
         destdir.mkdir(exist_ok=True)
 
         desctext = ex.read_text(encoding="utf-8")
