@@ -51,7 +51,7 @@ def index_similarity(id1: Dict[str, int], id2: Dict[str, int]) -> float:
 
 def query_index(idx: List[Tuple[str, Dict[str, int]]], query: str, k: int) -> List[str]:
     query_idx = indexify(query)
-    args = range(len(idx))
+    args = list(range(len(idx)))
     args.sort(key=lambda i: index_similarity(idx[i][1], query_idx))
     results = [idx[i][0] for i in args[:k]]
     return results
