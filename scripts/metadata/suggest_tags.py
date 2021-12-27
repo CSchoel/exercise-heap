@@ -20,11 +20,22 @@ def indexify(text: str, lang="german") -> Dict[str, int]:
     stems = [stemmer.stem(x) for x in tokens]
     return count(stems)
 
+def make_hashable(key):
+    if isinstance(key, dict):
+        return tuple(key.items())
+    elif isinstance(key, set):
+        return frozenset(key)
+    elif isinstance(key, list):
+        return tuple(key)
+    else:
+        return key
+
 def count(lst: list) -> Dict[str, int]:
     counts = {}
     for x in lst:
-        counts.setdefault(x, 0)
-        counts[x] += 1
+        key = make_hashable(x)
+        counts.setdefault(key, 0)
+        counts[key] += 1
     return counts
 
 def dict_reduce(func: Callable, dicts: List[dict], default=0, keep_default=True) -> dict:
