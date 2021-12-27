@@ -10,7 +10,7 @@ import nltk
 import math
 
 def indexify(text: str, lang="german") -> Dict[str, int]:
-    tokens = nltk.word_tokenize(language=lang)
+    tokens = nltk.word_tokenize(text, language=lang)
     stemmer = nltk.SnowballStemmer(lang, ignore_stopwords=True)
     stems = [stemmer.stem(x) for x in tokens]
     return count(stems)
