@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # imports exercise folder written for Dozeloc into heap format
-# usage: ./import_dozeloc.py exercise-folder course_name
+# usage: ./import_dozeloc.py dozeloc-folder course_name
 
 import sys
 import textwrap
