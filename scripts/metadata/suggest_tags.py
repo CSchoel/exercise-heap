@@ -20,12 +20,14 @@ def count(lst: list) -> TypedDict[str, int]:
         counts[x] += 1
     return x
 
-def dict_reduce(func: function, dicts: List[dict], start=0) -> dict:
+def dict_reduce(func: function, dicts: List[dict], default=0, keep_default=True) -> dict:
     res = {}
     for d in dicts:
         for k in d:
-            res.setdefault(k, start)
-            res[k] = function(res[k], d[k])
+            res.setdefault(k, default)
+            res[k] = func(res[k], d[k])
+            if res[k] == default and not keep_default:
+                del res[k]
     return res
 
 def idf(dicts: List[TypedDict[str, int]]) -> TypedDict[str, float]:
