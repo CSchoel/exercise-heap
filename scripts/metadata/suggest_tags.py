@@ -8,6 +8,7 @@ from typing import List, Tuple, Dict, Callable
 from pathlib import Path
 import nltk
 import math
+import operator as op
 
 def indexify(text: str, lang="german") -> Dict[str, int]:
     tokens = nltk.word_tokenize(text, language=lang)
@@ -62,7 +63,7 @@ def build_index(files: List[Path]) -> List[Tuple[str, Dict[str, int]]]:
     indices = [indexify(x.read_text(encoding="utf-8")) for x in files]
     print("Calculating IDF ...")
     idfdict = idf(indices)
-    indices = [dict_reduce(lambda a,b: a * b, [x, idfdict], default=1, keep_default=False) for x in indices]
+    indices = [dict_reduce(op.mul, [x, idfdict], default=1, keep_default=False) for x in indices]
     return list(zip(files, indices))
 
 def suggest(exdir: str, queryfile: str, num_results=5) -> List[str]:
