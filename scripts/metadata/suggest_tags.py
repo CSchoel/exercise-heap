@@ -66,7 +66,7 @@ def build_index(files: List[Path]) -> List[Tuple[str, Dict[str, int]]]:
     return list(zip(files, indices))
 
 def suggest(exdir: str, queryfile: str, num_results=5) -> List[str]:
-    files = Path(exdir).glob("*/*/*/*.md")
+    files = list(Path(exdir).glob("*/*/*/*.md"))
     idx = build_index(files)
     results = query_index(idx, Path(queryfile).read_text(encoding="utf-8"), num_results)
     return results
