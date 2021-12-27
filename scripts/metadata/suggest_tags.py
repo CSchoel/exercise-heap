@@ -108,7 +108,7 @@ def suggest_tags(tags: List[Any], other_tags: List[List[Any]], padd: int=50, pre
     tagcount = count(sum(other_tags, start=[]))
     cadd = len(other_tags) * padd / 100
     crem = len(other_tags) * prem / 100
-    to_add = [x for x in tagcount.keys() if tagcount.get(x, 0) >= cadd]
+    to_add = [x for x in tagcount.keys() if tagcount.get(x, 0) >= cadd and x not in tags]
     to_remove = [x for x in tags if tagcount.get(x, 0) >= crem]
     return to_add, to_remove
 
