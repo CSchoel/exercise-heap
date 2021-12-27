@@ -40,6 +40,7 @@ def idf(dicts: List[Dict[str, int]]) -> Dict[str, float]:
     for k in keys:
         count = len([d for d in dicts if k in d])
         res[k] = math.log(n / count)
+    return res
 
 def index_similarity(id1: Dict[str, int], id2: Dict[str, int]) -> float:
     # implements cosine similarity (https://en.wikipedia.org/wiki/Cosine_similarity)
