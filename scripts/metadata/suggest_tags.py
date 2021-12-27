@@ -66,7 +66,7 @@ def build_index(files: List[Path]) -> List[Tuple[str, Dict[str, int]]]:
     indices = [dict_reduce(op.mul, [x, idfdict], default=1, keep_default=False) for x in indices]
     return list(zip(files, indices))
 
-def suggest(exdir: str, queryfile: str, num_results=5) -> List[str]:
+def find_similar(exdir: str, queryfile: str, num_results=5) -> List[str]:
     files = list(Path(exdir).glob("*/*/*/*.md"))
     idx = build_index(files)
     results = query_index(idx, Path(queryfile).read_text(encoding="utf-8"), num_results)
@@ -75,5 +75,5 @@ def suggest(exdir: str, queryfile: str, num_results=5) -> List[str]:
 if __name__ == '__main__':
     nltk.download("punkt")
     nltk.download("stopwords")
-    res = suggest(Path(__file__).parent.parent.parent / "exercises", sys.argv[1])
+    res = find_similar(Path(__file__).parent.parent.parent / "exercises", sys.argv[1])
     print(res)
