@@ -4,25 +4,25 @@
 
 from functools import reduce
 import sys
-from typing_extensions import TypedDict, List, Tuple
+from typing import List, Tuple, Dict, Callable
 from pathlib import Path
 import nltk
 import math
 
-def indexify(text: str, lang="german") -> TypedDict[str, int]:
+def indexify(text: str, lang="german") -> Dict[str, int]:
     tokens = nltk.word_tokenize(language=lang)
     stemmer = nltk.SnowballStemmer(lang, ignore_stopwords=True)
     stems = [stemmer.stem(x) for x in tokens]
     return count(stems)
 
-def count(lst: list) -> TypedDict[str, int]:
+def count(lst: list) -> Dict[str, int]:
     counts = {}
     for x in lst:
         counts.setdefault(x, 0)
         counts[x] += 1
     return x
 
-def dict_reduce(func: function, dicts: List[dict], default=0, keep_default=True) -> dict:
+def dict_reduce(func: Callable, dicts: List[dict], default=0, keep_default=True) -> dict:
     res = {}
     for d in dicts:
         for k in d:
@@ -32,16 +32,16 @@ def dict_reduce(func: function, dicts: List[dict], default=0, keep_default=True)
                 del res[k]
     return res
 
-def idf(dicts: List[TypedDict[str, int]]) -> TypedDict[str, float]:
+def idf(dicts: List[Dict[str, int]]) -> Dict[str, float]:
     # implements inverse document frequency
     n = len(dicts)
-    keys = reduce(lambda acc, x: acc | x, [d.keys() for d in dicts])
+    keys = reduce(lambda acc, x: acc | x, [d.keys() for d in dicts], set())
     res = {}
     for k in keys:
         count = len([d for d in dicts if k in d])
         res[k] = math.log(n / count)
 
-def index_similarity(id1: TypedDict[str, int], id2: TypedDict[str, int]) -> float:
+def index_similarity(id1: Dict[str, int], id2: Dict[str, int]) -> float:
     # implements cosine similarity (https://en.wikipedia.org/wiki/Cosine_similarity)
     num = 0
     for k in id1.keys() + id2.keys():
@@ -49,14 +49,14 @@ def index_similarity(id1: TypedDict[str, int], id2: TypedDict[str, int]) -> floa
     den = len(id1) * len(id2)
     return num / den
 
-def query_index(idx: List[Tuple(str, TypedDict[str, int])], query: str, k: int) -> List[str]:
+def query_index(idx: List[Tuple[str, Dict[str, int]]], query: str, k: int) -> List[str]:
     query_idx = indexify(query)
     args = range(len(idx))
     args.sort(key=lambda i: index_similarity(idx[i][1], query_idx))
     results = [idx[i][0] for i in args[:k]]
     return results
 
-def build_index(files: List[Path]) -> List[Tuple(str, TypedDict[str, int])]:
+def build_index(files: List[Path]) -> List[Tuple[str, Dict[str, int]]]:
     print("Building index ...")
     indices = [indexify(x.read_text(encoding="utf-8")) for x in files]
     print("Calculating IDF ...")
