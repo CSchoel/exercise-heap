@@ -3,12 +3,12 @@ title: Fallstudie zur Objektorientierung
 author:
     - Christopher Schölzel
 keywords:
-    - java
-    - semester-1
-    - computer science
-    - Technische Hochschule Mittelhessen
-    - course-Objektorientierte Programmierung
-    - subject-arithmetic operators
+    - language: java
+    - semester: 1
+    - major: computer science
+    - institution: Technische Hochschule Mittelhessen
+    - course: Objektorientierte Programmierung
+    - subject: object orientation
 lang: de-DE
 solution-size: 100
 source: https://git.thm.de/cslz90/oop-cs

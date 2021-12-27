@@ -3,13 +3,13 @@ title: Michaelis Menten
 author:
     - Christopher Schölzel
 keywords:
-    - java
-    - semester-1
-    - bioinformatics
-    - Technische Hochschule Mittelhessen
-    - Justus-Liebig-Universität
-    - course-Objektorientierte Programmierung
-    - subject-functions
+    - language: java
+    - semester: 1
+    - major: bioinformatics
+    - institution: Technische Hochschule Mittelhessen
+    - institution: Justus-Liebig-Universität
+    - course: Objektorientierte Programmierung
+    - subject: functions
 lang: de-DE
 solution-size: 3
 source: https://git.thm.de/cslz90/bimoop-cs

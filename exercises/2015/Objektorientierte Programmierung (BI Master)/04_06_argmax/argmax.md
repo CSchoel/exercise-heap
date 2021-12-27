@@ -3,14 +3,14 @@ title: Würfelwurf
 author:
     - Christopher Schölzel
 keywords:
-    - java
-    - semester-1
-    - bioinformatics
-    - Technische Hochschule Mittelhessen
-    - Justus-Liebig-Universität
-    - course-Objektorientierte Programmierung
-    - subject-functions
-    - requires-loops
+    - language: java
+    - semester: 1
+    - major: bioinformatics
+    - institution: Technische Hochschule Mittelhessen
+    - institution: Justus-Liebig-Universität
+    - course: Objektorientierte Programmierung
+    - subject: functions
+    - requires: loops
 lang: de-DE
 solution-size: 5
 source: https://git.thm.de/cslz90/bimoop-cs

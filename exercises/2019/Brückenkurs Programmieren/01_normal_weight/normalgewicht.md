@@ -3,14 +3,14 @@ title: Normalgewicht
 author:
     - Christopher Schölzel
 keywords:
-    - java
-    - jupyter
-    - jshell
-    - semester-1
-    - computer science
-    - Technische Hochschule Mittelhessen
-    - course-Brückenkurs Programmieren
-    - subject-arithmetic operators
+    - language: java
+    - framework: jupyter
+    - framework: jshell
+    - semester: 1
+    - major: computer science
+    - institution: Technische Hochschule Mittelhessen
+    - course: Brückenkurs Programmieren
+    - subject: arithmetic operators
 lang: de-DE
 solution-size: 1
 source: https://git.thm.de/cslz90/bk-cs
