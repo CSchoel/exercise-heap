@@ -8,6 +8,7 @@ from typing import List, Tuple, Dict, Callable
 from pathlib import Path
 import nltk
 import math
+import re
 import operator as op
 
 def indexify(text: str, lang="german") -> Dict[str, int]:
@@ -71,6 +72,17 @@ def find_similar(exdir: str, queryfile: str, num_results=5) -> List[str]:
     idx = build_index(files)
     results = query_index(idx, Path(queryfile).read_text(encoding="utf-8"), num_results)
     return results
+
+def header(fname):
+    p = Path(fname)
+    text = p.read_text(encoding="utf-8")
+    header = re.search(r"^---$(.+?)^---$", text, flags=re.M | re.S)
+    if header is None:
+        raise Exception(f"{p} does not contain a YAML header")
+    if header.start() != 0:
+        raise Exception(f"{p} has a YAML block, which is not at the beginning of the file but at postion {header.start()}")
+    header = header.group(1).strip()
+    return header
 
 if __name__ == '__main__':
     nltk.download("punkt")
