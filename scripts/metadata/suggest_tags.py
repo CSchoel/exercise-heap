@@ -94,7 +94,7 @@ def tags(fname):
     return tags
 
 def suggest_tags(tags: List[Any], other_tags: List[List[Any]], padd: int=50, prem: int=20):
-    tagcount = count(other_tags)
+    tagcount = count(sum(other_tags, start=[]))
     cadd = len(other_tags) * padd / 100
     crem = len(other_tags) * prem / 100
     to_add = [x for x in tags if tagcount.get(x, 0) >= cadd]
