@@ -8,6 +8,7 @@ import shutil
 import datetime
 import re
 from pathlib import Path
+import uuid
 
 dest = Path(__file__).parent / f"../../exercises/{datetime.date.today().year}" / sys.argv[2]
 
@@ -46,6 +47,7 @@ if __name__ == '__main__':
             - course: Grundlagen der Informatik
         lang: de-DE
         solution-size: {sol_size}
+        id: {uuid.uuid4()}
         ---
         
         """)

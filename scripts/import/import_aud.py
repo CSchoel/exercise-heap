@@ -5,6 +5,7 @@ import sys
 import textwrap
 import shutil
 from pathlib import Path
+import uuid
 
 if __name__ == '__main__':
     src = Path(sys.argv[1])
@@ -41,6 +42,7 @@ if __name__ == '__main__':
             - course: Algorithmen und Datenstrukturen
         lang: de-DE
         solution-size: 0
+        id: {uuid.uuid4()}
         ---
 
         """)
