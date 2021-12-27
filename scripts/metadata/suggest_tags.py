@@ -55,7 +55,7 @@ def query_index(idx: List[Tuple[str, Dict[str, int]]], query: str, k: int) -> Li
     query_idx = indexify(query)
     args = list(range(len(idx)))
     args.sort(key=lambda i: index_similarity(idx[i][1], query_idx))
-    results = [idx[i][0] for i in args[:k]]
+    results = [idx[i][0] for i in args[-k:]]
     return results
 
 def build_index(files: List[Path]) -> List[Tuple[str, Dict[str, int]]]:
