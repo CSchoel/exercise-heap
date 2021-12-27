@@ -71,5 +71,7 @@ def suggest(exdir: str, queryfile: str, num_results=5) -> List[str]:
     return results
 
 if __name__ == '__main__':
+    nltk.download("punkt")
+    nltk.download("stopwords")
     res = suggest(Path(__file__).parent.parent / "exercises", sys.argv[1])
     print(res)
