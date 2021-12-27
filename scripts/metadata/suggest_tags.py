@@ -4,7 +4,7 @@
 
 from functools import reduce
 import sys
-from typing import List, Tuple, Dict, Callable
+from typing import Any, List, Tuple, Dict, Callable
 from pathlib import Path
 import nltk
 import math
@@ -91,6 +91,14 @@ def tags(fname):
     yhead = yaml.safe_load(io.StringIO(head))
     tags = yhead["keywords"]
     return tags
+
+def suggest_tags(tags: List[Any], other_tags: List[List[Any]], padd: int=50, prem: int=20):
+    tagcount = count(other_tags)
+    cadd = len(other_tags) * padd / 100
+    crem = len(other_tags) * prem / 100
+    to_add = [x for x in tags if tagcount.get(x, 0) >= cadd]
+    to_remove = [x for x in tags if tagcount.get(x, 0) >= crem]
+    return to_add, to_remove
 
 if __name__ == '__main__':
     nltk.download("punkt")
