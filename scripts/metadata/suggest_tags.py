@@ -3,7 +3,9 @@
 # Usage: ./suggest_tags.py path/to/exercise_description.md
 
 from functools import reduce
+import sys
 from typing_extensions import TypedDict, List, Tuple
+from pathlib import Path
 import nltk
 import math
 
@@ -53,3 +55,21 @@ def query_index(idx: List[Tuple(str, TypedDict[str, int])], query: str, k: int) 
     args.sort(key=lambda i: index_similarity(idx[i][1], query_idx))
     results = [idx[i][0] for i in args[:k]]
     return results
+
+def build_index(files: List[Path]) -> List[Tuple(str, TypedDict[str, int])]:
+    print("Building index ...")
+    indices = [indexify(x.read_text(encoding="utf-8")) for x in files]
+    print("Calculating IDF ...")
+    idfdict = idf(indices)
+    indices = [dict_reduce(float.__add__, [x, idfdict], default=1, keep_default=False) for x in indices]
+    return list(zip(files, indices))
+
+def suggest(exdir: str, queryfile: str, num_results=5) -> List[str]:
+    files = Path(exdir).glob("exercises/*/*/*/*.md")
+    idx = build_index(files)
+    results = query_index(idx, queryfile.read_text(encoding="utf-8"), num_results)
+    return results
+
+if __name__ == '__main__':
+    res = suggest(Path(__file__).parent.parent / "exercises", sys.argv[1])
+    print(res)
