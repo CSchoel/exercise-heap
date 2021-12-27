@@ -20,7 +20,7 @@ def count(lst: list) -> Dict[str, int]:
     for x in lst:
         counts.setdefault(x, 0)
         counts[x] += 1
-    return x
+    return counts
 
 def dict_reduce(func: Callable, dicts: List[dict], default=0, keep_default=True) -> dict:
     res = {}
