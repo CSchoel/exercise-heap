@@ -45,7 +45,7 @@ def idf(dicts: List[Dict[str, int]]) -> Dict[str, float]:
 def index_similarity(id1: Dict[str, int], id2: Dict[str, int]) -> float:
     # implements cosine similarity (https://en.wikipedia.org/wiki/Cosine_similarity)
     num = 0
-    for k in id1.keys() + id2.keys():
+    for k in id1.keys() | id2.keys():
         num += id1.get(k, 0) * id2.get(k, 0)
     den = len(id1) * len(id2)
     return num / den
