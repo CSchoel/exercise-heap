@@ -53,6 +53,22 @@ I plan on using tags for almost any semantic information that further identifies
 
 They should be treated as [semantic triples](https://en.wikipedia.org/wiki/Semantic_triple) with the exercise as the subject, the category as the verb and the value as the object.
 
+### Links to other exercises
+
+If an exercise requires the solution of a different exercise or is derived from another exercise in the heap, these references should be represented as tags.
+In order to do so while keeping the exercises as self-contained as possible, [UUIDs](https://en.wikipedia.org/wiki/Universally_unique_identifier) are used:
+Each exercise has a UUID and links between exercises might look as follows:
+
+```yaml
+id: cc88c944-cc85-4a7f-80c9-16b4f3a122e4
+keywords:
+    derived-from: 24601e04-a0c3-41a4-adbd-74da90765ac2
+    previous: 63e81a6e-8616-4d5a-8440-e647e55c8523
+    next: dd3e4ff2-fa89-4365-8e8c-8d6595d7fb80
+    references: 92d4383f-5e4a-42b9-a1ed-4d2fe7098ef7
+    requires-solution: 6ca78dd4-48ec-4894-8924-3a7970833105
+```
+
 ## General notes
 
 ### Source code
