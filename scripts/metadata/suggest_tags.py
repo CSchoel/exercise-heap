@@ -117,6 +117,8 @@ if __name__ == '__main__':
     nltk.download("stopwords")
     nb = find_similar(Path(__file__).parent.parent.parent / "exercises", sys.argv[1])
     add, rem = suggest_tags(tags(sys.argv[1]), [tags(x) for x in nb])
+    print("Most similar exercises:")
+    print(*nb, sep=os.linesep)
     print("Tags to add:")
     print(*add, sep=os.linesep)
     print("Tags to remove:")
