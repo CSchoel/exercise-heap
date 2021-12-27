@@ -4,12 +4,12 @@ author:
     - GDI-Tutoren
     - Christopher Schölzel
 keywords:
-    - python
-    - semester-1
-    - bioinformatics
-    - Technische Hochschule Mittelhessen
-    - Justus-Liebig-Universität
-    - Grundlagen der Informatik
+    - language: python
+    - semester: 1
+    - major: bioinformatics
+    - institution: Technische Hochschule Mittelhessen
+    - institution: Justus-Liebig-Universität
+    - course: Grundlagen der Informatik
 lang: de-DE
 solution-size: 1
 id: 2338acd0-a50a-47bd-907e-e55ebc37be6c
