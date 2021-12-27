@@ -10,6 +10,8 @@ import nltk
 import math
 import re
 import operator as op
+import yaml
+import io
 
 def indexify(text: str, lang="german") -> Dict[str, int]:
     tokens = nltk.word_tokenize(text, language=lang)
@@ -84,8 +86,14 @@ def header(fname):
     head = head.group(1).strip()
     return head
 
+def tags(fname):
+    head = header(fname)
+    yhead = yaml.safe_load(io.StringIO(head))
+    tags = yhead["keywords"]
+    return tags
+
 if __name__ == '__main__':
     nltk.download("punkt")
     nltk.download("stopwords")
     res = find_similar(Path(__file__).parent.parent.parent / "exercises", sys.argv[1])
-    print(res)
+    print([tags(x) for x in res])
