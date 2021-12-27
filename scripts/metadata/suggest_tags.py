@@ -76,13 +76,13 @@ def find_similar(exdir: str, queryfile: str, num_results=5) -> List[str]:
 def header(fname):
     p = Path(fname)
     text = p.read_text(encoding="utf-8")
-    header = re.search(r"^---$(.+?)^---$", text, flags=re.M | re.S)
-    if header is None:
+    head = re.search(r"^---$(.+?)^---$", text, flags=re.M | re.S)
+    if head is None:
         raise Exception(f"{p} does not contain a YAML header")
-    if header.start() != 0:
+    if head.start() != 0:
         raise Exception(f"{p} has a YAML block, which is not at the beginning of the file but at postion {header.start()}")
-    header = header.group(1).strip()
-    return header
+    head = head.group(1).strip()
+    return head
 
 if __name__ == '__main__':
     nltk.download("punkt")
