@@ -3,6 +3,7 @@
 # Usage: ./suggest_tags.py path/to/exercise_description.md
 
 from functools import reduce
+import os
 import sys
 from typing import Any, List, Tuple, Dict, Callable
 from pathlib import Path
@@ -103,5 +104,9 @@ def suggest_tags(tags: List[Any], other_tags: List[List[Any]], padd: int=50, pre
 if __name__ == '__main__':
     nltk.download("punkt")
     nltk.download("stopwords")
-    res = find_similar(Path(__file__).parent.parent.parent / "exercises", sys.argv[1])
-    print([tags(x) for x in res])
+    nb = find_similar(Path(__file__).parent.parent.parent / "exercises", sys.argv[1])
+    add, rem = suggest_tags(tags(sys.argv[1]), [tags(x) for x in nb])
+    print("Tags to add:")
+    print(*add, sep=os.linesep)
+    print("Tags to remove:")
+    print(*rem, sep=os.linesep)
