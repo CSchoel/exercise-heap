@@ -65,6 +65,9 @@ def idf(dicts: List[Dict[str, int]]) -> Dict[str, float]:
         res[k] = math.log(n / count)
     return res
 
+def apply_idf(vector: Dict[str, int], idfs: Dict[str, float]) -> Dict[str, float]:
+    return dict_filter(lambda k,v: v > 0, dict_reduce(op.mul, [vector, idfs], default=1))
+
 def index_similarity(id1: Dict[str, int], id2: Dict[str, int]) -> float:
     # implements cosine similarity (https://en.wikipedia.org/wiki/Cosine_similarity)
     num = 0
