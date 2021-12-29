@@ -85,7 +85,7 @@ def index_similarity(id1: IndexVector, id2: IndexVector) -> float:
     den = sum([x**2 for x in id1.values()]) * sum([x**2 for x in id2.values()])
     return num / den
 
-def explain_similarity(id1: IndexVector, id2: IndexVector, ntokens: int=5):
+def explain_similarity(id1: IndexVector, id2: IndexVector, ntokens: int=10):
     similarity_terms = { k: id1[k] * id2[k] for k in id1.keys() & id2.keys() }
     res = list(similarity_terms.items())
     res.sort(key=lambda x: -x[1])
