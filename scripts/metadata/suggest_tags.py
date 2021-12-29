@@ -14,7 +14,13 @@ import operator as op
 import yaml
 import io
 
-def indexify(text: str, lang="german") -> Dict[str, int]:
+# Type aliases
+WordCount = Dict[str, int]
+IndexVector = Dict[str, float]
+IDF = IndexVector
+Index = List[Tuple[Path, IndexVector]]
+
+def indexify(text: str, lang="german") -> WordCount:
     # tokenize in two steps: 1) split by whitespace 2) strip non-word characters
     tokens = [re.sub(r"^\W*(.*?)\W*$", r"\1", x, flags=re.U) for x in text.split()]
     tokens = [x for x in tokens if len(x) > 0]
@@ -55,7 +61,7 @@ def dict_reduce(func: Callable, dicts: List[dict], default=0) -> dict:
 def dict_filter(func: Callable, dict: Dict):
     return { k: v for k,v in dict.items() if func(k, v) }
 
-def idf(dicts: List[Dict[str, int]]) -> Dict[str, float]:
+def idf(dicts: List[WordCount]) -> IDF:
     # implements inverse document frequency
     n = len(dicts)
     keys = reduce(lambda acc, x: acc | x, [d.keys() for d in dicts], set())
@@ -65,10 +71,10 @@ def idf(dicts: List[Dict[str, int]]) -> Dict[str, float]:
         res[k] = math.log(n / count)
     return res
 
-def apply_idf(vector: Dict[str, int], idfs: Dict[str, float]) -> Dict[str, float]:
+def apply_idf(vector: WordCount, idfs: IDF) -> IndexVector:
     return dict_filter(lambda k,v: v > 0, dict_reduce(op.mul, [vector, idfs], default=1))
 
-def index_similarity(id1: Dict[str, float], id2: Dict[str, float]) -> float:
+def index_similarity(id1: IndexVector, id2: IndexVector) -> float:
     # implements cosine similarity (https://en.wikipedia.org/wiki/Cosine_similarity)
     num = 0
     for k in id1.keys() | id2.keys():
@@ -76,7 +82,7 @@ def index_similarity(id1: Dict[str, float], id2: Dict[str, float]) -> float:
     den = sum([x**2 for x in id1.values()]) * sum([x**2 for x in id2.values()])
     return num / den
 
-def query_index(idx: List[Tuple[Path, Dict[str, float]]], idfs: Dict[str, float], query: str, k: int) -> List[Path]:
+def query_index(idx: Index, idfs: IDF, query: str, k: int) -> List[Path]:
     query_idx = indexify(query)
     query_idx = apply_idf(query_idx, idfs)
     args = list(range(len(idx)))
@@ -84,7 +90,7 @@ def query_index(idx: List[Tuple[Path, Dict[str, float]]], idfs: Dict[str, float]
     results = [idx[i][0] for i in args[-k:]]
     return results
 
-def build_index(files: List[Path]) -> Tuple[List[Tuple[Path, Dict[str, float]]], Dict[str, float]]:
+def build_index(files: List[Path]) -> Tuple[Index, IDF]:
     print("Building index ...")
     indices = [indexify(x.read_text(encoding="utf-8")) for x in files]
     print("Calculating IDF ...")
@@ -98,7 +104,7 @@ def find_similar(exdir: Union[str, Path], queryfile: str, num_results: int=5) ->
     results = query_index(idx, idfs, Path(queryfile).read_text(encoding="utf-8"), num_results)
     return results
 
-def explain_similarity(*dicts: Dict[str, float]):
+def explain_similarity(*dicts: IndexVector):
     matching = []
     for i1 in range(len(dicts)):
         for i2 in range(i1 + 1, len(dicts)):
