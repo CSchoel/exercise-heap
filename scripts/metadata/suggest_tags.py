@@ -68,7 +68,10 @@ def idf(dicts: List[WordCount]) -> IDF:
     res = {}
     for k in keys:
         count = len([d for d in dicts if k in d])
-        res[k] = math.log(n / count)
+        # avoid idf = 0 by using n + 1 instead of n
+        # rationale: even terms that appear in each document
+        # may help in a search if their frequency varies greatly
+        res[k] = math.log((n + 1) / count)
     return res
 
 def apply_idf(vector: WordCount, idfs: IDF) -> IndexVector:
