@@ -66,7 +66,7 @@ def index_similarity(id1: Dict[str, int], id2: Dict[str, int]) -> float:
     num = 0
     for k in id1.keys() | id2.keys():
         num += id1.get(k, 0) * id2.get(k, 0)
-    den = len(id1) * len(id2)
+    den = sum([x**2 for x in id1.values()]) * sum([x**2 for x in id2.values()])
     return num / den
 
 def query_index(idx: List[Tuple[Path, Dict[str, int]]], query: str, k: int) -> List[Path]:
