@@ -136,7 +136,7 @@ if __name__ == '__main__':
     print("Most similar exercises:")
     print(*nb, sep=os.linesep)
     print("Most useful terms for determining similarity:")
-    print(*explain_similarity([indexify(x.read_text("utf-8")) for x in nb])[-10:], sep=os.linesep)
+    print(*explain_similarity(*[indexify(x.read_text("utf-8")) for x in nb])[-100:], sep=os.linesep)
     print("Tags to add:")
     print(*add, sep=os.linesep)
     print("Tags to remove:")
