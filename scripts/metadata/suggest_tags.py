@@ -90,6 +90,18 @@ def find_similar(exdir: Union[str, Path], queryfile: str, num_results=5) -> List
     results = query_index(idx, Path(queryfile).read_text(encoding="utf-8"), num_results)
     return results
 
+def explain_similarity(*dicts: Dict[str, float]):
+    matching = []
+    for i1 in range(len(dicts)):
+        for i2 in range(i1 + 1, len(dicts)):
+            d1 = dicts[i1]
+            d2 = dicts[i2]
+            similarity_terms = { k: d1[k] * d2[k] for k in d1.keys() ^ d2.keys() }
+            matching.append(similarity_terms)
+    res = list(dict_reduce(op.add, matching))
+    res.sort(key=lambda x: x[1])
+    return res
+
 def header(fname):
     p = Path(fname)
     text = p.read_text(encoding="utf-8")
@@ -123,6 +135,8 @@ if __name__ == '__main__':
     add, rem = suggest_tags(tags(sys.argv[1]), [tags(x) for x in nb])
     print("Most similar exercises:")
     print(*nb, sep=os.linesep)
+    print("Most useful terms for determining similarity:")
+    print(*explain_similarity([indexify(x.read_text("utf-8")) for x in nb])[-10:], sep=os.linesep)
     print("Tags to add:")
     print(*add, sep=os.linesep)
     print("Tags to remove:")
