@@ -15,7 +15,7 @@ import yaml
 import io
 
 def indexify(text: str, lang="german") -> Dict[str, int]:
-    tokens = nltk.word_tokenize(text, language=lang)
+    # tokenize in two steps: 1) split by whitespace 2) strip non-word characters
     tokens = [re.sub(r"^\W*(.*?)\W*$", r"\1", x, flags=re.U) for x in text.split()]
     tokens = [x for x in tokens if len(x) > 0]
     stemmer = nltk.SnowballStemmer(lang, ignore_stopwords=True)
