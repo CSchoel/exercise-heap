@@ -19,7 +19,8 @@ def indexify(text: str, lang="german") -> Dict[str, int]:
     tokens = [re.sub(r"^\W*(.*?)\W*$", r"\1", x, flags=re.U) for x in text.split()]
     tokens = [x for x in tokens if len(x) > 0]
     stemmer = nltk.SnowballStemmer(lang, ignore_stopwords=True)
-    stems = [stemmer.stem(x) for x in tokens]
+    # only stem words that do not have any non-word characters in them
+    stems = [ stemmer.stem(x) if re.fullmatch(r"[\w-]+", x, flags=re.U) is not None else x for x in tokens]
     counts = count(stems)
     # divide by total number of terms in document to make index independent of document length
     res = dict_reduce(op.mul, [counts], default=1/sum(counts.values()))
