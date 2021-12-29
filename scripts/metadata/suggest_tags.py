@@ -89,7 +89,7 @@ def build_index(files: List[Path]) -> Tuple[List[Tuple[Path, Dict[str, float]]],
     indices = [indexify(x.read_text(encoding="utf-8")) for x in files]
     print("Calculating IDF ...")
     idfdict = idf(indices)
-    indices = [dict_reduce(op.mul, [x, idfdict], default=1, keep_default=False) for x in indices]
+    indices = [apply_idf(x, idfdict) for x in indices]
     return list(zip(files, indices)), idfdict
 
 def find_similar(exdir: Union[str, Path], queryfile: str, num_results: int=5) -> List[Path]:
