@@ -76,25 +76,26 @@ def index_similarity(id1: Dict[str, int], id2: Dict[str, int]) -> float:
     den = sum([x**2 for x in id1.values()]) * sum([x**2 for x in id2.values()])
     return num / den
 
-def query_index(idx: List[Tuple[Path, Dict[str, int]]], query: str, k: int) -> List[Path]:
+def query_index(idx: List[Tuple[Path, Dict[str, float]]], idfs: Dict[str, float], query: str, k: int) -> List[Path]:
     query_idx = indexify(query)
+    query_idx = apply_idf(query_idx, idfs)
     args = list(range(len(idx)))
     args.sort(key=lambda i: index_similarity(idx[i][1], query_idx))
     results = [idx[i][0] for i in args[-k:]]
     return results
 
-def build_index(files: List[Path]) -> List[Tuple[Path, Dict[str, int]]]:
+def build_index(files: List[Path]) -> Tuple[List[Tuple[Path, Dict[str, float]]], Dict[str, float]]:
     print("Building index ...")
     indices = [indexify(x.read_text(encoding="utf-8")) for x in files]
     print("Calculating IDF ...")
     idfdict = idf(indices)
     indices = [dict_reduce(op.mul, [x, idfdict], default=1, keep_default=False) for x in indices]
-    return list(zip(files, indices))
+    return list(zip(files, indices)), idfdict
 
 def find_similar(exdir: Union[str, Path], queryfile: str, num_results=5) -> List[Path]:
     files = list(Path(exdir).glob("*/*/*/*.md"))
-    idx = build_index(files)
-    results = query_index(idx, Path(queryfile).read_text(encoding="utf-8"), num_results)
+    idx, idfs = build_index(files)
+    results = query_index(idx, idfs, Path(queryfile).read_text(encoding="utf-8"), num_results)
     return results
 
 def explain_similarity(*dicts: Dict[str, float]):
