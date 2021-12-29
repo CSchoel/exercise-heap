@@ -16,6 +16,8 @@ import io
 
 def indexify(text: str, lang="german") -> Dict[str, int]:
     tokens = nltk.word_tokenize(text, language=lang)
+    tokens = [re.sub(r"^\W*(.*?)\W*$", r"\1", x, flags=re.U) for x in text.split()]
+    tokens = [x for x in tokens if len(x) > 0]
     stemmer = nltk.SnowballStemmer(lang, ignore_stopwords=True)
     stems = [stemmer.stem(x) for x in tokens]
     counts = count(stems)
