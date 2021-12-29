@@ -82,6 +82,18 @@ def index_similarity(id1: IndexVector, id2: IndexVector) -> float:
     den = sum([x**2 for x in id1.values()]) * sum([x**2 for x in id2.values()])
     return num / den
 
+def explain_similarity(*dicts: IndexVector):
+    matching = []
+    for i1 in range(len(dicts)):
+        for i2 in range(i1 + 1, len(dicts)):
+            d1 = dicts[i1]
+            d2 = dicts[i2]
+            similarity_terms = { k: d1[k] * d2[k] for k in d1.keys() & d2.keys() }
+            matching.append(similarity_terms)
+    res = list(dict_reduce(op.add, matching).items())
+    res.sort(key=lambda x: x[1])
+    return res
+
 def query_index(idx: Index, idfs: IDF, query: str, k: int) -> List[Path]:
     query_idx = indexify(query)
     query_idx = apply_idf(query_idx, idfs)
@@ -103,18 +115,6 @@ def find_similar(exdir: Union[str, Path], queryfile: str, num_results: int=5) ->
     idx, idfs = build_index(files)
     results = query_index(idx, idfs, Path(queryfile).read_text(encoding="utf-8"), num_results)
     return results
-
-def explain_similarity(*dicts: IndexVector):
-    matching = []
-    for i1 in range(len(dicts)):
-        for i2 in range(i1 + 1, len(dicts)):
-            d1 = dicts[i1]
-            d2 = dicts[i2]
-            similarity_terms = { k: d1[k] * d2[k] for k in d1.keys() & d2.keys() }
-            matching.append(similarity_terms)
-    res = list(dict_reduce(op.add, matching).items())
-    res.sort(key=lambda x: x[1])
-    return res
 
 def header(fname):
     p = Path(fname)
