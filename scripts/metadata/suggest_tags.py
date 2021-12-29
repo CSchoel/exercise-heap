@@ -18,7 +18,7 @@ import io
 WordCount = Dict[str, int]
 IndexVector = Dict[str, float]
 IDF = IndexVector
-Index = List[Tuple[Path, IndexVector]]
+Index = Dict[Path, IndexVector]
 
 def indexify(text: str, lang="german") -> WordCount:
     # tokenize in two steps: 1) split by whitespace 2) strip non-word characters
@@ -91,9 +91,9 @@ def explain_similarity(id1: IndexVector, id2: IndexVector, ntokens: int=5):
 def query_index(idx: Index, idfs: IDF, query: str, k: int) -> List[Path]:
     query_idx = indexify(query)
     query_idx = apply_idf(query_idx, idfs)
-    args = list(range(len(idx)))
-    args.sort(key=lambda i: index_similarity(idx[i][1], query_idx))
-    results = [idx[i][0] for i in args[-k:]]
+    args = list(idx.keys())
+    args.sort(key=lambda i: index_similarity(idx[i], query_idx))
+    results = args[-k:]
     return results
 
 def build_index(files: List[Path]) -> Tuple[Index, IDF]:
@@ -102,7 +102,7 @@ def build_index(files: List[Path]) -> Tuple[Index, IDF]:
     print("Calculating IDF ...")
     idfdict = idf(indices)
     indices = [apply_idf(x, idfdict) for x in indices]
-    return list(zip(files, indices)), idfdict
+    return dict(zip(files, indices)), idfdict
 
 def find_similar(exdir: Union[str, Path], queryfile: str, num_results: int=5) -> List[Path]:
     files = list(Path(exdir).glob("*/*/*/*.md"))
