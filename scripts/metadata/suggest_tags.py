@@ -104,10 +104,17 @@ def build_index(files: List[Path]) -> Tuple[Index, IDF]:
     indices = [apply_idf(x, idfdict) for x in indices]
     return dict(zip(files, indices)), idfdict
 
-def find_similar(exdir: Union[str, Path], queryfile: str, num_results: int=5) -> List[Path]:
+def find_similar(exdir: Union[str, Path], queryfile: str, num_results: int=5, explain: bool=False) -> List[Path]:
     files = list(Path(exdir).glob("*/*/*/*.md"))
     idx, idfs = build_index(files)
-    results = query_index(idx, idfs, Path(queryfile).read_text(encoding="utf-8"), num_results)
+    query = Path(queryfile).read_text(encoding="utf-8")
+    results = query_index(idx, idfs, query, num_results)
+    if explain:
+        queryvec = apply_idf(indexify(query), idfs)
+        print(queryvec)
+        for r in results:
+            print(f"Most important terms for determining similarity beween {r} and query:")
+            print(*explain_similarity(idx[r], queryvec), sep=os.linesep)
     return results
 
 def header(fname):
@@ -139,12 +146,10 @@ def suggest_tags(tags: List[Any], other_tags: List[List[Any]], padd: int=50, pre
 if __name__ == '__main__':
     nltk.download("punkt")
     nltk.download("stopwords")
-    nb = find_similar(Path(__file__).parent.parent.parent / "exercises", sys.argv[1])
+    nb = find_similar(Path(__file__).parent.parent.parent / "exercises", sys.argv[1], explain=True)
     add, rem = suggest_tags(tags(sys.argv[1]), [tags(x) for x in nb])
     print("Most similar exercises:")
     print(*nb, sep=os.linesep)
-    print("Most useful terms for determining similarity:")
-    print(*explain_similarity(*[indexify(x.read_text("utf-8")) for x in nb])[-100:], sep=os.linesep)
     print("Tags to add:")
     print(*add, sep=os.linesep)
     print("Tags to remove:")
