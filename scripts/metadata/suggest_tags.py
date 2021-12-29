@@ -5,7 +5,7 @@
 from functools import reduce
 import os
 import sys
-from typing import Any, List, Tuple, Dict, Callable
+from typing import Any, List, Tuple, Dict, Callable, Union
 from pathlib import Path
 import nltk
 import math
@@ -33,7 +33,7 @@ def make_hashable(key):
     else:
         return key
 
-def count(lst: list) -> Dict[str, int]:
+def count(lst: list) -> Dict[Any, int]:
     counts = {}
     for x in lst:
         key = make_hashable(x)
@@ -69,14 +69,14 @@ def index_similarity(id1: Dict[str, int], id2: Dict[str, int]) -> float:
     den = len(id1) * len(id2)
     return num / den
 
-def query_index(idx: List[Tuple[str, Dict[str, int]]], query: str, k: int) -> List[str]:
+def query_index(idx: List[Tuple[Path, Dict[str, int]]], query: str, k: int) -> List[Path]:
     query_idx = indexify(query)
     args = list(range(len(idx)))
     args.sort(key=lambda i: index_similarity(idx[i][1], query_idx))
     results = [idx[i][0] for i in args[-k:]]
     return results
 
-def build_index(files: List[Path]) -> List[Tuple[str, Dict[str, int]]]:
+def build_index(files: List[Path]) -> List[Tuple[Path, Dict[str, int]]]:
     print("Building index ...")
     indices = [indexify(x.read_text(encoding="utf-8")) for x in files]
     print("Calculating IDF ...")
@@ -84,7 +84,7 @@ def build_index(files: List[Path]) -> List[Tuple[str, Dict[str, int]]]:
     indices = [dict_reduce(op.mul, [x, idfdict], default=1, keep_default=False) for x in indices]
     return list(zip(files, indices))
 
-def find_similar(exdir: str, queryfile: str, num_results=5) -> List[str]:
+def find_similar(exdir: Union[str, Path], queryfile: str, num_results=5) -> List[Path]:
     files = list(Path(exdir).glob("*/*/*/*.md"))
     idx = build_index(files)
     results = query_index(idx, Path(queryfile).read_text(encoding="utf-8"), num_results)
