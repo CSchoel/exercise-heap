@@ -53,7 +53,7 @@ def dict_reduce(func: Callable, dicts: List[dict], default=0) -> dict:
     return res
 
 def dict_filter(func: Callable, dict: Dict):
-    return { k: v for k,v in dict.items() if func(k, k) }
+    return { k: v for k,v in dict.items() if func(k, v) }
 
 def idf(dicts: List[Dict[str, int]]) -> Dict[str, float]:
     # implements inverse document frequency
