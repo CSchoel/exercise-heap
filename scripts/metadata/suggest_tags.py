@@ -115,7 +115,7 @@ def find_similar(exdir: Union[str, Path], queryfile: str, num_results: int=5, ex
     if explain:
         queryvec = apply_idf(indexify(query), idfs)
         for r in results:
-            print(f"Most important terms for determining similarity beween {r} and {queryfile}:")
+            print(f"Most important terms for determining similarity beween {queryfile} and {r}:")
             print(*explain_similarity(idx[r], queryvec), sep=os.linesep)
     return results
 
