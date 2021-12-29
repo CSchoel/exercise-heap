@@ -72,7 +72,7 @@ def idf(dicts: List[WordCount]) -> IDF:
     return res
 
 def apply_idf(vector: WordCount, idfs: IDF) -> IndexVector:
-    return dict_filter(lambda k,v: v > 0, dict_reduce(op.mul, [vector, idfs], default=1))
+    return dict_reduce(op.mul, [vector, dict_filter(lambda k,_ : k in vector, idfs)], default=1)
 
 def index_similarity(id1: IndexVector, id2: IndexVector) -> float:
     # implements cosine similarity (https://en.wikipedia.org/wiki/Cosine_similarity)
