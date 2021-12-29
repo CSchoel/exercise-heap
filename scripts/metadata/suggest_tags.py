@@ -18,7 +18,10 @@ def indexify(text: str, lang="german") -> Dict[str, int]:
     tokens = nltk.word_tokenize(text, language=lang)
     stemmer = nltk.SnowballStemmer(lang, ignore_stopwords=True)
     stems = [stemmer.stem(x) for x in tokens]
-    return count(stems)
+    counts = count(stems)
+    # divide by total number of terms in document to make index independent of document length
+    res = dict_reduce(op.mul, [counts], default=1/sum(counts.values()))
+    return res
 
 def make_hashable(key):
     if isinstance(key, dict):
