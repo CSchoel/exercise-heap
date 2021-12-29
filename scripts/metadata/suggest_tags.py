@@ -44,15 +44,16 @@ def count(lst: list) -> Dict[Any, int]:
         counts[key] += 1
     return counts
 
-def dict_reduce(func: Callable, dicts: List[dict], default=0, keep_default=True) -> dict:
+def dict_reduce(func: Callable, dicts: List[dict], default=0) -> dict:
     res = {}
     for d in dicts:
         for k in d:
             res.setdefault(k, default)
             res[k] = func(res[k], d[k])
-            if res[k] == default and not keep_default:
-                del res[k]
     return res
+
+def dict_filter(func: Callable, dict: Dict):
+    return { k: v for k,v in dict.items() if func(k, k) }
 
 def idf(dicts: List[Dict[str, int]]) -> Dict[str, float]:
     # implements inverse document frequency
