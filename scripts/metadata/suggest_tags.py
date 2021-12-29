@@ -96,7 +96,7 @@ def explain_similarity(*dicts: Dict[str, float]):
         for i2 in range(i1 + 1, len(dicts)):
             d1 = dicts[i1]
             d2 = dicts[i2]
-            similarity_terms = { k: d1[k] * d2[k] for k in d1.keys() ^ d2.keys() }
+            similarity_terms = { k: d1[k] * d2[k] for k in d1.keys() & d2.keys() }
             matching.append(similarity_terms)
     res = list(dict_reduce(op.add, matching))
     res.sort(key=lambda x: x[1])
