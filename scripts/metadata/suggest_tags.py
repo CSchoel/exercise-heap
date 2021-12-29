@@ -68,7 +68,7 @@ def idf(dicts: List[Dict[str, int]]) -> Dict[str, float]:
 def apply_idf(vector: Dict[str, int], idfs: Dict[str, float]) -> Dict[str, float]:
     return dict_filter(lambda k,v: v > 0, dict_reduce(op.mul, [vector, idfs], default=1))
 
-def index_similarity(id1: Dict[str, int], id2: Dict[str, int]) -> float:
+def index_similarity(id1: Dict[str, float], id2: Dict[str, float]) -> float:
     # implements cosine similarity (https://en.wikipedia.org/wiki/Cosine_similarity)
     num = 0
     for k in id1.keys() | id2.keys():
@@ -92,7 +92,7 @@ def build_index(files: List[Path]) -> Tuple[List[Tuple[Path, Dict[str, float]]],
     indices = [dict_reduce(op.mul, [x, idfdict], default=1, keep_default=False) for x in indices]
     return list(zip(files, indices)), idfdict
 
-def find_similar(exdir: Union[str, Path], queryfile: str, num_results=5) -> List[Path]:
+def find_similar(exdir: Union[str, Path], queryfile: str, num_results: int=5) -> List[Path]:
     files = list(Path(exdir).glob("*/*/*/*.md"))
     idx, idfs = build_index(files)
     results = query_index(idx, idfs, Path(queryfile).read_text(encoding="utf-8"), num_results)
