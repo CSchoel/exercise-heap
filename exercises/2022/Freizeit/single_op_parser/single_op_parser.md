@@ -6,8 +6,9 @@ keywords:
     - language: java
     - semester: 1
     - major: computer science
-    - subject: integer overflow
-    - subject: big integer
+    - subject: if expression
+    - subject: parsing
+    - subject: user input
 lang: de-DE
 solution-size: 10
 id: 5fbedcbd-6b32-4634-a1ed-3c0c3c1ae4c6
