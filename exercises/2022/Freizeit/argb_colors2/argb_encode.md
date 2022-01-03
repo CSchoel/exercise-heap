@@ -44,4 +44,5 @@ Testen Sie Ihren Code mit den folgenden Eingaben und ihrem Programm aus der letz
 * 229, 9, 20
 * 29, 161, 242
 
-*Tipp: Sie brauchen für die Lösung dieser Aufgabe [bitweise Operatoren](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/op3.html), insbesondere `|` (bitweises or) und `<<` (left shift).*
+*Tipp: Sie brauchen für die Lösung dieser Aufgabe [bitweise Operatoren](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/op3.html), insbesondere `|` (bitweises or) und `<<` (left shift).
+Das Aussehen ihrer Zwischenergebnisse können Sie mit der Methode `Integer.toBinaryString(int)` überprüfen.*
