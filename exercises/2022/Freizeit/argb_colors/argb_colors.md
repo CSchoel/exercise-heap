@@ -6,7 +6,7 @@ keywords:
     - language: java
     - semester: 1
     - major: computer science
-    - subject: bitwise operations
+    - subject: bitwise operators
     - subject: computer graphics
 lang: de-DE
 solution-size: 10
