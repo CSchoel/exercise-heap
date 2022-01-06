@@ -29,9 +29,14 @@ def find_duplicates(lst: List[Tuple[Path, str]]) -> List[Tuple[str, List[Path]]]
 if __name__ == "__main__":
     os.chdir(Path(__file__).parent)
     exercises =  Path("../../exercises").glob("*/*/*/*.md")
-    dup = find_duplicates([(Path(p), yaml.parse(io.StringIO(get_header(p)))["id"]) for p in exercises])
+    headers = [(p, yaml.safe_load(io.StringIO(get_header(p)))) for p in exercises]
+    noid = [(p, h) for p, h in headers if "id" not in h]
+    ids = [(p, h["id"]) for p, h in headers if "id" in h]
+    dup = find_duplicates(ids)
+    for p, h in noid:
+        print(f"Exercise {p} does not have a UUID in the header")
     for id, paths in dup:
         print(f"Multiple exercises have the same id {id}:")
         for p in paths:
             print("\t", p)
-    exit(len(dup))
+    exit(len(dup) + len(noid))
