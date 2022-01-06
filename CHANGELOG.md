@@ -5,6 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.0] - 2022-01-06
+
+### Added
+
+* Script to check that each exercise description file includes a YAML header with a UUID that is truly unique in the database.
+* GitHub Actions script that runs UUID-check after each push.
+* Several new exercises that were not created for a specific course but just for fun (covering integer overflows, floating point operations, and bitwise operators)
+* General file to collect exercise ideas
+
+### Changed
+
+* Versioning scheme: Added scripts and changes to general structure now increase MINOR version and updates that only affect exercise content increase PATCH version.
+
+### Fixed
+
+* `add_uuid` script did not recognize existing UUIDs properly (missing `M` flag for regex)
+* AuD exercises did not have a UUID
+
 ## [0.0.4] - 2021-12-29
 
 ### Added
