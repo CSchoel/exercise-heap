@@ -25,7 +25,7 @@ def patch_header(fname, func, dry_run=False):
         p.write_text(new_text)
 
 def add_attribute(header, att, valfunc):
-    if re.search(f"^{att}:", header) is not None:
+    if re.search(f"^{att}:", header, flags=re.M) is not None:
         # only add if not already present
         return header
     return os.linesep.join([header, f"{att}: {valfunc(header)}"])
