@@ -11,6 +11,7 @@ keywords:
     - course: Algorithmen und Datenstrukturen
 lang: de-DE
 solution-size: 0
+id: 7aa2d116-27e6-447d-93b5-3e9f2c70f31e
 ---
 
 # Brutforce Passwoerter

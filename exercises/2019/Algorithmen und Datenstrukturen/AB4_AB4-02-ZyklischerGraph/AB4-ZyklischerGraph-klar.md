@@ -11,6 +11,7 @@ keywords:
     - course: Algorithmen und Datenstrukturen
 lang: de-DE
 solution-size: 0
+id: f27f0464-de42-4292-934b-301d1d546501
 ---
 
 # Zyklische Graphen

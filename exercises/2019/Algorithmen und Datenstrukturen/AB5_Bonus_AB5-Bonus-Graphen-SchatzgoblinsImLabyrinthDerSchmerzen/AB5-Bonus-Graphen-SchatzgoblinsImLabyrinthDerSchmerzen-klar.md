@@ -11,6 +11,7 @@ keywords:
     - course: Algorithmen und Datenstrukturen
 lang: de-DE
 solution-size: 0
+id: 6958dd15-e1fd-4733-88de-8bcc0fe2fef1
 ---
 
 ## Durchsuchung der THM

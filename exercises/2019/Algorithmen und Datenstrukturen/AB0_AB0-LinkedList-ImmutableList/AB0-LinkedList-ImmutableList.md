@@ -11,6 +11,7 @@ keywords:
     - course: Algorithmen und Datenstrukturen
 lang: de-DE
 solution-size: 0
+id: 5f12b2d0-dfab-481e-9568-7934890db2ee
 ---
 
 ## LinkedList: ImmutableList

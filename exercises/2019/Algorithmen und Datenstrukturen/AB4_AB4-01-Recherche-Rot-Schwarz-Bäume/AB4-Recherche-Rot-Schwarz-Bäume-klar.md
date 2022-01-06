@@ -11,6 +11,7 @@ keywords:
     - course: Algorithmen und Datenstrukturen
 lang: de-DE
 solution-size: 0
+id: 300ba212-2e4e-49c4-b80b-1594c1f384e8
 ---
 
 # Rot-Schwarz-Bäume

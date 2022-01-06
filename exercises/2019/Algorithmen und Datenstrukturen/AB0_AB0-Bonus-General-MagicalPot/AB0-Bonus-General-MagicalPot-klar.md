@@ -11,6 +11,7 @@ keywords:
     - course: Algorithmen und Datenstrukturen
 lang: de-DE
 solution-size: 0
+id: c8e31243-c674-4d77-ad84-0370bf04238a
 ---
 
 # [Bonus] The magical Pot  

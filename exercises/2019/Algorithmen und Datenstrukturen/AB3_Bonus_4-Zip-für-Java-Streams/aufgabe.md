@@ -11,6 +11,7 @@ keywords:
     - course: Algorithmen und Datenstrukturen
 lang: de-DE
 solution-size: 0
+id: b8d4a317-1a64-4399-9798-d510917a6d0b
 ---
 
 # Zip für Java-Streams

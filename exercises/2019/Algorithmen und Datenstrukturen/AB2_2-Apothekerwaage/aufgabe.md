@@ -11,6 +11,7 @@ keywords:
     - course: Algorithmen und Datenstrukturen
 lang: de-DE
 solution-size: 0
+id: 271d3bae-8db7-4e76-9897-e4d494146545
 ---
 
 # Apothekerwaage

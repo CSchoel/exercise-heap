@@ -11,6 +11,7 @@ keywords:
     - course: Algorithmen und Datenstrukturen
 lang: de-DE
 solution-size: 0
+id: 426393a7-375c-4c3e-98ed-f0fb78dc4186
 ---
 
 # Damenproblem

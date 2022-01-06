@@ -11,6 +11,7 @@ keywords:
     - course: Algorithmen und Datenstrukturen
 lang: de-DE
 solution-size: 0
+id: 286fd4f4-d3b9-4b2d-b463-a7478d376f93
 ---
 
 # Der Wettkampf der Iteratoren - Höhenflug der Tiefentaube

@@ -11,6 +11,7 @@ keywords:
     - course: Algorithmen und Datenstrukturen
 lang: de-DE
 solution-size: 0
+id: 2392208b-5263-42f8-a4d1-63cd2f7ebb8e
 ---
 
 Mergesort ist mit seiner Worst-Case-Laufzeit von O(n log n) einer der schnellsten Sortieralgorithmen und liefert zudem noch eine stabile Sortierung.

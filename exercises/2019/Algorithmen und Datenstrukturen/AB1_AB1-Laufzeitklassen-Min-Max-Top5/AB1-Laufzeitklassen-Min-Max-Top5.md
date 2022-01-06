@@ -11,6 +11,7 @@ keywords:
     - course: Algorithmen und Datenstrukturen
 lang: de-DE
 solution-size: 0
+id: f72289a4-7ba0-4292-83b9-17a00051c1e8
 ---
 
 ## Min-, Max- und die Top5

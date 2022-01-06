@@ -12,6 +12,7 @@ keywords:
     - course: Grundlagen der Informatik
 lang: de-DE
 solution-size: 14
+id: 5325418a-537d-43ee-bc39-0d343454da29
 ---
 
 # CountPrimes

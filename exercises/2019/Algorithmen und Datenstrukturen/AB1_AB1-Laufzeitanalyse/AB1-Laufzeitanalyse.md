@@ -11,6 +11,7 @@ keywords:
     - course: Algorithmen und Datenstrukturen
 lang: de-DE
 solution-size: 0
+id: 2f66f9c6-d484-48b2-9417-dcd5f31472ff
 ---
 
 ## Laufzeitanalyse

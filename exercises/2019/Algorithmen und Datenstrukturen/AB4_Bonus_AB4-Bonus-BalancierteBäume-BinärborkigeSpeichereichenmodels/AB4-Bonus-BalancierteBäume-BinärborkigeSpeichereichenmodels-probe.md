@@ -11,6 +11,7 @@ keywords:
     - course: Algorithmen und Datenstrukturen
 lang: de-DE
 solution-size: 0
+id: 3a199373-5215-4110-a2a5-efdfca817768
 ---
 
 fun isBalanced(tree)

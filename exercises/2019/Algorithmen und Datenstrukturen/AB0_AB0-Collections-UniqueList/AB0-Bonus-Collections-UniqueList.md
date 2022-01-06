@@ -11,6 +11,7 @@ keywords:
     - course: Algorithmen und Datenstrukturen
 lang: de-DE
 solution-size: 0
+id: a720f5ef-6259-4e4d-80c6-889679273400
 ---
 
 # Eine Diät für Basilisten

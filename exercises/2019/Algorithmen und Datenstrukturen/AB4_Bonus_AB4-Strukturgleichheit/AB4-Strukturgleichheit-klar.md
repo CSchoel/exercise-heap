@@ -11,6 +11,7 @@ keywords:
     - course: Algorithmen und Datenstrukturen
 lang: de-DE
 solution-size: 0
+id: fbcff4a6-e06a-4928-adcb-0fdf7d8d84de
 ---
 
 # Strukturgleichheit

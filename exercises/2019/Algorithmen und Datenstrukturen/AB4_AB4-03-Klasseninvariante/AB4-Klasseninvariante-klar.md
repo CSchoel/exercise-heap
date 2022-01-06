@@ -11,6 +11,7 @@ keywords:
     - course: Algorithmen und Datenstrukturen
 lang: de-DE
 solution-size: 0
+id: 03f6ecd8-e83e-43fe-8338-d89b8a6014c3
 ---
 
 # Klasseninvariante

@@ -11,6 +11,7 @@ keywords:
     - course: Algorithmen und Datenstrukturen
 lang: de-DE
 solution-size: 0
+id: 75c2b2e2-a1cc-4d73-9a04-ff95af179238
 ---
 
 ## O-, o-, Ω-, ω- und Θ- Notationen

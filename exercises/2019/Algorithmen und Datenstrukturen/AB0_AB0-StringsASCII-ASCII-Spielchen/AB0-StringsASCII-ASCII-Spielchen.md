@@ -11,6 +11,7 @@ keywords:
     - course: Algorithmen und Datenstrukturen
 lang: de-DE
 solution-size: 0
+id: 110ef84a-aa0b-43e5-bd42-d287d8e55c02
 ---
 
 ## ASCII-Spielchen

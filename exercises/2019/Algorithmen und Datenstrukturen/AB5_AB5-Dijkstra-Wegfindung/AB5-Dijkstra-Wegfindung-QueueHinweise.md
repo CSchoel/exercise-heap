@@ -11,6 +11,7 @@ keywords:
     - course: Algorithmen und Datenstrukturen
 lang: de-DE
 solution-size: 0
+id: ca89f321-5312-4cda-a739-54e789e88db9
 ---
 
 #### Hinweise für den Pseudocode aus der Vorlesung

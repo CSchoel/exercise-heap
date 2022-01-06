@@ -11,6 +11,7 @@ keywords:
     - course: Algorithmen und Datenstrukturen
 lang: de-DE
 solution-size: 0
+id: 2391e47b-a562-450a-8c57-5e5d4141b1c9
 ---
 
 ## HashCode

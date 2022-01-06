@@ -11,6 +11,7 @@ keywords:
     - course: Algorithmen und Datenstrukturen
 lang: de-DE
 solution-size: 0
+id: 119698df-6c2b-44cf-a6f2-2d0f83d75da7
 ---
 
 # Der Wettkampf der Iteratoren - Der Angriff des Breitenhörnchens

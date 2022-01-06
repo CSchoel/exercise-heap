@@ -11,6 +11,7 @@ keywords:
     - course: Algorithmen und Datenstrukturen
 lang: de-DE
 solution-size: 0
+id: f2f5cb8f-69dc-460c-85ce-8cf1c5188bb7
 ---
 
 # ArrayList

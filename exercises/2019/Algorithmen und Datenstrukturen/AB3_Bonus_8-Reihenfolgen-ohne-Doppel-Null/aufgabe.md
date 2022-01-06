@@ -11,6 +11,7 @@ keywords:
     - course: Algorithmen und Datenstrukturen
 lang: de-DE
 solution-size: 0
+id: fafbad35-fe8c-44f1-9fe0-d06581ea3bb7
 ---
 
 # Reihenfolgen ohne Doppel-Null

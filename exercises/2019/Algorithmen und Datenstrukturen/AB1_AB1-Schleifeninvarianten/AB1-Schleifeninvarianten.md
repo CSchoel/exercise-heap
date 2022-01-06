@@ -11,6 +11,7 @@ keywords:
     - course: Algorithmen und Datenstrukturen
 lang: de-DE
 solution-size: 0
+id: 01357edc-1219-4ca6-bb7c-5c45935f121f
 ---
 
 ## Schleifeninvarianten

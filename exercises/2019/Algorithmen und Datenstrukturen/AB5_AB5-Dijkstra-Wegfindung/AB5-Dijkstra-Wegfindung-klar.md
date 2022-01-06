@@ -11,6 +11,7 @@ keywords:
     - course: Algorithmen und Datenstrukturen
 lang: de-DE
 solution-size: 0
+id: 5b3365ef-7461-454b-817d-278555b222b2
 ---
 
 ### Aufgabe

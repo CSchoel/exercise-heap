@@ -11,6 +11,7 @@ keywords:
     - course: Algorithmen und Datenstrukturen
 lang: de-DE
 solution-size: 0
+id: 64edc4d1-f813-4643-a1fc-e22c1688f416
 ---
 
 # Binäre Suche

@@ -11,6 +11,7 @@ keywords:
     - course: Algorithmen und Datenstrukturen
 lang: de-DE
 solution-size: 0
+id: 2892411e-afd9-4bc0-b24e-561bd1d50cd1
 ---
 
 # Schleifeninvariante trifft O-Notation

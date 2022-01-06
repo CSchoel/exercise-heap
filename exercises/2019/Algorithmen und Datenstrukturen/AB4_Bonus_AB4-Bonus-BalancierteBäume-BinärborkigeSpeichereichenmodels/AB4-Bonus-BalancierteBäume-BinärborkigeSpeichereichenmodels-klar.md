@@ -11,6 +11,7 @@ keywords:
     - course: Algorithmen und Datenstrukturen
 lang: de-DE
 solution-size: 0
+id: 70bf05de-c389-4d8e-8ddb-94713841f3f7
 ---
 
 ## Binärborkige Speichereichenmodels

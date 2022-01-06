@@ -12,6 +12,7 @@ keywords:
     - course: Grundlagen der Informatik
 lang: de-DE
 solution-size: 11
+id: 38abdbc8-bcae-4948-af52-11a0c3956c32
 ---
 
 # Numpy Basics

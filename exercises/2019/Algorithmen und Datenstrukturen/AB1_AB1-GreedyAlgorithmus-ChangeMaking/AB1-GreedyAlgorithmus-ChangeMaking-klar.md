@@ -11,6 +11,7 @@ keywords:
     - course: Algorithmen und Datenstrukturen
 lang: de-DE
 solution-size: 0
+id: 846d2ee1-c026-4060-af26-8cc7f83168f2
 ---
 
 # Change Making

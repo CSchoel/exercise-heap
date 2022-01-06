@@ -11,6 +11,7 @@ keywords:
     - course: Algorithmen und Datenstrukturen
 lang: de-DE
 solution-size: 0
+id: 7de5ff9e-8cb3-428e-92f3-b951bcba61c0
 ---
 
 # Der Wettkampf der Iteratoren - Die Rückkehr der Tiefentaube

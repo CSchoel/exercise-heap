@@ -11,6 +11,7 @@ keywords:
     - course: Algorithmen und Datenstrukturen
 lang: de-DE
 solution-size: 0
+id: 0a91ec71-cacf-4a76-a472-dc798bb9b699
 ---
 
 ## Recherche Trie

@@ -11,6 +11,7 @@ keywords:
     - course: Algorithmen und Datenstrukturen
 lang: de-DE
 solution-size: 0
+id: 609ca7ef-43b0-4ea0-a60b-1a44582b6a03
 ---
 
 ## Permutationsort

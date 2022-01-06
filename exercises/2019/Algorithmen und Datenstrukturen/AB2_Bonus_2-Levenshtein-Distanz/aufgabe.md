@@ -11,6 +11,7 @@ keywords:
     - course: Algorithmen und Datenstrukturen
 lang: de-DE
 solution-size: 0
+id: 20cc1f8a-f10b-4e51-9335-ff8247e6b88b
 ---
 
 # Levenshtein-Distanz

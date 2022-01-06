@@ -11,6 +11,7 @@ keywords:
     - course: Algorithmen und Datenstrukturen
 lang: de-DE
 solution-size: 0
+id: 3def2ed5-017d-4060-835d-c9f951f0757a
 ---
 
 # Abstrakter Datentyp: Matrix

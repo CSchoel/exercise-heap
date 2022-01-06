@@ -11,6 +11,7 @@ keywords:
     - course: Algorithmen und Datenstrukturen
 lang: de-DE
 solution-size: 0
+id: 41d6e72f-5c9a-4add-8a32-f0ad620c107a
 ---
 
 ## Master-Theorem

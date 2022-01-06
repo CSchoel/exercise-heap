@@ -11,6 +11,7 @@ keywords:
     - course: Algorithmen und Datenstrukturen
 lang: de-DE
 solution-size: 0
+id: e13cfb69-cf9a-4b5d-8641-60ba4952652c
 ---
 
 # Doppelt verkettete Liste

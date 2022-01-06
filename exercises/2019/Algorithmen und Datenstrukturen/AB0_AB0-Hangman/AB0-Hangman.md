@@ -11,6 +11,7 @@ keywords:
     - course: Algorithmen und Datenstrukturen
 lang: de-DE
 solution-size: 0
+id: 5a35e328-10bb-4552-9ccf-8f20494cddda
 ---
 
 # Hilf dem Henker

@@ -11,6 +11,7 @@ keywords:
     - course: Algorithmen und Datenstrukturen
 lang: de-DE
 solution-size: 0
+id: 22ed0dc8-871b-4e13-8f8d-65b3721429dd
 ---
 
 # Tribonati-Folge

@@ -11,6 +11,7 @@ keywords:
     - course: Algorithmen und Datenstrukturen
 lang: de-DE
 solution-size: 0
+id: 95bea788-32ac-4d9f-b66a-680b894f7e30
 ---
 
 ## Josephus-Problem

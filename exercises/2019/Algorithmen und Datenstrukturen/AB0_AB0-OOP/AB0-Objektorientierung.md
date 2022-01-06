@@ -11,6 +11,7 @@ keywords:
     - course: Algorithmen und Datenstrukturen
 lang: de-DE
 solution-size: 0
+id: 8f99dc3f-b00c-472b-b05f-1fb5be3cc1c3
 ---
 
 # Objektorientierung
