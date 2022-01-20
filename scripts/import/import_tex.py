@@ -13,7 +13,7 @@ def to_md(srcpath: Path, dstpath: Path):
             "-f",
             "latex",
             "-t",
-            "gfm+raw_tex",
+            "markdown+raw_tex",
             srcpath.absolute(),
             "-o",
             dstpath.absolute()
