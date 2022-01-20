@@ -36,14 +36,15 @@ def split_md(srcpath: Path, header_templ: Dict[Any, Any]):
             warnings.warn(f"The exercise '{s.splitlines()[0]}' does not have pandoc header attributes")
             continue
         header = header_templ
-        header["id"] = uuid.uuid4()
-        header["title"] = heading.group(1)
-        headertxt = io.StringIO(yaml.safe_dump(header))
+        header["id"] = str(uuid.uuid4())
+        header["title"] = str(heading.group(1))
+        headertxt = io.StringIO(yaml.safe_dump(header)).getvalue()
         fn = srcpath.parent / f"{str(i).zfill(2)}_{heading.group(2)}.md"
-        fn.write_text("---\n", "utf-8")
-        fn.write_text(headertxt, "utf-8")
-        fn.write_text("---\n", "utf-8")
-        fn.write_text(s, encoding="utf-8")
+        text = "---\n"
+        text += headertxt
+        text += "---\n"
+        text += s
+        fn.write_text(text, "utf-8")
 
 if __name__ == '__main__':
     texfile = Path(sys.argv[1])
@@ -57,4 +58,4 @@ if __name__ == '__main__':
     outfile = outdir / (texfile.stem + ".md")
     to_md(texfile, outfile)
     split_md(outfile, header_templ)
-    outfile.unlink()
+    # outfile.unlink()
