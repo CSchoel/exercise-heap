@@ -58,4 +58,4 @@ if __name__ == '__main__':
     outfile = outdir / (texfile.stem + ".md")
     to_md(texfile, outfile)
     split_md(outfile, header_templ)
-    # outfile.unlink()
+    outfile.unlink()
