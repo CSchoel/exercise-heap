@@ -46,7 +46,6 @@ def split_md(srcpath: Path, header_templ: Dict[Any, Any]):
         fn.write_text(s, encoding="utf-8")
 
 if __name__ == '__main__':
-    os.chdir(Path(__file__).parent)
     texfile = Path(sys.argv[1])
     yamlfile = Path(sys.argv[2])
     if len(sys.argv) > 3:
