@@ -6,6 +6,7 @@ import os
 from pathlib import Path
 import sys
 import subprocess
+import re
 
 def to_md(srcpath: Path, dstpath: Path):
     code = subprocess.call([
@@ -19,7 +20,16 @@ def to_md(srcpath: Path, dstpath: Path):
             dstpath.absolute()
     ])
 
+def split_md(srcpath: Path):
+    md = srcpath.read_text(encoding="utf-8")
+    sections = re.split(r"^## ", md, flags=re.M)
+    sections = ["## " + s for s in sections[1:]]
+    for s in sections:
+        print(s.splitlines()[0])
+
 if __name__ == '__main__':
     os.chdir(Path(__file__).parent)
     texfile = Path(sys.argv[1])
-    to_md(texfile, Path(os.getcwd()) / "out" / texfile.name)
+    outfile = Path(os.getcwd()) / "out" / texfile.name
+    to_md(texfile, outfile)
+    split_md(outfile)
