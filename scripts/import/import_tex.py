@@ -10,6 +10,7 @@ import re
 import warnings
 import yaml
 import io
+import uuid
 
 def to_md(srcpath: Path, dstpath: Path):
     dstpath.parent.mkdir(exist_ok= True, parents= True)
@@ -24,16 +25,23 @@ def to_md(srcpath: Path, dstpath: Path):
             dstpath.absolute()
     ])
 
-def split_md(srcpath: Path):
+def split_md(srcpath: Path, header_templ: Dict[Any]):
     md = srcpath.read_text(encoding="utf-8")
     sections = re.split(r"^## ", md, flags=re.M)
     sections = ["## " + s for s in sections[1:]]
     for i, s in enumerate(sections):
-        name = re.search(r"^## (.+)\{#(\S+) (.+)\}$", s, flags=re.M)
-        if name is None:
+        heading = re.search(r"^## (.+)\{#(\S+) (.+)\}$", s, flags=re.M)
+        if heading is None:
             warnings.warn(f"The exercise '{s.splitlines()[0]}' does not have pandoc header attributes")
             continue
-        fn = srcpath.parent / f"{str(i).zfill(2)}_{name.group(2)}.md"
+        header = header_templ
+        header["id"] = uuid.uuid4()
+        header["title"] = heading.group(1)
+        headertxt = io.StringIO(yaml.safe_dump(header))
+        fn = srcpath.parent / f"{str(i).zfill(2)}_{heading.group(2)}.md"
+        fn.write_text("---\n", "utf-8")
+        fn.write_text(headertxt, "utf-8")
+        fn.write_text("---\n", "utf-8")
         fn.write_text(s, encoding="utf-8")
 
 if __name__ == '__main__':
