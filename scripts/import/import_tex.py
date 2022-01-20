@@ -11,6 +11,7 @@ import warnings
 import yaml
 import io
 import uuid
+from typing import *
 
 def to_md(srcpath: Path, dstpath: Path):
     dstpath.parent.mkdir(exist_ok= True, parents= True)
@@ -25,7 +26,7 @@ def to_md(srcpath: Path, dstpath: Path):
             dstpath.absolute()
     ])
 
-def split_md(srcpath: Path, header_templ: Dict[Any]):
+def split_md(srcpath: Path, header_templ: Dict[Any, Any]):
     md = srcpath.read_text(encoding="utf-8")
     sections = re.split(r"^## ", md, flags=re.M)
     sections = ["## " + s for s in sections[1:]]
