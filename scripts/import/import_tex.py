@@ -13,7 +13,7 @@ def to_md(srcpath: Path, dstpath: Path):
     code = subprocess.call([
             "pandoc",
             "-f",
-            "latex",
+            "latex+raw_tex+latex_macros",
             "-t",
             "markdown+raw_tex",
             srcpath.absolute(),
