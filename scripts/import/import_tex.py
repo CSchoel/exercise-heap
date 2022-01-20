@@ -53,7 +53,7 @@ if __name__ == '__main__':
         outdir = Path(sys.argv[3])
     else:
         outdir = Path(os.getcwd()) / "out"
-    outdir.mkdir(parents=True, exists_ok=True)
+    outdir.mkdir(parents=True, exist_ok=True)
     header_templ = yaml.safe_load(io.StringIO(yamlfile.read_text("utf-8")))
     outfile = outdir / (texfile.stem + ".md")
     to_md(texfile, outfile)
