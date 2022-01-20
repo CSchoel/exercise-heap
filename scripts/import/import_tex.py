@@ -1,6 +1,6 @@
 #!/bin/env python3
 # imports latex exercises (using pandoc to convert them to Markdown)
-# Usage: ./import_tex.py path/to/exercise/sheet.tex
+# Usage: ./import_tex.py path/to/exercise/sheet.tex /path/to/header_template.yaml [output/dir]
 
 import os
 from pathlib import Path
@@ -8,6 +8,8 @@ import sys
 import subprocess
 import re
 import warnings
+import yaml
+import io
 
 def to_md(srcpath: Path, dstpath: Path):
     dstpath.parent.mkdir(exist_ok= True, parents= True)
@@ -37,6 +39,13 @@ def split_md(srcpath: Path):
 if __name__ == '__main__':
     os.chdir(Path(__file__).parent)
     texfile = Path(sys.argv[1])
-    outfile = Path(os.getcwd()) / "out" / (texfile.stem + ".md")
+    yamlfile = Path(sys.argv[2])
+    if len(sys.argv > 3):
+        outdir = Path(sys.argv[3])
+    else:
+        outdir = Path(os.getcwd()) / "out"
+    header_templ = yaml.safe_load(io.StringIO(yamlfile.read_text("utf-8")))
+    outfile = outdir / (texfile.stem + ".md")
     to_md(texfile, outfile)
-    split_md(outfile)
+    split_md(outfile, header_templ)
+    outfile.unlink()
