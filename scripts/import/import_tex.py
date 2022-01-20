@@ -49,7 +49,7 @@ if __name__ == '__main__':
     os.chdir(Path(__file__).parent)
     texfile = Path(sys.argv[1])
     yamlfile = Path(sys.argv[2])
-    if len(sys.argv > 3):
+    if len(sys.argv) > 3:
         outdir = Path(sys.argv[3])
     else:
         outdir = Path(os.getcwd()) / "out"
