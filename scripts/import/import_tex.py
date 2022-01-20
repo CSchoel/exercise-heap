@@ -9,6 +9,7 @@ import subprocess
 import re
 
 def to_md(srcpath: Path, dstpath: Path):
+    dstpath.parent.mkdir(exist_ok= True, parents= True)
     code = subprocess.call([
             "pandoc",
             "-f",
