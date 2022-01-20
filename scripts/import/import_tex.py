@@ -31,6 +31,6 @@ def split_md(srcpath: Path):
 if __name__ == '__main__':
     os.chdir(Path(__file__).parent)
     texfile = Path(sys.argv[1])
-    outfile = Path(os.getcwd()) / "out" / texfile.name
+    outfile = Path(os.getcwd()) / "out" / (texfile.stem + ".md")
     to_md(texfile, outfile)
     split_md(outfile)
