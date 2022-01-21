@@ -45,7 +45,8 @@ def split_md(srcpath: Path, header_templ: Dict[Any, Any]):
         text = "---\n"
         text += headertxt
         text += "---\n\n"
-        text += s
+        # decrease all heading levels by one
+        text += re.sub(r"^##", "#", s, flags=re.M)
         fn.write_text(text, "utf-8")
 
 if __name__ == '__main__':
