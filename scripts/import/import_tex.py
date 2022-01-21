@@ -42,7 +42,7 @@ def split_md(srcpath: Path, header_templ: Dict[Any, Any]):
         fn = srcpath.parent / f"{str(i).zfill(2)}_{heading.group(2)}.md"
         text = "---\n"
         text += headertxt
-        text += "---\n"
+        text += "---\n\n"
         text += s
         fn.write_text(text, "utf-8")
 
