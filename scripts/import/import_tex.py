@@ -39,7 +39,9 @@ def split_md(srcpath: Path, header_templ: Dict[Any, Any]):
         header["id"] = str(uuid.uuid4())
         header["title"] = str(heading.group(1))
         headertxt = io.StringIO(yaml.safe_dump(header)).getvalue()
-        fn = srcpath.parent / f"{str(i).zfill(2)}_{heading.group(2)}.md"
+        exname = "_".join([str(i).zfill(2), heading.group(2)])
+        fn = srcpath.parent / exname / f"{exname}.md"
+        fn.parent.mkdir(parents=True, exist_ok=True)
         text = "---\n"
         text += headertxt
         text += "---\n\n"
