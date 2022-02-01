@@ -32,18 +32,18 @@ title: Jar-Datei
 4.  Entfernen Sie unnötige Dateien aus der Auswahl (z.B. `.classpath`
     und `.project`, die von Eclipse angelegt werden).
 
-5.  Setzen Sie Häkchen bei `\glqq `{=latex}Export generated class files
-    and resources`\grqq{}`{=latex} und `\glqq `{=latex}Export Java
-    source files and resources`\grqq{}`{=latex}.
+5.  Setzen Sie Häkchen bei "Export generated class files
+    and resources" und "Export Java
+    source files and resources".
 
 6.  Geben Sie einen Speicherort für die Datei an (die Dateiendung für
     Jar-Dateien ist `.jar`).
 
-7.  Klicken Sie zweimal auf `\glqq `{=latex}Next`\grqq`{=latex}.
+7.  Klicken Sie zweimal auf "Next".
 
-8.  Vergewissern Sie sich dass die Option `\glqq `{=latex}Generate the
-    manifest file`\grqq{}`{=latex} ausgewählt ist und wählen Sie unter
-    `\glqq `{=latex}Main class:`\grqq{}`{=latex} Ihre `HelloWorld`
+8.  Vergewissern Sie sich dass die Option "Generate the
+    manifest file" ausgewählt ist und wählen Sie unter
+    "Main class:" Ihre `HelloWorld`
     Klasse aus.
 
 9.  Drücken Sie Finish.
