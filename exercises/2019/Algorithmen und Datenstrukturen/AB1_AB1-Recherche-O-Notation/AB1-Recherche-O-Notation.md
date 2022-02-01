@@ -1,7 +1,6 @@
 ---
 title: AB1-Recherche-O-Notation
 author:
-    - AuD-Tutoren
     - Christopher Schölzel
 keywords:
     - language: java
@@ -9,8 +8,14 @@ keywords:
     - major: computer science
     - institution: Technische Hochschule Mittelhessen
     - course: Algorithmen und Datenstrukturen
+    - submission: text
+    - approved: Christopher Schölzel
+    - requires: big O notation
+    - teaches: Bachmann-Landau notation
+    - teaches: writing
+    - teaches: research
 lang: de-DE
-solution-size: 0
+solution-size: 25
 id: 75c2b2e2-a1cc-4d73-9a04-ff95af179238
 ---
 

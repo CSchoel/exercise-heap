@@ -9,6 +9,11 @@ keywords:
     - major: computer science
     - institution: Technische Hochschule Mittelhessen
     - course: Algorithmen und Datenstrukturen
+    - requires: loops
+    - requires: array list
+    - teaches: algorithm design
+    - teaches: greed
+    - submission: code
 lang: de-DE
 solution-size: 0
 id: 846d2ee1-c026-4060-af26-8cc7f83168f2

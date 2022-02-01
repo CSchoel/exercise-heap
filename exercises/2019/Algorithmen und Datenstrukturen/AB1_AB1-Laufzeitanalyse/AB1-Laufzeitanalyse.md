@@ -4,13 +4,16 @@ author:
     - AuD-Tutoren
     - Christopher Schölzel
 keywords:
-    - language: java
+    - language: pseudocode
     - semester: 2
     - major: computer science
     - institution: Technische Hochschule Mittelhessen
     - course: Algorithmen und Datenstrukturen
+    - submission: text
+    - requires: big O notation
+    - teaches: big O notation
 lang: de-DE
-solution-size: 0
+solution-size: 9
 id: 2f66f9c6-d484-48b2-9417-dcd5f31472ff
 ---
 

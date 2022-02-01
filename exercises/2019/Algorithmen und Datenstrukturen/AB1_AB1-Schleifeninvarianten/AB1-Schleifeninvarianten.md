@@ -1,7 +1,6 @@
 ---
 title: AB1-Schleifeninvarianten
 author:
-    - AuD-Tutoren
     - Christopher Schölzel
 keywords:
     - language: java
@@ -9,8 +8,15 @@ keywords:
     - major: computer science
     - institution: Technische Hochschule Mittelhessen
     - course: Algorithmen und Datenstrukturen
+    - requires: loop invariant
+    - submission: proof
+    - submission: text
+    - teaches: proof
+    - teaches: research
+    - teaches: loop invariant
+    - approved: Christopher Schölzel
 lang: de-DE
-solution-size: 0
+solution-size: 10
 id: 01357edc-1219-4ca6-bb7c-5c45935f121f
 ---
 

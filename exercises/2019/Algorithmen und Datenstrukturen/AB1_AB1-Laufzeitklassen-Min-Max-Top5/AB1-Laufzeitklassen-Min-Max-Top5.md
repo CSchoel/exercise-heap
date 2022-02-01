@@ -9,8 +9,15 @@ keywords:
     - major: computer science
     - institution: Technische Hochschule Mittelhessen
     - course: Algorithmen und Datenstrukturen
+    - requires: loops
+    - requires: big O notation
+    - teaches: big O notation
+    - teaches: algorithm design
+    - submission: code
+    - submission: program output
+    - requires: file input
 lang: de-DE
-solution-size: 0
+solution-size: 60
 id: f72289a4-7ba0-4292-83b9-17a00051c1e8
 ---
 
