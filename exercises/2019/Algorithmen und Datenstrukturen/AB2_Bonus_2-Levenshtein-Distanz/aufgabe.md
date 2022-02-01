@@ -9,8 +9,15 @@ keywords:
     - major: computer science
     - institution: Technische Hochschule Mittelhessen
     - course: Algorithmen und Datenstrukturen
+    - teaches: dynamic programming
+    - requires: dynamic programming
+    - submission: code
+    - submission: program output
+    - requires: loops
+    - requires: two-dimensional arrays
+    - requires: file input
 lang: de-DE
-solution-size: 0
+solution-size: 30
 id: 20cc1f8a-f10b-4e51-9335-ff8247e6b88b
 ---
 

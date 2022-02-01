@@ -9,8 +9,15 @@ keywords:
     - major: computer science
     - institution: Technische Hochschule Mittelhessen
     - course: Algorithmen und Datenstrukturen
+    - requires: big O notation
+    - requires: recursion
+    - teaches: master theorem
+    - teaches: research
+    - teaches: writing
+    - submission: text
+    - approved: Christopher Schölzel
 lang: de-DE
-solution-size: 0
+solution-size: 30
 id: 41d6e72f-5c9a-4add-8a32-f0ad620c107a
 ---
 

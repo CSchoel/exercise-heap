@@ -9,8 +9,16 @@ keywords:
     - major: computer science
     - institution: Technische Hochschule Mittelhessen
     - course: Algorithmen und Datenstrukturen
+    - requires: functions
+    - requires: arrays
+    - requires: algorithm design
+    - teaches: dynamic programming
+    - teaches: big O notation
+    - requires: big O notation
+    - submission: code
+    - submission: text
 lang: de-DE
-solution-size: 0
+solution-size: 30
 id: 22ed0dc8-871b-4e13-8f8d-65b3721429dd
 ---
 

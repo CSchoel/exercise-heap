@@ -9,8 +9,18 @@ keywords:
     - major: computer science
     - institution: Technische Hochschule Mittelhessen
     - course: Algorithmen und Datenstrukturen
+    - requires: arrays
+    - requires: array list
+    - requires: two-dimensional arrays
+    - requires: functions
+    - requires: classes
+    - requires: backtracking
+    - teaches: backtracking
+    - requires: algorithm design
+    - teaches: algorithm design
+    - submission: code
 lang: de-DE
-solution-size: 0
+solution-size: 60
 id: 426393a7-375c-4c3e-98ed-f0fb78dc4186
 ---
 

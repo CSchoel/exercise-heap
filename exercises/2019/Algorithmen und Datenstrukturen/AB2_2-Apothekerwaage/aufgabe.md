@@ -1,5 +1,5 @@
 ---
-title: aufgabe
+title: Apothekerwaage
 author:
     - AuD-Tutoren
     - Christopher Schölzel
@@ -9,8 +9,15 @@ keywords:
     - major: computer science
     - institution: Technische Hochschule Mittelhessen
     - course: Algorithmen und Datenstrukturen
+    - teaches: backtracking
+    - requires: algorithm design
+    - requires: loops
+    - requires: recusrion
+    - submission: code
+    - submission: program output
+    - requires: file input
 lang: de-DE
-solution-size: 0
+solution-size: 70
 id: 271d3bae-8db7-4e76-9897-e4d494146545
 ---
 
