@@ -9,8 +9,15 @@ keywords:
     - major: computer science
     - institution: Technische Hochschule Mittelhessen
     - course: Algorithmen und Datenstrukturen
+    - requires: loop invariant
+    - teaches: loop invariant
+    - teaches: proof
+    - submission: proof
+    - submission: pseudocode
+    - teaches: big O notation
+    - teaches: algorithm design
 lang: de-DE
-solution-size: 0
+solution-size: 30
 id: 2892411e-afd9-4bc0-b24e-561bd1d50cd1
 ---
 
@@ -21,7 +28,7 @@ id: 2892411e-afd9-4bc0-b24e-561bd1d50cd1
 Folgend erhalten Sie eine Schleifeninvariante und einen Algorithmus in Pseudocode. Bitte prüfen Sie die Schleifeninvariante auf Korrektheit. 
 Es muss vollständige Induktion angewendet werden.
 
-Schleifeninvariante: `prod_j = a[1] \cdot a[2] \cdot ... \cdot a[j] = \prod_{k = 1}^j a[k] `
+Schleifeninvariante: prod_j = a[1] · a[2] · ... · a[j] = ∏<sup>j</sup><sub>k = 1</sub> a[k]
 
 #### Pseudocode:
 

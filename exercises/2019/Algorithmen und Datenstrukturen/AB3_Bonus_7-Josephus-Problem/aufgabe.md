@@ -9,8 +9,11 @@ keywords:
     - major: computer science
     - institution: Technische Hochschule Mittelhessen
     - course: Algorithmen und Datenstrukturen
+    - requires: algorithm design
+    - teaches: algorithm design
+    - submission: program output
 lang: de-DE
-solution-size: 0
+solution-size: 50
 id: 95bea788-32ac-4d9f-b66a-680b894f7e30
 ---
 

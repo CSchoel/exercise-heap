@@ -1,20 +1,24 @@
 ---
-title: aufgabe
+title: Reihenfolgen ohne Doppel-Null
 author:
     - AuD-Tutoren
     - Christopher Schölzel
 keywords:
-    - language: java
+    - language: any
     - semester: 2
     - major: computer science
     - institution: Technische Hochschule Mittelhessen
     - course: Algorithmen und Datenstrukturen
+    - requires: algorithm design
+    - teaches: algorithm design
+    - requires: recursion
+    - requires: functions
+    - submission: code
+    - submission: program output
 lang: de-DE
-solution-size: 0
+solution-size: 19
 id: fafbad35-fe8c-44f1-9fe0-d06581ea3bb7
 ---
-
-# Reihenfolgen ohne Doppel-Null
 
 ### Aufgabenstellung
 

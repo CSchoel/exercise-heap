@@ -1,7 +1,6 @@
 ---
 title: aufgabe
 author:
-    - AuD-Tutoren
     - Christopher Schölzel
 keywords:
     - language: java
@@ -9,8 +8,19 @@ keywords:
     - major: computer science
     - institution: Technische Hochschule Mittelhessen
     - course: Algorithmen und Datenstrukturen
+    - requires: generics
+    - requires: classes
+    - requires: merge sort
+    - requires: functions
+    - requires: algorithm design
+    - teaches: merge sort
+    - teaches: object-oriented design
+    - teaches: algorithm design
+    - teaches: big O notation
+    - submission: code
+    - approved: Christopher Schölzel
 lang: de-DE
-solution-size: 0
+solution-size: 75
 id: 2392208b-5263-42f8-a4d1-63cd2f7ebb8e
 ---
 

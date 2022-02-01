@@ -9,8 +9,17 @@ keywords:
     - major: computer science
     - institution: Technische Hochschule Mittelhessen
     - course: Algorithmen und Datenstrukturen
+    - requires: array list
+    - requires: streams
+    - requires: functional programming
+    - teaches: functional programming
+    - teaches: lazy evaluation
+    - requires: lambdas
+    - requires: classes
+    - requires: functions
+    - submission: code
 lang: de-DE
-solution-size: 0
+solution-size: 40
 id: b8d4a317-1a64-4399-9798-d510917a6d0b
 ---
 

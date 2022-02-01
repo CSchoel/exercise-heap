@@ -9,8 +9,13 @@ keywords:
     - major: computer science
     - institution: Technische Hochschule Mittelhessen
     - course: Algorithmen und Datenstrukturen
+    - teaches: big O notation
+    - requires: loops
+    - requires: functions
+    - submission: code
+    - references: 2f66f9c6-d484-48b2-9417-dcd5f31472ff
 lang: de-DE
-solution-size: 0
+solution-size: 80
 id: 609ca7ef-43b0-4ea0-a60b-1a44582b6a03
 ---
 
@@ -66,6 +71,9 @@ algorithm permutations(list: List<Integer>): List<List<Integer>>
 Der obige Pseudocode soll Ihnen nur helfen. Sie müssen den Algorithmus nicht genauso implementieren.
 
 #### Achtung:
-Da der Algorithmus `permutations` hier im Pseudocode rekursiv ist, kommt man bei größeren Listen (ca. mehr als 10 Elemente) schnell an die Grenzen, da es dann entsprechend viele Permutationen gibt: Bei n Elementen n!. Bei großen Listen ist dann schnell der Arbeitsspeicher überfordert. Aber auch iterative Varianten brauchen relativ viel Rechenzeit.
+
+Der Algorithmus `permutations` ist in O(n!).
+Bei großen Listen ist daher schnell der Arbeitsspeicher überfordert.
+Das ist bei dieser Aufgabe erwünscht, achten Sie aber darauf, Ihre Lösung nicht mit zu großen Listen zu testen.
 
 Bspw. werden für eine Liste mit 7 Elementen schon 7! = 5040 Permutationen erzeugt!

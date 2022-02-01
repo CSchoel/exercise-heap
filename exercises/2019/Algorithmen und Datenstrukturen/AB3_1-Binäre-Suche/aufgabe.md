@@ -9,8 +9,11 @@ keywords:
     - major: computer science
     - institution: Technische Hochschule Mittelhessen
     - course: Algorithmen und Datenstrukturen
+    - submission: program output
+    - teaches: binary search
+    - requires: binary search
 lang: de-DE
-solution-size: 0
+solution-size: 10
 id: 64edc4d1-f813-4643-a1fc-e22c1688f416
 ---
 

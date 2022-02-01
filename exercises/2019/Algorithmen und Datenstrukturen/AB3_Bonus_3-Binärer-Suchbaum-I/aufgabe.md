@@ -9,8 +9,16 @@ keywords:
     - major: computer science
     - institution: Technische Hochschule Mittelhessen
     - course: Algorithmen und Datenstrukturen
+    - requires: interfaces
+    - requires: classes
+    - requires: binary search
+    - requires: binary search tree
+    - requires: generics
+    - teaches: binary search tree
+    - teaches: binary search
+    - submission: code
 lang: de-DE
-solution-size: 0
+solution-size: 180
 id: 66789e3c-40dd-4af3-b008-04051ab60b5c
 ---
 
@@ -95,7 +103,7 @@ Bitte beachten Sie, dass im Foliensatz 10 diese Algorithmen in ähnlicher Form v
 Die dort aufgeführten Algorithmen sind jedoch für binäre Suchbäume gedacht, die Elemente **mehrfach** enthalten können.
 
 ### Pseudocode für `contains` auf Basis von `bsearch`
-```java
+```scala
 algorithm bsearch(haystack: BTNode<E>, needle: E)
   if haystack = None then
     return None
@@ -107,7 +115,7 @@ algorithm bsearch(haystack: BTNode<E>, needle: E)
     return bsearch(left(haystack), needle)
 ```
 
-```java
+```scala
 algorithm contains(haystack: BTNode<E>, needle: E)
   if bsearch(haystack, needle) = None then
     return false
@@ -116,7 +124,7 @@ algorithm contains(haystack: BTNode<E>, needle: E)
 ```
 
 ### Pseudocode für `add`
-```java
+```scala
 algorithm sortedInsert(tree: BTNode<E>, el: E)
   next: BTNode<E>
   if el < value(tree) then
@@ -131,7 +139,7 @@ algorithm sortedInsert(tree: BTNode<E>, el: E)
 ```
 
 ### Pseudocode für `remove`
-```java
+```scala
 algorithm remove(tree: BTree<E>, el: E)
   tempRoot := new BTNode<E>(None, root(tree))
   res := sortedRemove(root(tree), tempRoot, el)

@@ -1,7 +1,6 @@
 ---
 title: aufgabe
 author:
-    - AuD-Tutoren
     - Christopher Schölzel
 keywords:
     - language: java
@@ -9,8 +8,15 @@ keywords:
     - major: computer science
     - institution: Technische Hochschule Mittelhessen
     - course: Algorithmen und Datenstrukturen
+    - requires: tree
+    - teaches: research
+    - teaches: writing
+    - teaches: trie
+    - submission: text
+    - submission: image
+    - approved: Christopher Schölzel
 lang: de-DE
-solution-size: 0
+solution-size: 25
 id: 0a91ec71-cacf-4a76-a472-dc798bb9b699
 ---
 
