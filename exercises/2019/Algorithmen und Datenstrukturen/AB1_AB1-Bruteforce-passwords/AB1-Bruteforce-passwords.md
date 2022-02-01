@@ -9,8 +9,12 @@ keywords:
     - major: computer science
     - institution: Technische Hochschule Mittelhessen
     - course: Algorithmen und Datenstrukturen
+    - requires: loops
+    - requires: array list
+    - teaches: brute force
+    - submission: code
 lang: de-DE
-solution-size: 0
+solution-size: 50
 id: 7aa2d116-27e6-447d-93b5-3e9f2c70f31e
 ---
 

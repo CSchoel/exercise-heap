@@ -12,6 +12,7 @@ keywords:
 - teaches: jar
 - teaches: executable
 - submission: executable
+- previous: cd077451-7d1b-42d7-aa5c-1a048e4b1ebe
 lang: de-DE
 solution-size: 1
 source: https://git.thm.de/cslz90/oop-cs

@@ -9,8 +9,13 @@ keywords:
     - major: computer science
     - institution: Technische Hochschule Mittelhessen
     - course: Algorithmen und Datenstrukturen
+    - requires: generics
+    - teaches: generics
+    - teaches: research
+    - teaches: writing
+    - requires: classes
 lang: de-DE
-solution-size: 0
+solution-size: 15
 id: 658e251d-8333-41f2-8493-eeaf4d7d0778
 ---
 

@@ -9,7 +9,10 @@ keywords:
     - institution: Technische Hochschule Mittelhessen
     - institution: Justus-Liebig-Universität
     - course: Objektorientierte Programmierung
-    - subject: functions
+    - requires: functions
+    - requires: print
+    - teaches: functions
+    - submission: code
 lang: de-DE
 solution-size: 3
 source: https://git.thm.de/cslz90/bimoop-cs

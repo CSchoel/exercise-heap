@@ -4,13 +4,18 @@ author:
     - AuD-Tutoren
     - Christopher Schölzel
 keywords:
-    - language: java
+    - language: any
     - semester: 2
     - major: computer science
     - institution: Technische Hochschule Mittelhessen
     - course: Algorithmen und Datenstrukturen
+    - requires: loops
+    - submission: code
+    - submission: program output
+    - requires: loops
+    - requires: file input
 lang: de-DE
-solution-size: 0
+solution-size: 60
 id: 110ef84a-aa0b-43e5-bd42-d287d8e55c02
 ---
 

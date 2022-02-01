@@ -9,8 +9,14 @@ keywords:
     - major: computer science
     - institution: Technische Hochschule Mittelhessen
     - course: Algorithmen und Datenstrukturen
+    - requires: haskell
+    - requires: classes
+    - requires: functions
+    - requires: generics
+    - teaches: linked list
+    - teaches: immutability
 lang: de-DE
-solution-size: 0
+solution-size: 120
 id: 5f12b2d0-dfab-481e-9568-7934890db2ee
 ---
 
@@ -18,7 +24,7 @@ id: 5f12b2d0-dfab-481e-9568-7934890db2ee
 
 Erinnern Sie sich an ihre Notizen zu Funktionen für diese Aufgabe.
 
-```Scala
+```Haskell
 -- a custom list type
 -- either empty (Nil) or an element and the rest of the list (Cons element tail)
 sealed trait LList[E]

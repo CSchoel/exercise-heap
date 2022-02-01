@@ -9,14 +9,20 @@ keywords:
     - major: computer science
     - institution: Technische Hochschule Mittelhessen
     - course: Algorithmen und Datenstrukturen
+    - requires: functions
+    - requires: classes
+    - requires: maps
+    - teaches: object-oriented design
+    - submission: code
 lang: de-DE
-solution-size: 0
+solution-size: 20
 id: c8e31243-c674-4d77-ad84-0370bf04238a
 ---
 
 # [Bonus] The magical Pot  
 
 ## Aufgabe 1
+
 ### Dauer: ca. 15 Min (3 XP)
 
 #### Beschreibung:
@@ -36,7 +42,7 @@ Hierbei fügt die `brew`-Methode erst `volumeWater` zum aktuellen Füllstand hin
 
 * Diese Map können Sie nutzen:
 	```java
-	private Map ingredients = new HashMap();
+	private Map<String, Float> ingredients = new HashMap();
 	ingredients.put("Wolfsmilch", 0.25);
 	ingredients.put("Krötenwurz", 2);
 	ingredients.put("Sonnenkraut", 0.1);

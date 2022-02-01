@@ -9,8 +9,15 @@ keywords:
     - major: computer science
     - institution: Technische Hochschule Mittelhessen
     - course: Algorithmen und Datenstrukturen
+    - teaches: linked list
+    - teaches: immutability
+    - requires: generics
+    - requires: lambda
+    - teaches: lambda
+    - teaches: functional programming
+    - submission: code
 lang: de-DE
-solution-size: 0
+solution-size: 250
 id: e13cfb69-cf9a-4b5d-8641-60ba4952652c
 ---
 

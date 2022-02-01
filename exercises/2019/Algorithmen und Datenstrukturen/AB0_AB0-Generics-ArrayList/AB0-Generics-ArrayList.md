@@ -9,15 +9,21 @@ keywords:
     - major: computer science
     - institution: Technische Hochschule Mittelhessen
     - course: Algorithmen und Datenstrukturen
+    - submission: code
+    - requires: array list
+    - teaches: array list
+    - requires: classes
+    - requires: functions
 lang: de-DE
-solution-size: 0
+solution-size: 65
 id: f2f5cb8f-69dc-460c-85ce-8cf1c5188bb7
 ---
 
 # ArrayList
+
 ## Aufgabe
 
-Erstellen Sie in Java eine generische Klasse `GenericArrayList` in einem Package `arraylist` mit einem Konstruktor, der die Kapazität des GenericArrayBasilist übergeben bekommt.
+Erstellen Sie in Java eine generische Klasse `GenericArrayList` in einem Package `arraylist` mit einem Konstruktor, der die Kapazität der Liste übergeben bekommt.
 Implementieren Sie das folgende generische Interface GenericList und vervollständigen Sie die Methoden:
 
 ```java

@@ -9,7 +9,13 @@ keywords:
     - institution: Technische Hochschule Mittelhessen
     - institution: Justus-Liebig-Universität
     - course: Objektorientierte Programmierung
-    - subject: functions
+    - teaches: functions
+    - requires: arithmetic operators
+    - requries: loops
+    - previous: ca3acf1d-e7bd-4a06-b293-b23820dfb16b
+    - references: ca3acf1d-e7bd-4a06-b293-b23820dfb16b
+    - domain: stochastics
+    - submission: code
 lang: de-DE
 solution-size: 5
 source: https://git.thm.de/cslz90/bimoop-cs

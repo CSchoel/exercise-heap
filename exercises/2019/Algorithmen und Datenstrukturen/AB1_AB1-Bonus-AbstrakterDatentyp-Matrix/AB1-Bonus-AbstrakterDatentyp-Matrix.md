@@ -9,8 +9,15 @@ keywords:
     - major: computer science
     - institution: Technische Hochschule Mittelhessen
     - course: Algorithmen und Datenstrukturen
+    - requires: loops
+    - requires: classes
+    - requires: interfaces
+    - teaches: object-oriented design
+    - teaches: performance
+    - teaches: paging
+    - teaches: abstract datatypes
 lang: de-DE
-solution-size: 0
+solution-size: 400
 id: 3def2ed5-017d-4060-835d-c9f951f0757a
 ---
 
