@@ -8,9 +8,11 @@ keywords:
 - major: computer science
 - institution: Technische Hochschule Mittelhessen
 - course: Objektorientierte Programmierung
-- type: research
+- teaches: research
+- teaches: bytecode
+- submission: text
 lang: de-DE
-solution-size: 100
+solution-size: 1
 source: https://git.thm.de/cslz90/oop-cs
 title: 'Java Virtual Machine Specification lesen'
 ---

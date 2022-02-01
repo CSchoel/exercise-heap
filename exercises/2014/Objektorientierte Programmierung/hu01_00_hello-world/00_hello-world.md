@@ -9,6 +9,9 @@ keywords:
 - institution: Technische Hochschule Mittelhessen
 - course: Objektorientierte Programmierung
 - requires: Eclipse
+- teaches: print
+- teaches: eclipse
+- teaches: javadoc
 lang: de-DE
 solution-size: 10
 source: https://git.thm.de/cslz90/oop-cs

@@ -8,9 +8,11 @@ keywords:
 - major: computer science
 - institution: Technische Hochschule Mittelhessen
 - course: Objektorientierte Programmierung
-- type: research
+- teaches: research
+- teaches: floating point arithmetic
+- submission: text
 lang: de-DE
-solution-size: 100
+solution-size: 2
 source: https://git.thm.de/cslz90/oop-cs
 title: 'Java Language Specification lesen '
 ---

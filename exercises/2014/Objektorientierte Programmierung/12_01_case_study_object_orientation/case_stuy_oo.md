@@ -8,7 +8,19 @@ keywords:
     - major: computer science
     - institution: Technische Hochschule Mittelhessen
     - course: Objektorientierte Programmierung
-    - subject: object orientation
+    - teaches: object orientation
+    - teaches: ineritance
+    - domain: chemistry
+    - requires: interfaces
+    - requires: inheritance
+    - requires: array
+    - requires: file input
+    - requires: file output
+    - requires: list
+    - requires: regex
+    - requires: uml
+    - submission: code
+    - submission: uml
 lang: de-DE
 solution-size: 100
 source: https://git.thm.de/cslz90/oop-cs

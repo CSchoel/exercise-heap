@@ -9,8 +9,11 @@ keywords:
 - institution: Technische Hochschule Mittelhessen
 - course: Objektorientierte Programmierung
 - requires: Eclipse
+- teaches: jar
+- teaches: executable
+- submission: executable
 lang: de-DE
-solution-size: 100
+solution-size: 1
 source: https://git.thm.de/cslz90/oop-cs
 title: Jar-Datei
 ---
