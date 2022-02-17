@@ -11,7 +11,14 @@ jobs:
     if: ${{ (contains(github.event.issue.body, '#import') && !github.event.comment) || contains(github.event.comment.body, '#import') }}
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+      - run: echo -e '${{ github.event.issue.body }}' > "exercises/$(date +%Y)/actions-import/${{ github.event.issue.title }}/exercise.md"
       - run: |
-          gh issue comment ${{ github.event.issue.html_url }} -b "Hi, I am your import-bot. :wave: Currently I am useless, but I will do better in the future! :muscle:"
+          git checkout -b "import#${{ github.event.issue.number }}"
+          git add .
+          git commit -m "import ${{ github.event.issue.title }}"
+          git push origin "import#${{ github.event.issue.number }}"
+      - run: |
+          gh issue comment ${{ github.event.issue.html_url }} -b "Hi, I am your import-bot. :wave: I have created the branch import#${{github.event.issue.number}} for you! :muscle:"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
