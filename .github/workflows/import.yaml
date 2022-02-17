@@ -8,8 +8,8 @@ on:
 
 jobs:
   create_pull_request:
-    if: ${{ contains(github.event.issue.comment.body, "@import") }}
+    if: ${{ (contains(github.event.issue.body, "@import") && !github.event.comment) || contains(github.event.comment.body, "@import") }}
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo ${{ github.event.issue.comment.body }}
+          gh issue comment ${{ github.event.issue.url }} -b "Hi, I am your import-bot. :wave: Currently I am useless, but I will do better in the future! :muscle:"
