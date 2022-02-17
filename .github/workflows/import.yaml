@@ -13,3 +13,5 @@ jobs:
     steps:
       - run: |
           gh issue comment ${{ github.event.issue.url }} -b "Hi, I am your import-bot. :wave: Currently I am useless, but I will do better in the future! :muscle:"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
