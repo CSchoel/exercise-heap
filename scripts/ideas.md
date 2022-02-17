@@ -9,3 +9,6 @@
 * Suggest tags to add/removed based on tags of other exercises instead of content.
 * Collect meta-rules for tags that always/never go together?
 * Use WordNet to search for tags that are synonymous with each other
+* Website to generate pull requests to make importing easier
+  * Maybe using GitHub bots?
+  * Github-pages with Javascript to generate YAML header
