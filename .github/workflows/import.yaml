@@ -12,10 +12,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Create exercise folder if required
+        id: create_dir
+        run: |
+          EXDIR="exercises/$(date +%Y)/actions-import/${{ github.event.issue.title }}"
+          mkdir -p "$EXDIR"
+          echo "::set-output name=exdir::$EXDIR"
       - run: |
-          cat > "exercises/$(date +%Y)/actions-import/${{ github.event.issue.title }}/exercise.md" << EOF
+          cat > "$EXDIR/exercise.md" << EOF
           ${{ github.event.issue.body }}
           EOF
+        env:
+          EXDIR: ${{ steps.create_dir.outputs.exdir }}
       - run: |
           git checkout -b "import#${{ github.event.issue.number }}"
           git add .
