@@ -8,7 +8,7 @@ on:
 
 jobs:
   create_pull_request:
-    if: ${{ (contains(github.event.issue.body, "@import") && !github.event.comment) || contains(github.event.comment.body, "@import") }}
+    if: ${{ (contains(github.event.issue.body, '#import') && !github.event.comment) || contains(github.event.comment.body, '#import') }}
     runs-on: ubuntu-latest
     steps:
       - run: |
