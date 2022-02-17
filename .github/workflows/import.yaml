@@ -25,10 +25,14 @@ jobs:
         env:
           EXDIR: ${{ steps.create_dir.outputs.exdir }}
       - run: |
+          git config user.email "$USER_EMAIL"
+          git config user.name "Import bot"
           git checkout -b "import#${{ github.event.issue.number }}"
           git add .
           git commit -m "import ${{ github.event.issue.title }}"
           git push origin "import#${{ github.event.issue.number }}"
+        env:
+          USER_EMAIL: ${{ secrets.USER_EMAIL }}
       - run: |
           gh issue comment ${{ github.event.issue.html_url }} -b "Hi, I am your import-bot. :wave: I have created the branch import#${{github.event.issue.number}} for you! :muscle:"
         env:
