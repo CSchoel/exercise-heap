@@ -1,0 +1,15 @@
+on:
+  issues:
+    types:
+      - opened
+  issue_comment:
+    types:
+      - created
+
+jobs:
+  create_pull_request:
+    if: ${{ contains(github.event.issue.comment.body, "@import") }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo ${{ github.event.issue.comment.body }}
