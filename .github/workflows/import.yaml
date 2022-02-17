@@ -12,7 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: echo -e '${{ github.event.issue.body }}' > "exercises/$(date +%Y)/actions-import/${{ github.event.issue.title }}/exercise.md"
+      - run: |
+          cat > "exercises/$(date +%Y)/actions-import/${{ github.event.issue.title }}/exercise.md" << EOF
+          ${{ github.event.issue.body }}
+          EOF
       - run: |
           git checkout -b "import#${{ github.event.issue.number }}"
           git add .
