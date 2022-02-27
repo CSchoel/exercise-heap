@@ -58,4 +58,4 @@ if __name__ == "__main__":
                     shutil.copy2(p, exout / "test")
             shutil.rmtree(exout / "res")
         # strip header from exercise description
-        strip_header(outdir / ex.name)
+        strip_header(exout / ex.name)
