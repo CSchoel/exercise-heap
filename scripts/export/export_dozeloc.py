@@ -36,6 +36,7 @@ if __name__ == "__main__":
     exercises =  list(Path("../../exercises").glob("*/*/*/*.md"))
     headers = [get_header(x) for x in exercises]
     exercises = [(x, h) for x, h in zip(exercises, headers) if {"language": "python"} in h["keywords"]]
+    exercises.sort()
     headers = [x[1] for x in exercises]
     exercises = [x[0] for x in exercises]
     titles = ["{:03d}_{}".format(i, h["title"].replace("/","_")) for i, h in enumerate(headers)]
