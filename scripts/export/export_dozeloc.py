@@ -28,11 +28,11 @@ def strip_header(exfile: Path):
 
 
 if __name__ == "__main__":
-    os.chdir(Path(__file__).parent)
-    outdir = Path("../../export/dozeloc")
+    outdir = Path(__file__).parent.parent / "export" / "dozeloc"
     if len(sys.argv) > 1:
-        outdir = Path(sys.argv[1])
+        outdir = Path(sys.argv[1]).absolute()
     outdir.mkdir(parents=True, exist_ok=True)
+    os.chdir(Path(__file__).parent)
     exercises =  list(Path("../../exercises").glob("*/*/*/*.md"))
     headers = [get_header(x) for x in exercises]
     exercises = [(x, h) for x, h in zip(exercises, headers) if {"language": "python"} in h["keywords"]]
