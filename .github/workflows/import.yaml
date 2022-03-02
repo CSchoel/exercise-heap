@@ -12,33 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Create exercise folder if required
-        id: create_dir
-        run: |
-          EXDIR="exercises/$(date +%Y)/actions-import/$TITLE"
-          mkdir -p "$EXDIR"
-          echo "::set-output name=exdir::$EXDIR"
-        env:
-          TITLE: ${{ github.event.issue.title }}
-      - run: |
-          echo "$BODY" > "$EXDIR/exercise.md"
-        env:
-          EXDIR: ${{ steps.create_dir.outputs.exdir }}
-          BODY: ${{ github.event.issue.body }}
-      - run: |
-          git config user.email "$USER_EMAIL"
-          git config user.name "Import bot"
-          git checkout -b "import#$NUMBER"
-          git add .
-          git commit -m "import $TITLE"
-          git push origin "import#$NUMBER"
-        env:
-          USER_EMAIL: ${{ secrets.USER_EMAIL }}
-          TITLE: ${{ github.event.issue.title }}
-          NUMBER: ${{ github.event.issue.number }}
-      - run: |
-          gh issue comment "$ISSUE_URL" -b "Hi, I am your import-bot. :wave: I have created the branch import#$NUMBER for you! :muscle:"
+      - name: Run porty script
+        run: scripts/import/porty.py import
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ISSUE_URL: ${{ github.event.issue.html_url }}
-          NUMBER: ${{ github.event.issue.number }}
