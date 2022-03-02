@@ -32,7 +32,7 @@ def maybe_run(args, env=None, dry=False, capture_output=False):
             return ""
     else:
         try:
-            res = subprocess.run(args, env=env, check=True, capture_output=capture_output)
+            res = subprocess.run(args, env=env, check=True, capture_output=capture_output, text=True)
         except subprocess.CalledProcessError as err:
             print(err.stdout, file=sys.stdout)
             print(err.stderr, file=sys.stderr)
