@@ -71,9 +71,9 @@ def create_pr(event, github_token, dry=False):
     ], dry=dry)
     maybe_run(["git", "push", "origin", f"import#{number}"], dry=dry)
 
-    msg = textwrap.dedent("""
+    msg = textwrap.dedent(f"""
         Hi, I am Porty, your friendly import bot. :wave:
-        I have created the branch import#$NUMBER for you! :muscle:
+        I have created the branch import#{number} for you! :muscle:
 
         P.S.: I speak Python now. :snake:
     """)
