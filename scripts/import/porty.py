@@ -9,8 +9,19 @@ import json
 import datetime
 import subprocess
 import textwrap
+import shlex
 
-def create_pr(event, github_token):
+def maybe_run(args, env=None, dry=False):
+    """
+    Allows to switch between actually running a subprocess and
+    doing a dry run that only prints the command.
+    """
+    if dry:
+        print(shlex.join(args))
+    else:
+        subprocess.run(args, env=env, check=True)
+
+def create_pr(event, github_token, dry=False):
     """
     Creates a pull request from the content of the issue that triggered
     this function call.
@@ -22,8 +33,12 @@ def create_pr(event, github_token):
     body = event["issue"]["body"]
     issue_url = event["issue"]["html_url"]
     exdir = Path(f"exercises/{datetime.date.today.year}/{user}/{title}")
-    exdir.mkdir(exist_ok=True, parents=True)
-    (exdir / "exercise.md").write_text(body,"utf-8")
+    if not dry:
+        exdir.mkdir(exist_ok=True, parents=True)
+        (exdir / "exercise.md").write_text(body,"utf-8")
+    else:
+        print(f"mkdir -p {exdir}")
+        print(f"touch {exdir / 'exercise.md'}")
     git_env = {
         "GIT_AUTHOR_NAME": user,
         "GIT_AUTHOR_EMAIL": f"{user_id}+{user}@users.noreply.github.com",
@@ -33,10 +48,10 @@ def create_pr(event, github_token):
     gh_env = {
         "GITHUB_TOKEN": github_token
     }
-    subprocess.run(["git", "checkout", "-b", f"import#{number}"], check=True)
-    subprocess.run(["git", "add", "."], check=True)
-    subprocess.run(['git', 'commit', '-m', f"import {title}"], env=git_env, check=True)
-    subprocess.run(["git", "push", "origin", "import#{number}"], check=True)
+    maybe_run(["git", "checkout", "-b", f"import#{number}"], dry=dry)
+    maybe_run(["git", "add", "."], dry=dry)
+    maybe_run(['git', 'commit', '-m', f"import {title}"], env=git_env, dry=dry)
+    maybe_run(["git", "push", "origin", "import#{number}"], dry=dry)
 
     msg = textwrap.dedent("""
         Hi, I am Porty, your friendly import bot. :wave:
@@ -44,7 +59,7 @@ def create_pr(event, github_token):
 
         P.S.: I speak Python now. :snake:
     """)
-    subprocess.run(["gh", "issue", "comment", issue_url, "-b", msg], check=True, env=gh_env)
+    maybe_run(["gh", "issue", "comment", issue_url, "-b", msg], env=gh_env, dry=dry)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(prog="Porty", description="Your friendly import bot")
@@ -60,4 +75,5 @@ if __name__ == "__main__":
 
     # save event data
     event = json.loads(Path(os.environ["GITHUB_EVENT_PATH"]).read_text("utf-8"))
+    create_pr(event, os.environ["GITHUB_TOKEN"])
     print(event)
