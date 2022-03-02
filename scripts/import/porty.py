@@ -3,6 +3,9 @@
 
 import argparse
 import sys
+import os
+from pathlib import Path
+import json
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(prog="Porty", description="Your friendly import bot")
@@ -15,3 +18,7 @@ if __name__ == "__main__":
     update_parser = subparsers.add_parser("update")
 
     args = parser.parse_args(sys.argv[1:])
+
+    # save event data
+    event = json.loads(Path(os.environ["GITHUB_EVENT_PATH"]).read_text("utf-8"))
+    print(event)
