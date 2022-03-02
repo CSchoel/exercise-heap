@@ -31,7 +31,12 @@ def maybe_run(args, env=None, dry=False, capture_output=False):
         if capture_output:
             return ""
     else:
-        res = subprocess.run(args, env=env, check=True, capture_output=capture_output)
+        try:
+            res = subprocess.run(args, env=env, check=True, capture_output=capture_output)
+        except subprocess.CalledProcessError:
+            print(res.stdout, file=sys.stdout)
+            print(res.stderr, file=sys.stderr)
+            raise
         if capture_output:
             return res.stdout
 
