@@ -8,6 +8,7 @@ from pathlib import Path
 import json
 import datetime
 import subprocess
+import textwrap
 
 def create_pr(event, github_token):
     """
@@ -37,7 +38,12 @@ def create_pr(event, github_token):
     subprocess.run(['git', 'commit', '-m', f"import {title}"], env=git_env, check=True)
     subprocess.run(["git", "push", "origin", "import#{number}"], check=True)
 
-    msg = "Hi, I am Porty, your friendly import bot. :wave: I have created the branch import#$NUMBER for you! :muscle:"
+    msg = textwrap.dedent("""
+        Hi, I am Porty, your friendly import bot. :wave:
+        I have created the branch import#$NUMBER for you! :muscle:
+
+        P.S.: I speak Python now. :snake:
+    """)
     subprocess.run(["gh", "issue", "comment", issue_url, "-b", msg], check=True, env=gh_env)
 
 if __name__ == "__main__":
