@@ -44,7 +44,7 @@ def create_pr(event, github_token, dry=False):
     issue_url = event["issue"]["html_url"]
     exdir = (
         Path("exercises")
-        / datetime.date.today().year
+        / str(datetime.date.today().year)
         / user
         / "_".join([str(number).rjust(3, '0'), fs_sanitize(title)])
     )
