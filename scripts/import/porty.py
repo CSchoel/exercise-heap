@@ -29,13 +29,16 @@ def create_pr(event, github_token):
         "GIT_COMITTER_NAME": "Porty",
         "GIT_COMITTER_EMAIL": "41898282+github-actions[bot]@users.noreply.github.com"
     }
+    gh_env = {
+        "GITHUB_TOKEN": github_token
+    }
     subprocess.run(f"git checkout -b import#{number}", check=True)
     subprocess.run("git add .", check=True)
     subprocess.run(['git', 'commit', '-m', f"import {title}"], env=git_env, check=True)
     subprocess.run(f"git push origin import#{number}", check=True)
 
     msg = "Hi, I am Porty, your friendly import bot. :wave: I have created the branch import#$NUMBER for you! :muscle:"
-    subprocess.run(["gh", "issue", "comment", issue_url, "-b", msg], check=True)
+    subprocess.run(["gh", "issue", "comment", issue_url, "-b", msg], check=True, env=gh_env)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(prog="Porty", description="Your friendly import bot")
