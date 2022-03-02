@@ -62,18 +62,19 @@ def create_pr(event, github_token, dry=False):
         "git", "config", "user.email",
         "41898282+github-actions[bot]@users.noreply.github.com"
     ], dry=dry)
-    maybe_run(["git", "checkout", "-b", f"import#{number}"], dry=dry)
+    branch_name = f"import#{number}"
+    maybe_run(["git", "checkout", "-b", branch_name], dry=dry)
     maybe_run(["git", "add", "."], dry=dry)
     maybe_run([
         'git', 'commit',
         "--author", f"{user} <{user_id}+{user}@users.noreply.github.com>",
         '-m', f"import {title}"
     ], dry=dry)
-    maybe_run(["git", "push", "origin", f"import#{number}"], dry=dry)
+    maybe_run(["git", "push", "origin", branch_name], dry=dry)
 
     msg = textwrap.dedent(f"""
         Hi, I am Porty, your friendly import bot. :wave:
-        I have created the branch import#{number} for you! :muscle:
+        I have created the branch {branch_name} for you! :muscle:
 
         P.S.: I speak Python now. :snake:
     """)
