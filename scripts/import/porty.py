@@ -32,10 +32,10 @@ def create_pr(event, github_token):
     gh_env = {
         "GITHUB_TOKEN": github_token
     }
-    subprocess.run(f"git checkout -b import#{number}", check=True)
-    subprocess.run("git add .", check=True)
+    subprocess.run(["git", "checkout", "-b", f"import#{number}"], check=True)
+    subprocess.run(["git", "add", "."], check=True)
     subprocess.run(['git', 'commit', '-m', f"import {title}"], env=git_env, check=True)
-    subprocess.run(f"git push origin import#{number}", check=True)
+    subprocess.run(["git", "push", "origin", "import#{number}"], check=True)
 
     msg = "Hi, I am Porty, your friendly import bot. :wave: I have created the branch import#$NUMBER for you! :muscle:"
     subprocess.run(["gh", "issue", "comment", issue_url, "-b", msg], check=True, env=gh_env)
