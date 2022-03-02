@@ -21,15 +21,19 @@ def fs_sanitize(string):
     filtered = [c for c in string if c.isalnum() or c in allowed]
     return "".join(filtered)
 
-def maybe_run(args, env=None, dry=False):
+def maybe_run(args, env=None, dry=False, capture_output=False):
     """
     Allows to switch between actually running a subprocess and
     doing a dry run that only prints the command.
     """
     if dry:
         print(shlex.join(args))
+        if capture_output:
+            return ""
     else:
-        subprocess.run(args, env=env, check=True)
+        res = subprocess.run(args, env=env, check=True, capture_output=capture_output)
+        if capture_output:
+            return res.stdout
 
 def create_pr(event, github_token, dry=False):
     """
@@ -73,10 +77,21 @@ def create_pr(event, github_token, dry=False):
     maybe_run(["git", "push", "origin", branch_name], dry=dry)
 
     msg = textwrap.dedent(f"""
-        Hi, I am Porty, your friendly import bot. :wave:
+        Hey, Porty the import bot here. I have created this pull \
+        request from issue #{number} for you. Currently you can \
+        only accept it as is, but in the future I will learn to \
+        do some updates if you are not happy right away. :student:
+    """)
+    pr_url = maybe_run([
+        "gh", "pr", "create", "-d", "--title", f"Import: {title}",
+        "--body", msg
+    ], dry=dry, env=gh_env, capture_output=True)
+
+    msg = textwrap.dedent(f"""
+        Hi, I am Porty, your friendly import bot. :wave: \
         I have created the branch {branch_name} for you! :muscle:
 
-        P.S.: I speak Python now. :snake:
+        See you at the corresponding pull request: {pr_url.strip()}. :smile:
     """)
     maybe_run(["gh", "issue", "comment", issue_url, "-b", msg], env=gh_env, dry=dry)
 
