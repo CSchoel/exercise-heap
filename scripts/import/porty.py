@@ -13,6 +13,14 @@ import subprocess
 import textwrap
 import shlex
 
+def fs_sanitize(string):
+    """
+    Sanitizes a string for use in the file system.
+    """
+    allowed = frozenset(" ._-=@")
+    filtered = [c for c in string if c.isalnum() or c in allowed]
+    return "".join(filtered)
+
 def maybe_run(args, env=None, dry=False):
     """
     Allows to switch between actually running a subprocess and
@@ -34,7 +42,7 @@ def create_pr(event, github_token, dry=False):
     number = event['issue']['number']
     body = event["issue"]["body"]
     issue_url = event["issue"]["html_url"]
-    exdir = Path(f"exercises/{datetime.date.today().year}/{user}/{title}")
+    exdir = Path(f"exercises/{datetime.date.today().year}/{user}/{str(number).rjust(3, '0')}{sanitize(title)}")
     if not dry:
         exdir.mkdir(exist_ok=True, parents=True)
         (exdir / "exercise.md").write_text(body,"utf-8")
