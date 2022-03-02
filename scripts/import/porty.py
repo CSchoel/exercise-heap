@@ -69,7 +69,7 @@ def create_pr(event, github_token, dry=False):
         "--author", f"{user} <{user_id}+{user}@users.noreply.github.com>",
         '-m', f"import {title}"
     ], dry=dry)
-    maybe_run(["git", "push", "origin", "import#{number}"], dry=dry)
+    maybe_run(["git", "push", "origin", f"import#{number}"], dry=dry)
 
     msg = textwrap.dedent("""
         Hi, I am Porty, your friendly import bot. :wave:
