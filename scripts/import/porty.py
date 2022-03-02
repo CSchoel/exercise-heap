@@ -64,7 +64,8 @@ def create_pr(event, github_token, dry=False):
         print(f"mkdir -p {exdir}")
         print(f"touch {exdir / 'exercise.md'}")
     gh_env = {
-        "GITHUB_TOKEN": github_token
+        "GITHUB_TOKEN": github_token,
+        "PATH": os.environ["PATH"]
     }
     maybe_run(["git", "config", "user.name", "Porty[bot]"], dry=dry)
     maybe_run([
