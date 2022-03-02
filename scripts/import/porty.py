@@ -54,18 +54,21 @@ def create_pr(event, github_token, dry=False):
     else:
         print(f"mkdir -p {exdir}")
         print(f"touch {exdir / 'exercise.md'}")
-    git_env = {
-        "GIT_AUTHOR_NAME": user,
-        "GIT_AUTHOR_EMAIL": f"{user_id}+{user}@users.noreply.github.com",
-        "GIT_COMITTER_NAME": "Porty",
-        "GIT_COMITTER_EMAIL": "41898282+github-actions[bot]@users.noreply.github.com"
-    }
     gh_env = {
         "GITHUB_TOKEN": github_token
     }
+    maybe_run(["git", "config", "user.name", "Porty[bot]"], dry=dry)
+    maybe_run([
+        "git", "config", "user.email",
+        "41898282+github-actions[bot]@users.noreply.github.com"
+    ], dry=dry)
     maybe_run(["git", "checkout", "-b", f"import#{number}"], dry=dry)
     maybe_run(["git", "add", "."], dry=dry)
-    maybe_run(['git', 'commit', '-m', f"import {title}"], env=git_env, dry=dry)
+    maybe_run([
+        'git', 'commit',
+        "--author", f"{user} <{user_id}+{user}@users.noreply.github.com>",
+        '-m', f"import {title}"
+    ], dry=dry)
     maybe_run(["git", "push", "origin", "import#{number}"], dry=dry)
 
     msg = textwrap.dedent("""
