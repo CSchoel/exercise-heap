@@ -32,7 +32,7 @@ def create_pr(event, github_token, dry=False):
     number = event['issue']['number']
     body = event["issue"]["body"]
     issue_url = event["issue"]["html_url"]
-    exdir = Path(f"exercises/{datetime.date.today.year}/{user}/{title}")
+    exdir = Path(f"exercises/{datetime.date.today().year}/{user}/{title}")
     if not dry:
         exdir.mkdir(exist_ok=True, parents=True)
         (exdir / "exercise.md").write_text(body,"utf-8")
