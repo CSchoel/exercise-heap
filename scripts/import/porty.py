@@ -63,10 +63,11 @@ def create_pr(event, github_token, dry=False):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(prog="Porty", description="Your friendly import bot")
-    subparsers = parser.add_subparsers()
+    subparsers = parser.add_subparsers(dest="action")
 
     # ./porty.py import
     import_parser = subparsers.add_parser("import")
+    import_parser.add_argument("--dry", "-d", action="store_true", help="do a dry run printing system calls instead of actuall performing them")
 
     # ./porty.py update
     update_parser = subparsers.add_parser("update")
@@ -75,5 +76,6 @@ if __name__ == "__main__":
 
     # save event data
     event = json.loads(Path(os.environ["GITHUB_EVENT_PATH"]).read_text("utf-8"))
-    create_pr(event, os.environ["GITHUB_TOKEN"])
-    print(event)
+
+    if args.action == "import":
+        create_pr(event, os.environ["GITHUB_TOKEN"], dry=args.dry)
