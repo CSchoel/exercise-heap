@@ -1,5 +1,7 @@
 #!/bin/env python3
-# Porty, your friendly import bot
+"""
+Porty, your friendly import bot
+"""
 
 import argparse
 import sys
