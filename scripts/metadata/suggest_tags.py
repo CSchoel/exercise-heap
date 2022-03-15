@@ -8,13 +8,14 @@ from functools import reduce
 import os
 import sys
 from typing import Any, List, Tuple, Dict, Callable, Union
-from pathlib import Path
-import nltk
 import math
 import re
 import operator as op
-import yaml
+from pathlib import Path
 import io
+
+import nltk
+import yaml
 
 # Type aliases
 WordCount = Dict[str, int]
