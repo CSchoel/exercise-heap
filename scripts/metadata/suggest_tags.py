@@ -167,11 +167,11 @@ def find_similar(exdir: Union[str, Path], queryfile: Path, num_results: int=5, e
             print(*explain_similarity(idx[r], queryvec), sep=os.linesep)
     return results
 
-def header(fname):
-    p = Path(fname)
+def header(fname: Path) -> str:
     """
     Extracts the YAML header of a markdown document as string.
     """
+    p = fname
     text = p.read_text(encoding="utf-8")
     head = re.search(r"^---$(.+?)^---$", text, flags=re.M | re.S)
     if head is None:
@@ -181,7 +181,7 @@ def header(fname):
     head = head.group(1).strip()
     return head
 
-def tags(fname):
+def tags(fname: Path) -> List[Dict[str, str]]:
     """
     Reads the ``keywords`` from a markdown document's YAML header.
     """
@@ -212,7 +212,7 @@ if __name__ == '__main__':
     nltk.download("punkt")
     nltk.download("stopwords")
     nb = find_similar(Path(__file__).parent.parent.parent / "exercises", sys.argv[1], explain=True)
-    add, rem = suggest_tags(tags(sys.argv[1]), [tags(x) for x in nb])
+    add, rem = suggest_tags(tags(Path(sys.argv[1])), [tags(x) for x in nb])
     print("Most similar exercises:")
     print(*nb, sep=os.linesep)
     print("Tags to add:")
