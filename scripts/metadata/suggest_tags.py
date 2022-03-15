@@ -82,11 +82,11 @@ def dict_reduce(func: Callable, dicts: List[dict], default=0) -> dict:
             res[k] = func(res[k], d[k])
     return res
 
-def dict_filter(func: Callable, dict: Dict):
+def dict_filter(func: Callable, data: Dict):
     """
     Filters out only those items of a dict that match the given predicate.
     """
-    return { k: v for k,v in dict.items() if func(k, v) }
+    return { k: v for k,v in data.items() if func(k, v) }
 
 def idf(dicts: List[WordCount]) -> IDF:
     """
