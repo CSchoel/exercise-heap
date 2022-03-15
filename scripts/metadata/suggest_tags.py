@@ -151,14 +151,14 @@ def build_index(files: List[Path]) -> Tuple[Index, IDF]:
     indices = [apply_idf(x, idfdict) for x in indices]
     return dict(zip(files, indices)), idfdict
 
-def find_similar(exdir: Union[str, Path], queryfile: str, num_results: int=5, explain: bool=False) -> List[Path]:
+def find_similar(exdir: Union[str, Path], queryfile: Path, num_results: int=5, explain: bool=False) -> List[Path]:
     """
     Finds the ``num_result`` documents in the directory ``exdir`` which are most similar to
     the document ``queryfile``.
     """
     files = list(Path(exdir).glob("*/*/*/*.md"))
     idx, idfs = build_index(files)
-    query = Path(queryfile).read_text(encoding="utf-8")
+    query = queryfile.read_text(encoding="utf-8")
     results = query_index(idx, idfs, query, num_results)
     if explain:
         queryvec = apply_idf(indexify(query), idfs)
