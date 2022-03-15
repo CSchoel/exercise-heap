@@ -177,7 +177,7 @@ def header(fname):
     if head is None:
         raise Exception(f"{p} does not contain a YAML header")
     if head.start() != 0:
-        raise Exception(f"{p} has a YAML block, which is not at the beginning of the file but at postion {header.start()}")
+        raise Exception(f"{p} has a YAML block, which is not at the beginning of the file but at postion {head.start()}")
     head = head.group(1).strip()
     return head
 
