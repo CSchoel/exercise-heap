@@ -187,8 +187,8 @@ def tags(fname):
     """
     head = header(fname)
     yhead = yaml.safe_load(io.StringIO(head))
-    tags = yhead["keywords"]
-    return tags
+    parsed_tags = yhead["keywords"]
+    return parsed_tags
 
 def suggest_tags(tags: List[Any], other_tags: List[List[Any]], padd: int=50, prem: int=20):
     """
