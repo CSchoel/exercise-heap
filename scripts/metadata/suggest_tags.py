@@ -204,7 +204,7 @@ def suggest_tags(cur_tags: List[Any], other_tags: List[List[Any]], padd: int=50,
     hashable_tags = [make_hashable(x) for x in cur_tags]
     cadd = len(other_tags) * padd / 100
     crem = len(other_tags) * prem / 100
-    to_add = [x for x in tagcount.keys() if tagcount.get(x, 0) >= cadd and x not in hashable_tags]
+    to_add = [x for x in tagcount if tagcount.get(x, 0) >= cadd and x not in hashable_tags]
     to_remove = [x for x in hashable_tags if tagcount.get(x, 0) <= crem]
     return to_add, to_remove
 
