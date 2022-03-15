@@ -190,7 +190,7 @@ def tags(fname):
     parsed_tags = yhead["keywords"]
     return parsed_tags
 
-def suggest_tags(tags: List[Any], other_tags: List[List[Any]], padd: int=50, prem: int=20):
+def suggest_tags(cur_tags: List[Any], other_tags: List[List[Any]], padd: int=50, prem: int=20):
     """
     Suggests tags based on current tags ``cur_tags`` and tags of similar documents
     stored in ``other_tags``:
@@ -201,7 +201,7 @@ def suggest_tags(tags: List[Any], other_tags: List[List[Any]], padd: int=50, pre
       it is suggested as a tag to remove.
     """
     tagcount = count(sum(other_tags, start=[]))
-    hashable_tags = [make_hashable(x) for x in tags]
+    hashable_tags = [make_hashable(x) for x in cur_tags]
     cadd = len(other_tags) * padd / 100
     crem = len(other_tags) * prem / 100
     to_add = [x for x in tagcount.keys() if tagcount.get(x, 0) >= cadd and x not in hashable_tags]
