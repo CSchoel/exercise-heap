@@ -16,4 +16,4 @@ if __name__ == "__main__":
     data = lxml.etree.parse(args.file)
     tags = data.xpath(f"//row[@Count>{args.mincount}]/@TagName")
     tags = [x.replace("-", " ") for x in tags]
-    print(tags)
+    print(*tags, sep="\n")
