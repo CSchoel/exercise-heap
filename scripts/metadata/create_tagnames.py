@@ -5,7 +5,6 @@ Creates list of tag names from Stack Exchange Data Dump
 
 import argparse
 import sys
-from pathlib import Path
 import lxml.etree
 
 if __name__ == "__main__":
