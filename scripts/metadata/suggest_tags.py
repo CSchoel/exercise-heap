@@ -212,10 +212,10 @@ def suggest_tags_termlist(exfile: Path):
     """
     Suggests tags based on ontology terms.
     """
-    terms = sum(
+    terms = sum([
         f.read_text("utf-8").splitlines()
         for f in (Path(__file__).parent / "setags").iterdir()
-    )
+    ], start=[])
     print(terms)
     # possible sources for tags:
     # ACM Computing Classification System (https://dl.acm.org/ccs)
