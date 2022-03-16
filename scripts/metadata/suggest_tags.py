@@ -226,7 +226,7 @@ def suggest_tags_termlist(exfile: Path):
         t for t in terms
         if len(re.findall(r"\b%s\b" % re.escape(t), text)) > 0
     ]
-    print(suggestions)
+    return suggestions
     # possible sources for tags:
     # ACM Computing Classification System (https://dl.acm.org/ccs)
     # Computer Science Ontology (https://cso.kmi.open.ac.uk/home)
@@ -245,4 +245,13 @@ if __name__ == '__main__':
     print(*add, sep=os.linesep)
     print("Tags to remove:")
     print(*rem, sep=os.linesep)
-    suggest_tags_termlist(exfile)
+    add2 = suggest_tags_termlist(exfile)
+    add2 = [(("teaches", t),) for t in add2]
+    Path("tags_to_add.txt").write_text(
+        os.linesep.join(f"{k}: {v}" for ((k,v),) in add + add2),
+        encoding="utf-8"
+    )
+    Path("tags_to_remove.txt").write_text(
+        os.linesep.join(f"{k}: {v}" for ((k,v),) in rem),
+        encoding="utf-8"
+    )
