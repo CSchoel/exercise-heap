@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 * Import script that allows importing exercises into the repo without cloning it or running any scripts.
+* Second variant of `suggest_tags` that uses a list of predefined tag candidates.
 
 ## [0.1.0] - 2022-01-06
 
