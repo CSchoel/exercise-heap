@@ -13,7 +13,6 @@ import re
 import operator as op
 from pathlib import Path
 import io
-import glob
 
 import nltk
 import yaml
