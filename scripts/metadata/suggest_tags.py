@@ -222,7 +222,10 @@ def suggest_tags_termlist(exfile: Path):
     # remove duplicates
     terms = set(terms)
     # only keep those terms as suggestion that occur in the document
-    suggestions = [t for t in terms if t in text]
+    suggestions = [
+        t for t in terms
+        if len(re.findall(r"\b%s\b" % re.escape(t), text)) > 0
+    ]
     print(suggestions)
     # possible sources for tags:
     # ACM Computing Classification System (https://dl.acm.org/ccs)
