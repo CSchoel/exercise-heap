@@ -213,7 +213,7 @@ def suggest_tags_termlist(exfile: Path):
     Suggests tags based on ontology terms.
     """
     # load exercise text
-    text = exfile.read_text("utf-8")
+    text = exfile.read_text("utf-8").lower()
     # load all terms in setags directory
     terms = sum([
         f.read_text("utf-8").splitlines()
