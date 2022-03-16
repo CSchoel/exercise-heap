@@ -17,7 +17,7 @@ def exclude_common(tags: List[str], exdir: Path, commonness: int) -> List[str]:
     of the exercise description files in ``exdir``.
     """
     counts = {}
-    exfiles = list(glob.glob(exdir / "*" / "*" / "*" / "*.md"))
+    exfiles = [Path(x) for x in glob.glob(str(exdir / "*" / "*" / "*" / "*.md"))]
     total = len(exfiles)
     for ex in exfiles:
         text = ex.read_text("utf-8")
@@ -38,7 +38,8 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "--commonness", "-C",
-        help="exclude tags that occur with at least the given commonness percentage"
+        help="exclude tags that occur with at least the given commonness percentage",
+        default=100, type=int
     )
     parser.add_argument(
         "--exdir", "-e",
@@ -50,5 +51,5 @@ if __name__ == "__main__":
     tags = data.xpath(f"//row[@Count>{args.mincount}]/@TagName")
     tags = [x.replace("-", " ") for x in tags]
     if args.commonness is not None:
-        tags = exclude_common(tags, args.exdir, args.commonness)
+        tags = exclude_common(tags, Path(args.exdir), args.commonness)
     print(*tags, sep="\n")
