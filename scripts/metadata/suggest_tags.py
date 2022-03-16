@@ -13,6 +13,7 @@ import re
 import operator as op
 from pathlib import Path
 import io
+import glob
 
 import nltk
 import yaml
@@ -208,10 +209,15 @@ def suggest_tags(cur_tags: List[Any], other_tags: List[List[Any]], padd: int=50,
     to_remove = [x for x in hashable_tags if tagcount.get(x, 0) <= crem]
     return to_add, to_remove
 
-def suggest_tags_onto():
+def suggest_tags_termlist(exfile: Path):
     """
     Suggests tags based on ontology terms.
     """
+    terms = sum(
+        f.read_text("utf-8").splitlines()
+        for f in (Path(__file__).parent / "setags").iterdir()
+    )
+    print(terms)
     # possible sources for tags:
     # ACM Computing Classification System (https://dl.acm.org/ccs)
     # Computer Science Ontology (https://cso.kmi.open.ac.uk/home)
@@ -221,11 +227,13 @@ def suggest_tags_onto():
 if __name__ == '__main__':
     nltk.download("punkt")
     nltk.download("stopwords")
-    nb = find_similar(Path(__file__).parent.parent.parent / "exercises", sys.argv[1], explain=True)
-    add, rem = suggest_tags(tags(Path(sys.argv[1])), [tags(x) for x in nb])
+    exfile = Path(sys.argv[1])
+    nb = find_similar(Path(__file__).parent.parent.parent / "exercises", exfile, explain=True)
+    add, rem = suggest_tags(tags(exfile), [tags(x) for x in nb])
     print("Most similar exercises:")
     print(*nb, sep=os.linesep)
     print("Tags to add:")
     print(*add, sep=os.linesep)
     print("Tags to remove:")
     print(*rem, sep=os.linesep)
+    suggest_tags_termlist(exfile)
