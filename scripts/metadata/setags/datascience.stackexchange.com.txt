@@ -1,0 +1,540 @@
+definitions
+machine learning
+bigdata
+data mining
+databases
+libsvm
+scalability
+efficiency
+performance
+nosql
+clustering
+octave
+k means
+algorithms
+tools
+processing
+apache hadoop
+r
+data cleaning
+statistics
+distributed
+neo4j
+information retrieval
+google
+search
+education
+open source
+similarity
+data stream mining
+dimensionality reduction
+python
+nlp
+language model
+topic model
+lda
+feature selection
+map reduce
+mongodb
+indexing
+data indexing techniques
+dataset
+.net
+pandas
+parallel
+metadata
+parsing
+social network analysis
+time series
+javascript
+visualization
+svm
+classification
+binary
+optimization
+neural network
+usecase
+consumerweb
+parameter
+aws
+text mining
+knowledge base
+confusion matrix
+accuracy
+categorical data
+data formats
+hierarchical data format
+sql
+research
+experiments
+random forest
+logistic regression
+evaluation
+crawling
+anonymization
+beginner
+graphs
+cross validation
+sampling
+scikit learn
+kaggle
+gradient descent
+feature extraction
+state of the art
+career
+genetic
+correlation
+error handling
+apache pig
+glm
+regression
+scala
+csv
+online learning
+gbm
+marketing
+predictive modeling
+library
+java
+anomaly detection
+forecast
+sequence
+tableau
+deep learning
+ensemble modeling
+infographics
+feature scaling
+apache mahout
+hive
+object recognition
+computer vision
+methods
+scoring
+ranking
+sports
+markov process
+matlab
+simulation
+finance
+apache spark
+linear regression
+version control
+convnet
+image classification
+software development
+rstudio
+programming
+notation
+terminology
+sas
+hyperparameter
+survival analysis
+discriminant analysis
+multiclass classification
+books
+genetic algorithms
+decision trees
+self study
+named entity recognition
+bioinformatics
+data
+multitask learning
+word embeddings
+software recommendation
+preprocessing
+multilabel classification
+reference request
+julia
+loss function
+ggplot2
+normalization
+weighted data
+feature construction
+supervised learning
+descriptive statistics
+aggregation
+c
+missing data
+markov
+expectation maximization
+distance
+cosine distance
+learning
+ipython
+anaconda
+numerical
+history
+outlier
+unsupervised learning
+probability
+autoencoder
+backpropagation
+theano
+fuzzy logic
+weka
+scraping
+xgboost
+data wrangling
+data product
+tensorflow
+excel
+semi supervised learning
+keras
+azure ml
+machine translation
+data imputation
+gensim
+lsi
+model selection
+feature engineering
+hinge loss
+stata
+text
+json
+reinforcement learning
+q learning
+google prediction api
+ab test
+nltk
+word2vec
+convergence
+parameter estimation
+bayesian networks
+orange
+churn
+naive bayes classifier
+image recognition
+market basket analysis
+association rules
+audio recognition
+rbm
+interpolation
+recommender system
+regularization
+dbscan
+pca
+randomized algorithms
+rnn
+labels
+tsne
+manifold
+stanford nlp
+dropout
+training
+amazon ml
+geospatial
+sequential pattern mining
+gpu
+jaccard coefficient
+pyspark
+jupyter
+sentiment analysis
+torch
+competitions
+overfitting
+powerbi
+prediction
+score
+encoding
+spss
+gaussian
+mutual information
+bayesian
+etl
+graphical model
+domain adaptation
+methodology
+theory
+distribution
+text generation
+estimators
+information theory
+cost function
+data augmentation
+inception
+caffe
+text filter
+management
+variance
+regex
+privacy
+vc theory
+search engine
+community
+monte carlo
+pytorch
+dirichlet
+plotting
+matrix factorisation
+convolution
+active learning
+tokenization
+linux
+data leakage
+gan
+embeddings
+ocr
+linear algebra
+similar documents
+representation
+lda classifier
+perceptron
+automatic summarization
+nvidia
+alex net
+smote
+class imbalance
+dataframe
+classifier
+vector space models
+lstm
+forecasting
+mnist
+tfidf
+learning rate
+twitter
+cloud
+batch normalization
+word
+generative models
+game
+ngrams
+meta learning
+ensemble
+pac learning
+cnn
+seaborn
+historgram
+counts
+numpy
+activation function
+cloud computing
+homework
+keras rl
+openai gym
+dqn
+mini batch gradient descent
+neural style transfer
+noise
+yolo
+speech to text
+matplotlib
+tflearn
+learning to rank
+anomaly
+actor critic
+grid search
+hyperparameter tuning
+bayes error
+transfer learning
+kernel
+reshape
+project planning
+scipy
+bias
+markov hidden model
+sequence to sequence
+svr
+vgg16
+object detection
+automation
+faster rcnn
+ensemble learning
+k nn
+hardware
+ai
+colab
+data science model
+machine learning model
+mlp
+annotation
+normal equation
+metric
+data analysis
+self driving
+generalization
+boosting
+objective function
+predictor importance
+momentum
+weight initialization
+dplyr
+epochs
+gridsearchcv
+sensors
+probabilistic programming
+policy gradients
+stacked lstm
+ndcg
+fastai
+pipelines
+nlg
+heatmap
+collinearity
+matrix
+evolutionary algorithms
+opencv
+feature reduction
+activity recognition
+orange3
+features
+genetic programming
+attention mechanism
+rbf
+neural
+implementation
+code
+imbalanced learn
+smotenc
+image preprocessing
+deepmind
+chatbot
+h2o
+dynamic programming
+ridge regression
+image
+discounted reward
+difference
+3d reconstruction
+sagemaker
+transformer
+gmm
+bert
+dummy variables
+pip
+density estimation
+mathematics
+finetuning
+vae
+web scraping
+structured data
+fuzzy classification
+probability calibration
+gaussian process
+inceptionresnetv2
+explainable ai
+softmax
+coursera
+mse
+lasso
+lightgbm
+pooling
+one shot learning
+movielens
+spacy
+allennlp
+pytorch geometric
+pickle
+multi instance learning
+arima
+causalimpact
+automl
+question answering
+doc2vec
+networkx
+time
+sparsity
+multi output
+corpus
+wikipedia
+siamese networks
+semantic similarity
+python 3.x
+statsmodels
+non parametric
+huggingface
+image segmentation
+adaboost
+rmse
+anova
+gru
+openai gpt
+one hot encoding
+pruning
+multivariate distribution
+auc
+ann
+categorical encoding
+groupby
+c++
+pearsons correlation coefficient
+spearmans rank correlation
+predict
+google cloud
+spyder
+pattern recognition
+text classification
+3d object detection
+encoder
+linearly separable
+data engineering
+spectral clustering
+sparse
+f1score
+natural gradient boosting
+cart
+exploratory factor analysis
+information extraction
+shap
+naive bayes algorithim
+plotly
+cuda
+isolation forest
+interpretation
+elastic net
+bagging
+chi square test
+target encoding
+bootstraping
+confidence
+labelling
+gradient
+graph neural network
+knowledge graph
+early stopping
+estimation
+fasttext
+lime
+derivation
+hashing trick
+roc
+windows
+document term matrix
+bag of words
+imbalance
+api
+hypothesis testing
+semantic segmentation
+pretraining
+catboost
+poisson
+google data studio
+document understanding
+loss
+stacking
+mean
+rfe
+sgd
+validation
+mlops
+r squared
+partial least squares
+dynamic time warping
+linear models
+time complexity
+memory
+data table
+logarithmic
+masking
+transformation
+gradient boosting decision trees
+convolutional neural network
+adversarial ml
+feature importances
+model evaluations
+inference
+sigmoid
+oversampling
+imbalanced data
+recurrent neural network
+binary classification

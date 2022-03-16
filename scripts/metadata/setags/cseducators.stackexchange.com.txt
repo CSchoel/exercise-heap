@@ -1,0 +1,145 @@
+java
+grading
+group work
+labs
+lesson ideas
+pseudo code
+ap computer science a
+cheating
+recursion
+web development
+algorithms
+problem structure
+github
+artificial intelligence
+machine learning
+undergraduate
+security
+python
+functional programming
+equity
+project
+front end
+scratch
+block based programming
+html
+databases
+best practice
+css
+javascript
+concurrency
+language choice
+coding style
+assembly
+number system
+object oriented paradigm
+teaching analogy
+ide
+arrays
+engagement
+complexity theory
+social context
+curriculum design
+student motivation
+debugging
+high school
+differentiation
+abstraction
+c
+syntax
+ruby
+self learning
+static
+cs theory
+pointers
+code example
+notes
+classroom management
+imperative programming
+exercises
+adult education
+scheme
+data structure
+robotics
+induction
+auto graders
+agile development
+cs0
+operating systems
+resource request
+homework
+ap cs principles
+looping
+computer history
+interface
+git
+graph theory
+lambda expressions
+computational thinking
+collaboration
+lecture tools
+game design
+architecture
+command line
+image processing
+layperson
+unit testing
+introductory lesson
+arduino
+assessment
+primary school
+extracurricular club
+programming paradigms
+careers
+pair programming
+mathematics
+variables
+data types
+industry training
+networks
+ethics
+sql
+curriculum review
+boolean algebra
+documentation
+plagiarism
+branching
+materials review
+textbook
+active learning
+quantum computing
+scientific papers
+cross discipline
+lesson review
+conceptual frameworks
+student perceptions
+regex
+resource information
+windows
+gui
+c#
+methods
+evaluation
+workshops
+soft skills
+file system
+revision control
+hardware
+classroom infrastructure
+information technology
+outreach
+struggling students
+discrete math
+exams
+programming environment
+lesson order
+c++
+secondary education
+cryptography
+programming
+classroom environment
+curriculum
+distance learning
+online
+mentoring
+compiling
