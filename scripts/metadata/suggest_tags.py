@@ -208,6 +208,16 @@ def suggest_tags(cur_tags: List[Any], other_tags: List[List[Any]], padd: int=50,
     to_remove = [x for x in hashable_tags if tagcount.get(x, 0) <= crem]
     return to_add, to_remove
 
+def suggest_tags_onto():
+    """
+    Suggests tags based on ontology terms.
+    """
+    # possible sources for tags:
+    # ACM Computing Classification System (https://dl.acm.org/ccs)
+    # Computer Science Ontology (https://cso.kmi.open.ac.uk/home)
+    # Tags in Stack Exchange Data Dump (https://archive.org/details/stackexchange)
+    # Translation: https://github.com/argosopentech/argos-translate/
+
 if __name__ == '__main__':
     nltk.download("punkt")
     nltk.download("stopwords")
