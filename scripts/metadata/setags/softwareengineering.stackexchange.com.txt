@@ -946,7 +946,6 @@ networks
 observer pattern
 metro
 winrt
-https
 exception handling
 files
 compression
@@ -1105,7 +1104,6 @@ gerrit
 sqlite
 ninject
 integration testing
-keywords
 queue
 client
 naming standards

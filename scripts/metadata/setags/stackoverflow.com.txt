@@ -154,7 +154,6 @@ directx
 3d
 heap
 purify
-size
 ocr
 indexing
 article
@@ -227,7 +226,6 @@ datacontext
 cpu
 macros
 double
-int
 project hosting
 version control
 dll
@@ -321,7 +319,6 @@ vpn
 explorer
 maps
 ssl
-https
 iframe
 xhtml
 markup
@@ -1816,7 +1813,6 @@ tk
 listbox
 groovyshell
 blackberry
-author
 element
 visualtreehelper
 js2 mode
@@ -1857,7 +1853,6 @@ llblgenpro
 d
 business logic
 behavior
-des
 native
 interactive
 blowfish
@@ -2009,7 +2004,6 @@ website monitoring
 recommendation engine
 gravatar
 data protection
-submission
 urlhacks
 movies
 web applications
@@ -2645,7 +2639,6 @@ gitorious
 griffon
 non lazy ptr
 darwin
-public
 nvidia
 skip
 vps
@@ -3150,7 +3143,6 @@ nservicebus
 winsock
 keystroke
 shortcut
-solution
 rdfs
 pellet
 semweb
@@ -4080,7 +4072,6 @@ k2
 softkeys
 text to speech
 implicit
-title
 infix notation
 firewatir
 vectorization
@@ -5029,7 +5020,6 @@ xaudio2
 resource scheduling
 misra
 integrate
-die
 fossil
 time travel
 code access security
@@ -9107,7 +9097,6 @@ trouble tickets
 inline functions
 binary heap
 local shared object
-hat
 out of process
 paragraph
 voxel
@@ -15878,7 +15867,6 @@ aero peek
 tpagecontrol
 invokelater
 qt vs addin
-requires
 railscasts
 boolean operations
 ora 00911
@@ -16329,7 +16317,6 @@ appserver
 word size
 unspecified
 lithium
-lang
 submatrix
 window.parent
 safariwatir
@@ -17849,7 +17836,6 @@ chainable
 wireshark dissector
 custom post type
 intel syntax
-der
 system.interactive
 winpdb
 plr
@@ -49970,7 +49956,6 @@ encrypted shared preference
 codefresh
 twilio python
 usd
-als
 online machine learning
 react toastify
 react component unmount
