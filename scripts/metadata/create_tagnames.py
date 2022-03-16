@@ -21,7 +21,7 @@ def exclude_common(tags: List[str], exdir: Path, commonness: int) -> List[str]:
     total = len(exfiles)
     for ex in exfiles:
         text = ex.read_text("utf-8")
-        words = text.split()
+        words = re.split(r"\b", text)
         for t in tags:
             if t in words or (" " in t and t in text):
                 counts.setdefault(t, 0)
