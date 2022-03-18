@@ -72,7 +72,7 @@ def create_header(title, name, body):
     temp_head = io.StringIO()
     yaml.dump(header, temp_head)
     tempfile = Path(".portys_tempfile_dont_touch")
-    tempfile.write_text(os.linesep.join(["---", str(temp_head), "---", body]), encoding="utf-8")
+    tempfile.write_text(os.linesep.join(["---", temp_head.getvalue(), "---", body]), encoding="utf-8")
     suggest = Path(__file__).parent.parent / "metadata" / "suggest_tags.py"
     try:
         res = subprocess.run(["python3", suggest, tempfile], check=True, capture_output=True, text=True)
@@ -86,7 +86,7 @@ def create_header(title, name, body):
     header["keywords"] = tags
     text = io.StringIO()
     yaml.dump(header, text)
-    return str(text)
+    return text.getvalue()
 
 def create_pr(event, github_token, dry=False):
     """
