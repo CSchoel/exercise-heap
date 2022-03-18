@@ -65,7 +65,7 @@ def create_header(title, name, body):
     header["lang"] = "de-DE"
     # estimate solution size by size of exercise text
     header["solution-size"] = len(body.splitlines())
-    header["id"] = uuid.uuid4()
+    header["id"] = str(uuid.uuid4())
     header["keywords"] = []
 
     # call suggest_tags script to get a set of tags
