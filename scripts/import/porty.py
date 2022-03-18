@@ -82,7 +82,8 @@ def create_header(title, name, body):
         print(err.stderr, file=sys.stderr)
         raise
     tags = Path("tags_to_add.txt").read_text("utf-8")
-    tags = [dict([x.split(":", maxsplit=1)]) for x in tags.splitlines()]
+    tags = [x.split(":", maxsplit=1) for x in tags.splitlines()]
+    tags = [{ k.strip(): v.strip()} for k,v in tags]
     header["keywords"] = tags
     text = io.StringIO()
     yaml.dump(header, text)
@@ -113,6 +114,7 @@ def create_pr(event, github_token, dry=False):
     else:
         print(f"mkdir -p {exdir}")
         print(f"touch {exdir / 'exercise.md'}")
+        print(body)
     gh_env = {
         "GITHUB_TOKEN": github_token,
         "PATH": os.environ["PATH"]
