@@ -16,6 +16,7 @@ jobs:
         with:
           python-version: '3.x'
       - run: python -m pip install -r scripts/metadata/requirements.txt
+      - run: python -m pip install -r scripts/import/requirements.txt
       - name: Run porty script
         run: scripts/import/porty.py import
         env:
