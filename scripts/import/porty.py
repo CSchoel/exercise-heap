@@ -12,6 +12,11 @@ import datetime
 import subprocess
 import textwrap
 import shlex
+import uuid
+import yaml
+import io
+
+import requests
 
 def fs_sanitize(string):
     """
@@ -40,21 +45,66 @@ def maybe_run(args, env=None, dry=False, capture_output=False):
         if capture_output:
             return res.stdout
 
+def gh_userinfo(event):
+    """
+    Retrieves name of user that triggered an event from GitHub API
+    """
+    url = event["issue"]["user"]["url"]
+    data = requests.get(url).json()
+    name = data["name"] if data["name"] is not None else data["login"]
+    email = data["email"] if data["email"] is not None else f"{data['id']}+{data['login']}@users.noreply.github.com"
+    return name, email
+
+def create_header(title, name, body):
+    """
+    Creates a YAML header for a new exercise
+    """
+    header = {}
+    header["title"] = title
+    header["author"] = [ name, "Porty[bot]" ]
+    header["lang"] = "de-DE"
+    # estimate solution size by size of exercise text
+    header["solution-size"] = len(body.splitlines())
+    header["id"] = uuid.uuid4()
+    header["keywords"] = []
+
+    # call suggest_tags script to get a set of tags
+    temp_head = io.StringIO()
+    yaml.dump(header, temp_head)
+    tempfile = Path(".portys_tempfile_dont_touch")
+    tempfile.write_text(os.linesep.join(["---", str(temp_head), "---", body]), encoding="utf-8")
+    suggest = Path(__file__).parent.parent / "metadata" / "suggest_tags.py"
+    try:
+        res = subprocess.run(["python3", suggest, tempfile], check=True, capture_output=True, text=True)
+        print(res.stdout)
+    except subprocess.CalledProcessError as err:
+        print(err.stdout, file=sys.stdout)
+        print(err.stderr, file=sys.stderr)
+        raise
+    tags = Path("tags_to_add.txt").read_text("utf-8")
+    tags = [dict([x.split(":", maxsplit=1)]) for x in tags.splitlines()]
+    header["keywords"] = tags
+    text = io.StringIO()
+    yaml.dump(header, text)
+    return str(text)
+
 def create_pr(event, github_token, dry=False):
     """
     Creates a pull request from the content of the issue that triggered
     this function call.
     """
     title = event["issue"]["title"]
-    user = event["issue"]["user"]["login"]
-    user_id = event["issue"]["user"]["id"]
+    name, email = gh_userinfo(event)
+    login = event["issue"]["user"]["login"]
     number = event['issue']['number']
     body = event["issue"]["body"]
+    header = create_header(title, name, body)
+    body = os.linesep.join(["---", header, "---", body])
     issue_url = event["issue"]["html_url"]
     exdir = (
         Path("exercises")
         / str(datetime.date.today().year)
-        / user
+        / login
         / "_".join([str(number).rjust(3, '0'), fs_sanitize(title)])
     )
     if not dry:
@@ -77,7 +127,7 @@ def create_pr(event, github_token, dry=False):
     maybe_run(["git", "add", "."], dry=dry)
     maybe_run([
         'git', 'commit',
-        "--author", f"{user} <{user_id}+{user}@users.noreply.github.com>",
+        "--author", f"{name} <{email}>",
         '-m', f"import {title}"
     ], dry=dry)
     maybe_run(["git", "push", "origin", branch_name], dry=dry)
@@ -119,3 +169,4 @@ if __name__ == "__main__":
 
     if args.action == "import":
         create_pr(event, os.environ["GITHUB_TOKEN"], dry=args.dry)
+    print(gh_userinfo(event))
