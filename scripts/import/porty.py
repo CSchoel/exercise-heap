@@ -21,7 +21,7 @@ from typing import Tuple
 import yaml
 import requests
 
-linesep = "\n"
+LINESEP = "\n"
 
 def fs_sanitize(string):
     """
@@ -75,9 +75,9 @@ def create_header(title, name, body):
 
     # call suggest_tags script to get a set of tags
     temp_head = io.StringIO()
-    yaml.safe_dump(header, temp_head, line_break=linesep)
+    yaml.safe_dump(header, temp_head, line_break=LINESEP)
     tempfile = Path(".portys_tempfile_dont_touch")
-    tempfile.write_text(linesep.join(["---", temp_head.getvalue(), "---", body]), encoding="utf-8")
+    tempfile.write_text(LINESEP.join(["---", temp_head.getvalue(), "---", body]), encoding="utf-8")
     suggest = Path(__file__).parent.parent / "metadata" / "suggest_tags.py"
     try:
         res = subprocess.run(["python3", suggest, tempfile], check=True, capture_output=True, text=True)
@@ -91,7 +91,7 @@ def create_header(title, name, body):
     tags = [{ k.strip(): v.strip()} for k,v in tags]
     header["keywords"] = tags
     text = io.StringIO()
-    yaml.safe_dump(header, text, line_break=linesep)
+    yaml.safe_dump(header, text, line_break=LINESEP)
     return text.getvalue()
 
 def git_setuser(dry=False):
@@ -127,7 +127,7 @@ def create_pr(event, github_token, dry=False):
     number = event['issue']['number']
     body = event["issue"]["body"]
     header = create_header(title, name, body)
-    body = linesep.join(["---", header, "---"] + body.splitlines())
+    body = LINESEP.join(["---", header, "---"] + body.splitlines())
     issue_url = event["issue"]["html_url"]
     exdir = (
         Path("exercises")
@@ -256,7 +256,7 @@ def update(event, github_token, dry=False):
         return
     # check if the content of the code block is valid yaml
     try:
-        sio = io.StringIO(linesep.join(new_header))
+        sio = io.StringIO(LINESEP.join(new_header))
         data = yaml.safe_load(sio)
     except yaml.parser.ParserError:
         msg = textwrap.dedent(f"""
@@ -301,7 +301,7 @@ def update(event, github_token, dry=False):
         hstart = old_content.index("---")
         hend = old_content.index("---", hstart + 1)
         new_content = old_content[:hstart] + new_header + old_content[hend+1:]
-        exfile.write_text(linesep.join(new_content), encoding="utf-8")
+        exfile.write_text(LINESEP.join(new_content), encoding="utf-8")
     else:
         print(f"touch {str(exfile)}")
 
