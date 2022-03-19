@@ -91,6 +91,16 @@ def create_header(title, name, body):
     yaml.safe_dump(header, text)
     return text.getvalue()
 
+def git_setuser(dry=False):
+    """
+    Sets the username and email used for Porty commits
+    """
+    maybe_run(["git", "config", "user.name", "Porty[bot]"], dry=dry)
+    maybe_run([
+        "git", "config", "user.email",
+        "41898282+github-actions[bot]@users.noreply.github.com"
+    ], dry=dry)
+
 def create_pr(event, github_token, dry=False):
     """
     Creates a pull request from the content of the issue that triggered
@@ -121,14 +131,10 @@ def create_pr(event, github_token, dry=False):
         "GITHUB_TOKEN": github_token,
         "PATH": os.environ["PATH"]
     }
-    maybe_run(["git", "config", "user.name", "Porty[bot]"], dry=dry)
-    maybe_run([
-        "git", "config", "user.email",
-        "41898282+github-actions[bot]@users.noreply.github.com"
-    ], dry=dry)
     branch_name = f"import#{number}"
     maybe_run(["git", "checkout", "-b", branch_name], dry=dry)
     maybe_run(["git", "add", "."], dry=dry)
+    git_setuser(dry=dry)
     maybe_run([
         'git', 'commit',
         "--author", f"{name} <{email}>",
