@@ -183,11 +183,23 @@ def find_exfile(event, dry=False):
         raise ValueError(f"Could not find exercise name in changed files: {','.join(out.spltilines())}")
     return Path(filename[0])
 
+def porty_comment(msg: str, issue_url: str, gh_token: str, dry: bool=False):
+    """
+    Creates a comment by porty with the given message
+    """
+    gh_env = {
+        "GITHUB_TOKEN": gh_token,
+        "PATH": os.environ["PATH"]
+    }
+    maybe_run(["gh", "issue", "comment", issue_url, "-b", msg], env=gh_env, dry=dry)
+
+
 def update(event, github_token, dry=False):
     """
     Updates YAML metadata based on comment
     """
     name, email = gh_userinfo(event["sender"])
+    issue_url = event["issue"]["html_url"]
     try:
         exfile = find_exfile(event, dry=dry)
     except ValueError:
@@ -199,17 +211,11 @@ def update(event, github_token, dry=False):
             {traceback.format_exc()}
             ```
         """)
-        maybe_run(["gh", "issue", "comment", issue_url, "-b", msg], env=gh_env, dry=dry)
+        porty_comment(msg, issue_url, github_token)
         return
-    issue_url = event["issue"]["html_url"]
     # extract quoted lines
     new_header = [x.strip() for x in event["comment"]["body"] if x.startswith(">")]
 
-    # handle issues
-    gh_env = {
-        "GITHUB_TOKEN": github_token,
-        "PATH": os.environ["PATH"]
-    }
     # check if the comment contains a quoted block
     if len(new_header) == 0:
         msg = textwrap.dedent("""
@@ -217,7 +223,7 @@ def update(event, github_token, dry=False):
             Maybe you forgot to add `> ` in front of the code block \
             for the YAML or markdown content that I should update?
         """)
-        maybe_run(["gh", "issue", "comment", issue_url, "-b", msg], env=gh_env, dry=dry)
+        porty_comment(msg, issue_url, github_token)
         return
     # check if the quoted block contains a code block
     if not new_header[0].startswith("```") or new_header[0][3:] not in ["yaml"]:
@@ -227,7 +233,7 @@ def update(event, github_token, dry=False):
             that you put `` ```yaml `` before the content that \
             you want me to update.
         """)
-        maybe_run(["gh", "issue", "comment", issue_url, "-b", msg], env=gh_env, dry=dry)
+        porty_comment(msg, issue_url, github_token)
         return
     try:
         new_header = new_header[1:new_header.index("```")]
@@ -237,7 +243,7 @@ def update(event, github_token, dry=False):
             quoted block I found contains the start of a code block \
             but the closing `` ``` `` seems to be missing.
         """)
-        maybe_run(["gh", "issue", "comment", issue_url, "-b", msg], env=gh_env, dry=dry)
+        porty_comment(msg, issue_url, github_token)
         return
     # check if the content of the code block is valid yaml
     try:
@@ -253,7 +259,7 @@ def update(event, github_token, dry=False):
             {traceback.format_exc()}
             ```
         """)
-        maybe_run(["gh", "issue", "comment", issue_url, "-b", msg], env=gh_env, dry=dry)
+        porty_comment(msg, issue_url, github_token)
         return
     # check that mandatory fields are present in the new header
     mandatory = [
@@ -271,7 +277,7 @@ def update(event, github_token, dry=False):
             following keys are missing in the YAML header: \
             {','.join(missing)}.
         """)
-        maybe_run(["gh", "issue", "comment", issue_url, "-b", msg], env=gh_env, dry=dry)
+        porty_comment(msg, issue_url, github_token)
         return
     new_header = ["---"] + new_header + ["---"]
 
