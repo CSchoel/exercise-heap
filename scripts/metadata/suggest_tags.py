@@ -212,6 +212,7 @@ def suggest_tags_termlist(exfile: Path):
     """
     Suggests tags based on ontology terms.
     """
+    # TODO think about adding an exclude list
     # load exercise text
     text = exfile.read_text("utf-8").lower()
     # load all terms in setags directory
