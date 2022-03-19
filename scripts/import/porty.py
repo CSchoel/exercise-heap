@@ -196,7 +196,7 @@ def porty_comment(msg: str, issue_url: str, gh_token: str, dry: bool=False):
         "GITHUB_TOKEN": gh_token,
         "PATH": os.environ["PATH"]
     }
-    issue_type = "issue" if issue_url.contains("/issue/") else "pr"
+    issue_type = "issue" if "/issue/" in issue_url else "pr"
     maybe_run(["gh", issue_type, "comment", issue_url, "-b", msg], env=gh_env, dry=dry)
 
 
