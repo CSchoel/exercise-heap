@@ -178,7 +178,8 @@ def find_exfile(event, dry=False) -> Tuple[Path, str]:
 
     base = pull["base"]["ref"]
     head = pull["head"]["ref"]
-    out = maybe_run(["git", "diff", f"{base}..origin/{head}", "--name-only"], dry=dry, capture_output=True)
+    maybe_run(["git", "checkout", head], dry=dry)
+    out = maybe_run(["git", "diff", f"{base}..{head}", "--name-only"], dry=dry, capture_output=True)
     if dry:
         out = "exercises/this/is_a/dry/run.md"
     filename = [x for x in out.splitlines() if re.match(r"exercises\/.+\/.+\/.+\/.+\.md", x)]
