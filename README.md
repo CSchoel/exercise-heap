@@ -76,3 +76,9 @@ keywords:
 Source code for tests and solutions should be self-contained.
 If it depends on other code that cannot be simply installed as a package, this code has to be copied to the exercise folder.
 Note that this can be a major pain in the ass, if you have a folder for common code but need to determine which exercise needs which file from this folder.
+
+## Contributing
+
+If you would like to add one of your exercises to the heap, you can do this with the help of Porty, the friendly import bot.
+Just open an issue with the exercise name as the title and the exercise text as the issue body formatted in the usual GitHub markdown style.
+You can then add the keyword `#import` either directly in the issue body or in a separate comment and Porty will automatically try to import your exercise into the heap and also suggest a few tags to add.
