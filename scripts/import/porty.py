@@ -321,4 +321,5 @@ if __name__ == "__main__":
 
     if args.action == "import":
         create_pr(event, os.environ["GITHUB_TOKEN"], dry=args.dry)
-    print(gh_userinfo(event))
+    elif args.action == "update":
+        update(event, os.environ["GITHUB_TOKEN"], dry=args.dry)
