@@ -101,6 +101,18 @@ def git_setuser(dry=False):
         "41898282+github-actions[bot]@users.noreply.github.com"
     ], dry=dry)
 
+def git_commit_as(name, email, remote_branch, message, dry=False):
+    """
+    Commits and pushes all changed files on behalf of a given user
+    """
+    maybe_run(["git", "add", "."], dry=dry)
+    maybe_run([
+        'git', 'commit',
+        "--author", f"{name} <{email}>",
+        '-m', message
+    ], dry=dry)
+    maybe_run(["git", "push", "origin", remote_branch], dry=dry)
+
 def create_pr(event, github_token, dry=False):
     """
     Creates a pull request from the content of the issue that triggered
@@ -133,15 +145,8 @@ def create_pr(event, github_token, dry=False):
     }
     branch_name = f"import#{number}"
     maybe_run(["git", "checkout", "-b", branch_name], dry=dry)
-    maybe_run(["git", "add", "."], dry=dry)
     git_setuser(dry=dry)
-    maybe_run([
-        'git', 'commit',
-        "--author", f"{name} <{email}>",
-        '-m', f"import {title}"
-    ], dry=dry)
-    maybe_run(["git", "push", "origin", branch_name], dry=dry)
-
+    git_commit_as(name, email, branch_name, f"import {title}")
     msg = textwrap.dedent(f"""
         Hey, Porty the import bot here. I have created this pull \
         request from issue #{number} for you. Currently you can \
