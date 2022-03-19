@@ -178,6 +178,7 @@ def find_exfile(event, dry=False) -> Tuple[Path, str]:
 
     base = pull["base"]["ref"]
     head = pull["head"]["ref"]
+    maybe_run(["git", "fetch"], dry=dry)
     maybe_run(["git", "checkout", head], dry=dry)
     out = maybe_run(["git", "diff", f"{base}..{head}", "--name-only"], dry=dry, capture_output=True)
     if dry:
@@ -286,7 +287,8 @@ def update(event, github_token, dry=False):
     new_header = ["---"] + new_header + ["---"]
 
     # switch to the correct branch
-    maybe_run(["git", "checkout", branch])
+    maybe_run(["git", "fetch"], dry=dry)
+    maybe_run(["git", "checkout", branch], dry=dry)
 
     # actually swap header content
     if not dry:
