@@ -196,7 +196,8 @@ def porty_comment(msg: str, issue_url: str, gh_token: str, dry: bool=False):
         "GITHUB_TOKEN": gh_token,
         "PATH": os.environ["PATH"]
     }
-    maybe_run(["gh", "issue", "comment", issue_url, "-b", msg], env=gh_env, dry=dry)
+    issue_type = "issue" if issue_url.contains("/issue/") else "pr"
+    maybe_run(["gh", issue_type, "comment", issue_url, "-b", msg], env=gh_env, dry=dry)
 
 
 def update(event, github_token, dry=False):
@@ -204,7 +205,7 @@ def update(event, github_token, dry=False):
     Updates YAML metadata based on comment
     """
     name, email = gh_userinfo(event["sender"])
-    issue_url = event["issue"]["html_url"].replace("/pull/", "/issue/")
+    issue_url = event["issue"]["html_url"]
     try:
         exfile, branch = find_exfile(event["issue"], dry=dry)
     except ValueError:
