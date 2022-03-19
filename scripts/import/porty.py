@@ -293,6 +293,7 @@ def update(event, github_token, dry=False):
     maybe_run(["git", "checkout", branch], dry=dry)
 
     # actually swap header content
+    git_setuser(dry=dry)
     if not dry:
         old_content = exfile.read_text("utf-8").splitlines()
         hstart = old_content.index("---")
