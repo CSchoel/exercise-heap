@@ -1,2 +1,10 @@
 # output created by import scripts
 scripts/import/out
+
+# exported data
+export
+
+# temp script files
+tags_to_add.txt
+tags_to_remove.txt
+.porty*

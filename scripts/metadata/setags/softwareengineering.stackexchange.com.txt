@@ -1,0 +1,1415 @@
+comments
+code smell
+programming languages
+usage
+business
+project management
+development process
+performance
+time management
+dynamic typing
+static typing
+team
+waterfall
+functional programming
+web applications
+hiring
+resources
+math
+billing
+freelancing
+pricing
+twitter
+software
+technology
+books
+actor model
+concurrency
+code quality
+test coverage
+open source
+history
+linux
+kernel
+resume
+agile
+project hosting
+productivity
+java
+python
+applications
+tools
+telecommuting
+self improvement
+websites
+organization
+technique
+social
+language design
+syntax
+learning
+regular expressions
+web development
+ide
+windows
+goto
+programming practices
+operating systems
+managed code
+behavior
+language agnostic
+features
+estimation
+indentation
+coding
+computer science
+php
+skills
+languages
+database development
+spring
+sql
+list
+reference
+unit testing
+testing
+acceptance testing
+software patent
+internet explorer
+mac
+deployment
+physics
+hardware
+paradigms
+macros
+logging
+.net
+text editor
+ethics
+motivation
+testers
+sales
+architect
+paas
+passwords
+security
+gpl
+apple
+cpu
+iphone
+mobile
+marketing
+government
+saml
+asp.net
+object oriented
+aspect oriented
+sso
+code reuse
+uml
+iterative development
+experience
+code contracts
+c#
+vb.net
+scheme
+lisp
+error messages
+etymology
+vim
+prediction
+culture
+emacs
+google
+search engine
+flowchart
+coding standards
+interview
+browser
+front end
+spoken languages
+html
+css
+management
+erp
+users
+openid
+algorithms
+complexity
+jargon
+project
+stackoverflow
+mistakes
+language features
+joel test
+code complete
+mvc
+development cycle
+release
+economics
+profession
+scrum
+version control
+free time
+communication
+visual studio 2010
+pseudocode
+builds
+meetings
+comparison
+problem solving
+recognition
+scope creep
+social networks
+solo development
+cobol
+design patterns
+singleton
+teaching
+fonts
+pair programming
+artificial intelligence
+philosophy
+code reviews
+frameworks
+contribution
+variables
+time
+operators
+f#
+bad code
+terminology
+inheritance
+versioning
+semantics
+scalability
+pointers
+osx
+iterator
+parallelism
+exceptions
+product
+statistics
+actionscript
+feedback
+etiquette
+portability
+ruby on rails
+jquery
+education
+software craftsmanship
+training
+c
+objective c
+cms
+scripting
+outsourcing
+scala
+migration
+information
+overload
+wpf
+standardization
+beta
+ruby
+google app engine
+virtualization
+c++
+go
+maintenance
+research
+vulnerabilities
+senior developer
+tracking
+file structure
+credits
+mainframe
+intel
+errors
+nosql
+bash
+perl
+xml
+documentation
+mocking
+articles
+sorting
+media
+refactoring
+mysql
+declarative programming
+financial
+development methodologies
+oracle
+failure
+libraries
+collaboration
+orm
+django
+javafx
+recruiting
+design
+syntax highlight
+writing
+multi core
+data types
+cowboy coding
+visual basic
+budget
+plugins
+mercurial
+distributed computing
+basic
+contract
+stories
+product owner
+microsoft
+delphi
+load testing
+customer relations
+platforms
+wcf
+puzzles
+cryptography
+support
+conditions
+naming
+github
+optimization
+jit
+prototyping
+automation
+functions
+implementations
+bsd
+industry
+computer architecture
+changes
+services
+jdbc
+mono
+eclipse
+visual studio
+distributed development
+free software
+binary
+code generation
+requirements
+azure
+amazon ec2
+javascript
+programming logic
+language choice
+cross platform
+enterprise architecture
+software updates
+workflows
+obfuscation
+hacking
+silverlight
+formal methods
+architecture
+gui
+personal projects
+user group
+community
+strings
+debugging
+knowledge
+dvcs
+sharepoint
+coding style
+kanban
+quality attributes
+entity
+modules
+ipad
+games
+copyright
+professionalism
+database
+sequence
+product features
+lgpl
+composition
+headers
+time stamp
+legal
+relationships
+smalltalk
+web
+soa
+time tracking
+third party libraries
+clean code
+jruby
+groovy
+jvm
+iis7
+db2
+anti patterns
+labels
+specifications
+big o
+email
+static analysis
+hungarian
+notation
+internationalization
+entity framework
+message queue
+side effect
+reverse engineering
+async
+assertions
+meta programming
+switch statement
+netbeans
+html5
+flash
+unicode
+ajax
+construction
+planning
+interpreters
+wordpress
+sprint
+sap
+downtime
+domain model
+remote desktop
+profiling
+code formatting
+seo
+clang
+llvm
+specialization
+sql server
+mfc
+qt
+ui
+directx
+opengl
+web framework
+case studies
+api
+grammar
+utilities
+hosting
+web hosting
+identity
+lean
+installer
+dependency analysis
+project structure
+web services
+etl
+selenium
+gwt
+android
+keyboard shortcuts
+jpa
+usage statistics
+benchmarking
+ms pl
+graphics
+diagrams
+efficiency
+cluster
+visual basic 6
+deadlines
+access modifiers
+encryption
+methods
+desktop
+presentation
+product management
+abstraction
+environment
+recursion
+jsp
+nhibernate
+tdd
+foss
+intellij
+validation
+control structures
+facebook
+software as a service
+teamwork
+domain driven design
+solid
+pragmatism
+assembly
+low level
+branching
+scheduling
+configuration
+e commerce
+rest
+accessibility
+mockups
+quality
+access
+entrepreneurship
+chrome
+theory
+type casting
+rdbms
+persistence
+xaml
+monodroid
+apache
+linq
+lambda
+wiki
+redmine
+technical debt
+ios
+team leader
+team building
+activity
+diff
+erlang
+gui design
+enum
+sdlc
+file handling
+stored procedures
+packages
+metrics
+web browser
+terms of service
+internet
+messaging
+pubsub
+middleware
+distribution
+haskell
+ebook
+data
+usability
+professional development
+enterprise development
+cassandra
+review
+mentor
+manuals
+production
+legacy
+dll
+ansi
+iso
+captcha
+reinventing the wheel
+unions
+code organization
+svn
+attributes
+modeling
+networking
+software evaluation
+mef
+code layout
+whitespace
+user control
+desktop application
+robotics
+difference
+garbage collection
+smart pointer
+readability
+asp.net mvc
+methodology
+user interface
+porting
+winforms
+application design
+app
+invariants
+declarative
+data structures
+binary tree
+idioms
+business logic
+business rules
+rules and constraints
+documentation generation
+wysiwyg
+visual c++
+compiler
+design principles
+data mining
+nunit
+xhtml
+windows phone 7
+licensing
+mvvm
+system reliability
+sockets
+import
+git
+bug
+encapsulation
+chart
+android market
+clearcase
+mdd
+lazy initialization
+type systems
+flex
+bdd
+source code
+copy paste programming
+concepts
+software schedules
+qa
+zend framework
+cakephp
+codeigniter
+grails
+64 bit
+32 bit
+xcode
+dba
+gcc
+templates
+freeware
+pyqt4
+drupal
+technical support
+synchronization
+advertisement
+game development
+simulation
+internship
+ria
+clr
+protocol
+null
+junior programmer
+database design
+privacy
+patterns and practices
+development approach
+dependency injection
+node.js
+high level
+coupling
+http
+tcp
+online identity
+web design
+type safety
+weak typing
+localization
+copy protection
+startup
+search
+law
+systems analysis
+language discussion
+command line
+editor
+systems
+projects and solutions
+monad
+cucumber
+specflow
+active directory
+dom
+dsl
+runtime
+swing
+maintainability
+measurement
+change
+msbuild
+commandline build tool
+software distribution
+transition
+utf 8
+character encoding
+intellisense
+backward compatibility
+file extension
+closures
+hashing
+strategy
+r
+matlab
+user experience
+rewrite
+generics
+system
+offshore
+bsd license
+mit license
+ecmascript
+industry standard
+patents
+trademark
+evaluation
+iis
+virtual machine
+python 3.x
+abstract class
+x86
+knowledge management
+knowledge base
+firefox
+standards
+w3c
+aggregate
+dbms
+web scraping
+forms
+dictionary
+fortran
+export
+standard library
+ssl
+intellectual property
+date format
+formatting
+ambiguity
+windows 7
+joomla
+appstore
+image manipulation
+engineering
+namespace
+file storage
+class design
+bpm
+business process
+postfix
+development environment
+certificate
+touchscreens
+asp.net mvc 3
+code snippets
+client side
+server side
+desktop development
+unix
+color
+future proof
+java ee
+error handling
+real time
+repository
+human factors
+caching
+issue tracking
+backlog
+rational unified process
+content management
+developer tools
+client relations
+natural language processing
+continuous integration
+dependencies
+maven
+commercial
+visio
+finite state machine
+parsing
+hl7
+object oriented design
+ant
+xunit
+integration tests
+doctrine
+clojure
+microsoft access
+neural networks
+wording
+windows registry
+ocaml
+inversion of control
+ioc containers
+machine learning
+c99
+prolog
+proprietary
+storage
+linux kernel
+negotiation
+jenkins
+apache license
+couchdb
+mpl
+layers
+delegates
+memory
+initialization
+default values
+journal
+gpu
+n tier
+stack oriented
+decompile
+scrum master
+api design
+browser compatibility
+code metrics
+cyclomatic complexity
+tests
+resharper
+linux development
+systems programming
+rss
+spreadsheet
+excel
+hadoop
+cli
+multilingual
+imperative languages
+ibm
+logic programming
+feature requests
+prefix
+polyglot
+workflow foundation
+company
+3d
+animation
+reading code
+service bus
+leadership
+automatic update
+code sample
+continuous delivery
+grid computing
+tomcat
+postgres
+hibernate
+creative commons
+symfony
+comet
+push
+cloud computing
+bitwise operators
+lua
+binding
+sicp
+gitflow
+ssis
+closed source
+backups
+markup
+escaping
+lamp
+relational database
+stub
+extreme programming
+file systems
+document
+tsql
+interfaces
+extensibility
+crm
+permissions
+authorization
+data warehouse
+trust
+ada
+playframework
+role
+division of labor
+test automation
+reporting
+report generation
+information presentation
+multithreading
+risk
+stl
+boost
+json
+upgrade
+schema
+duck typing
+extension method
+cross browser
+oauth
+authentication
+ubuntu
+text encoding
+tablets
+configuration management
+bug report
+retrospective
+geospatial
+sql injection
+hierarchy
+tagging
+scope
+release management
+ado.net
+transaction
+eula
+rad
+service
+secure coding
+np complete
+windows 8
+query
+numeric precision
+msdn
+model
+xslt
+redis
+pagination
+jira
+program
+defensive programming
+mvp
+chat
+soap
+codefirst
+immutability
+defect
+ftp
+cqrs
+parallel programming
+login
+final
+business intelligence
+audit
+trees
+text processing
+pdf
+access control
+cocoa
+array
+user interaction
+properties
+geometry
+auto completion
+normalization
+verification
+server
+webforms
+type conversion
+ooad
+error detection
+translate
+pascal
+d
+user story
+non disclosure agreement
+http request
+http response
+dao
+task
+web crawler
+wikipedia
+numbers
+definition
+cmake
+architectural patterns
+object
+class
+big theta
+project planning
+genetic algorithms
+manual testing
+agpl
+system architecture
+payment
+multiple inheritance
+class diagram
+reflection
+c++11
+sdk
+barcode
+career development
+product backlog
+use case
+dry
+domain specific languages
+razor
+multitasking
+order
+map
+visualization
+static methods
+integration
+unit of work
+cocomo
+flow
+p2p
+multi platform
+roles
+networks
+observer pattern
+metro
+winrt
+exception handling
+files
+compression
+indexing
+code security
+flask
+multitenancy
+android development
+latency
+make
+event programming
+sequence diagram
+graph traversal
+directory structure
+shell
+knowledge transfer
+declarations
+video
+xmlhttprequest
+compatibility
+modern
+web servers
+adapter
+mongo
+document databases
+stack
+heap
+crud
+word
+allocation
+malloc
+procedural
+cvs
+dart
+coffeescript
+forking
+random
+eai
+junit
+speed
+virtual machine languages
+structured programming
+imperative programming
+test management
+requirements management
+heuristics
+large scale project
+task organization
+graph
+generalization
+embedded systems
+dynamic inheritance
+computer vision
+byte
+mariadb
+polling
+io
+single responsibility
+coldfusion
+buffers
+polymorphism
+event sourcing
+event
+usb
+javadocs
+mixins
+com
+extjs
+quotations
+big data
+canvas
+deprecation
+machine code
+dynamic programming
+routing
+graph databases
+dijkstra
+dynamic data
+linking
+cmmi
+website performance
+taocp
+boolean
+logic
+install
+memcached
+lexer
+linked list
+parser combinator
+server security
+method overloading
+uuid
+sms
+component
+sql azure
+technical writing
+dynamic languages
+rendering
+turing completeness
+effort
+cgi
+view
+design by contract
+process improvement
+session
+perforce
+sharding
+gtk
+keys
+serialization
+return type
+cron
+conventions
+asp.net mvc 4
+arm
+high performance
+mongodb
+rules engine
+ontology
+semantic web
+process
+state
+software patches
+annotations
+lucene
+code ownership
+scm
+entry point
+document management
+endianness
+build system
+team foundation server
+websockets
+cookies
+css3
+dataflow
+signals
+firmware
+cvcs
+delivery
+message passing
+csv
+open close
+help documentation
+asm
+locks
+loops
+const
+ascii
+method chaining
+rpc
+continuation
+image
+analytics
+gerrit
+sqlite
+ninject
+integration testing
+queue
+client
+naming standards
+data modeling
+url
+minify
+legacy code
+spring mvc
+development
+heroku
+arithmetic
+separation of concerns
+include
+data replication
+tail call
+oauth2
+space technology
+vba
+algebraic data type
+merging
+analogy
+jsf
+dynamic linking
+evidence based
+data flow diagram
+local storage
+visual studio 2012
+bitbucket
+typescript
+cohesion
+memory usage
+attribution
+multiprocessing
+hmac
+algorithm analysis
+image processing
+powershell
+collections
+higher order functions
+windows phone 8
+dependency management
+functional testing
+dynamic
+principles
+asynchronous programming
+currying
+java8
+static keyword
+static access
+static linking
+cloud
+jboss
+asp.net mvc web api
+srs
+common lisp
+filtering
+visitor pattern
+phpunit
+akka
+burndown
+generic programming
+update
+mutable
+floating point
+warnings
+operator precedence
+cdn
+ember.js
+bit
+camelcase
+factory method
+3rd party
+value object
+redirect
+protobuf
+constructors
+responsive design
+register
+globals
+upload
+information theory
+hateoas
+surrogate keys
+interoperability
+solr
+pull requests
+plugin architecture
+producer consumer
+parameters
+dogfooding
+web api
+jee
+bundling
+apache kafka
+asp classic
+google guice
+data integrity
+gnu
+activerecord
+queueing
+drivers
+semantic versioning
+static
+instance
+raii
+loc
+angularjs
+language specifications
+docker
+computation expressions
+string matching
+offline
+indexeddb
+date patterns
+aws
+unit test data
+chess
+racket
+laravel
+apache2
+client server
+bootstrap
+preferences
+settings
+pci
+currency
+command message
+package managers
+uri
+bytecode
+orchestration
+if statement
+dispatch
+gitlab
+huffman encoding
+hooks
+decorator
+factory
+template method
+lambda calculus
+swift language
+circular dependency
+pure function
+poco
+calling conventions
+osgi
+compilation
+typeclass
+es6
+elasticsearch
+reactive
+file formats
+metadata
+distributed system
+rspec
+type theory
+combinatorics
+domain name system
+domain objects
+subtypes
+bamboo
+matrices
+microservices
+modularization
+blob
+trait
+delegation
+gradle
+nuget
+rust
+dto
+posix
+eventual consistency
+stream processing
+strong typing
+setters
+functional requirements
+lookup
+nginx
+load balancing
+abi
+pipelining
+ip address
+undefined behavior
+asp.net mvc5
+devops
+virtual functions
+reference counting
+golang
+type
+asynchronous
+ranking systems
+reactjs
+path
+builder pattern
+controller
+hexadecimal
+this
+windows 10
+gtest
+change management
+end to end
+monitoring
+onion architecture
+path finding
+callbacks
+promises
+backend
+service locator
+abstract factory
+proxy
+dependency inversion
+esb
+mongoose
+subclassing
+matrix
+notifications
+flux
+native
+wrapper
+unity3d
+hashtable
+liskov substitution
+redux
+overriding
+multiple dispatch
+google cloud datastore
+pthreads
+law of demeter
+service workers
+unique data
+xamarin
+store
+typedef
+non functional
+dapper
+open closed principle
+npm
+antibugging
+angular2
+getters
+facade
+.net core
+spark
+geolocation
+swagger
+compile time
+test scenarios
+semaphore
+mutex
+asp.net core
+submodules
+data binding
+react
+scaled agile framework
+event handling
+logical operator
+c++14
+constants
+relational modelling
+xsd
+webpack
+data access
+google maps
+factory pattern
+iot
+react native
+jwt
+repository pattern
+cqs
+scaling
+pattern matching
+socket.io
+hexagonal architecture
+blockchain
+strategy pattern
+rabbitmq
+efcore
+single page apps
+entity component system
+rbac
+struct
+control flow
+rate limiting
+sqlalchemy
+trie
+spring boot
+read model
+serverless
+fault tolerance
+clean architecture
+saga
+command pattern
+azure devops
+kubernetes
+bpmn
+vue.js
+smtp
+graphql
+containerization
+angular
+streams
+consistency
+kotlin
+amqp
+firebase
+visual testing
+qr code
+microfrontends
