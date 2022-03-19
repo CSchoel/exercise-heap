@@ -206,7 +206,7 @@ def update(event, github_token, dry=False):
     except ValueError:
         msg = textwrap.dedent(f"""
             There is something wrong with the pull request you are \
-            sending this update request from: \
+            sending this update request from:
 
             ```
             {traceback.format_exc()}
