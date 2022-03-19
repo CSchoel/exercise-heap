@@ -2,10 +2,10 @@
     "action": "created",
     "issue": {
         "pull_request": {
-            "url": "https://api.github.com/repos/octocat/Hello-World/pulls/1347",
-            "html_url": "https://github.com/octocat/Hello-World/pull/1347",
-            "diff_url": "https://github.com/octocat/Hello-World/pull/1347.diff",
-            "patch_url": "https://github.com/octocat/Hello-World/pull/1347.patch"
+            "url": "https://api.github.com/repos/Codertocat/Hello-World/pulls/2",
+            "html_url": "https://github.com/Codertocat/Hello-World/pull/2",
+            "diff_url": "https://github.com/Codertocat/Hello-World/pull/2.diff",
+            "patch_url": "https://github.com/Codertocat/Hello-World/pull/2.patch"
         },
         "url": "https://api.github.com/repos/Codertocat/Hello-World/issues/1",
         "repository_url": "https://api.github.com/repos/Codertocat/Hello-World",
