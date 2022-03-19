@@ -204,7 +204,7 @@ def update(event, github_token, dry=False):
     Updates YAML metadata based on comment
     """
     name, email = gh_userinfo(event["sender"])
-    issue_url = event["issue"]["html_url"]
+    issue_url = event["issue"]["issue_url"]
     try:
         exfile, branch = find_exfile(event["issue"], dry=dry)
     except ValueError:
