@@ -220,7 +220,7 @@ def update(event, github_token, dry=False):
         porty_comment(msg, issue_url, github_token, dry=dry)
         return
     # extract quoted lines
-    new_header = [x.strip() for x in event["comment"]["body"] if x.startswith(">")]
+    new_header = [x[1:].strip() for x in event["comment"]["body"].splitlines() if x.startswith(">")]
 
     # check if the comment contains a quoted block
     if len(new_header) == 0:
@@ -232,6 +232,7 @@ def update(event, github_token, dry=False):
         porty_comment(msg, issue_url, github_token, dry=dry)
         return
     # check if the quoted block contains a code block
+    print(new_header)
     if not new_header[0].startswith("```") or new_header[0][3:] not in ["yaml"]:
         msg = textwrap.dedent("""
             Sorry, the quoted block in your comment does not start \
