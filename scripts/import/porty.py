@@ -13,9 +13,11 @@ import subprocess
 import textwrap
 import shlex
 import uuid
-import yaml
 import io
+import traceback
+import re
 
+import yaml
 import requests
 
 def fs_sanitize(string):
@@ -45,11 +47,11 @@ def maybe_run(args, env=None, dry=False, capture_output=False):
         if capture_output:
             return res.stdout
 
-def gh_userinfo(event):
+def gh_userinfo(user):
     """
     Retrieves name of user that triggered an event from GitHub API
     """
-    url = event["issue"]["user"]["url"]
+    url = user["url"]
     data = requests.get(url).json()
     name = data["name"] if data["name"] is not None else data["login"]
     email = data["email"] if data["email"] is not None else f"{data['id']}+{data['login']}@users.noreply.github.com"
@@ -70,7 +72,7 @@ def create_header(title, name, body):
 
     # call suggest_tags script to get a set of tags
     temp_head = io.StringIO()
-    yaml.dump(header, temp_head)
+    yaml.safe_dump(header, temp_head)
     tempfile = Path(".portys_tempfile_dont_touch")
     tempfile.write_text(os.linesep.join(["---", temp_head.getvalue(), "---", body]), encoding="utf-8")
     suggest = Path(__file__).parent.parent / "metadata" / "suggest_tags.py"
@@ -86,7 +88,7 @@ def create_header(title, name, body):
     tags = [{ k.strip(): v.strip()} for k,v in tags]
     header["keywords"] = tags
     text = io.StringIO()
-    yaml.dump(header, text)
+    yaml.safe_dump(header, text)
     return text.getvalue()
 
 def create_pr(event, github_token, dry=False):
@@ -95,7 +97,7 @@ def create_pr(event, github_token, dry=False):
     this function call.
     """
     title = event["issue"]["title"]
-    name, email = gh_userinfo(event)
+    name, email = gh_userinfo(event["issue"]["user"])
     login = event["issue"]["user"]["login"]
     number = event['issue']['number']
     body = event["issue"]["body"]
@@ -152,6 +154,127 @@ def create_pr(event, github_token, dry=False):
         See you at the corresponding pull request: {pr_url.strip()}. :smile:
     """)
     maybe_run(["gh", "issue", "comment", issue_url, "-b", msg], env=gh_env, dry=dry)
+
+def find_exfile(event, dry=False):
+    """
+    Finds newly committed exercise file from git logs
+    """
+    if not "pull_request" in event:
+        raise ValueError("This issue is not a pull request!")
+    pullurl = event["pull_request"]["url"]
+    pull = requests.get(pullurl).json()
+
+    base = pull["base"]["ref"]
+    head = pull["head"]["ref"]
+    out = maybe_run(["git", "diff", f"{base}..{head}", "--name-only"], dry=dry, capture_output=True)
+    filename = [x for x in out.splitlines() if re.match(r"exercises/.+/.+/.+/.+\.md", x)]
+    if len(filename) == 0:
+        raise ValueError(f"Could not find exercise name in changed files: {','.join(out.spltilines())}")
+    return Path(filename[0])
+
+def update(event, github_token, dry=False):
+    """
+    Updates YAML metadata based on comment
+    """
+    name, email = gh_userinfo(event["sender"])
+    try:
+        exfile = find_exfile(event, dry=dry)
+    except ValueError:
+        msg = textwrap.dedent(f"""
+            There is something wrong with the pull request you are \
+            sending this update request from: \
+
+            ```
+            {traceback.format_exc()}
+            ```
+        """)
+        maybe_run(["gh", "issue", "comment", issue_url, "-b", msg], env=gh_env, dry=dry)
+        return
+    issue_url = event["issue"]["html_url"]
+    # extract quoted lines
+    new_header = [x.strip() for x in event["comment"]["body"] if x.startswith(">")]
+
+    # handle issues
+    gh_env = {
+        "GITHUB_TOKEN": github_token,
+        "PATH": os.environ["PATH"]
+    }
+    # check if the comment contains a quoted block
+    if len(new_header) == 0:
+        msg = textwrap.dedent("""
+            Sorry, I did not find a quoted passage in your comment. \
+            Maybe you forgot to add `> ` in front of the code block \
+            for the YAML or markdown content that I should update?
+        """)
+        maybe_run(["gh", "issue", "comment", issue_url, "-b", msg], env=gh_env, dry=dry)
+        return
+    # check if the quoted block contains a code block
+    if not new_header[0].startswith("```") or new_header[0][3:] not in ["yaml"]:
+        msg = textwrap.dedent("""
+            Sorry, the quoted block in your comment does not start \
+            with a code block of the correct type. Please make sure \
+            that you put `` ```yaml `` before the content that \
+            you want me to update.
+        """)
+        maybe_run(["gh", "issue", "comment", issue_url, "-b", msg], env=gh_env, dry=dry)
+        return
+    try:
+        new_header = new_header[1:new_header.index("```")]
+    except ValueError:
+        msg = textwrap.dedent("""
+            Hmm... something is wrong with your markdown. The \
+            quoted block I found contains the start of a code block \
+            but the closing `` ``` `` seems to be missing.
+        """)
+        maybe_run(["gh", "issue", "comment", issue_url, "-b", msg], env=gh_env, dry=dry)
+        return
+    # check if the content of the code block is valid yaml
+    try:
+        sio = io.StringIO(os.linesep.join(new_header))
+        data = yaml.safe_load(sio)
+    except yaml.parser.ParserError:
+        msg = textwrap.dedent(f"""
+            You know, I'm just a simple bot, but that YAML content \
+            does not look right to me. Here is what the parser has \
+            to say about that:
+
+            ```
+            {traceback.format_exc()}
+            ```
+        """)
+        maybe_run(["gh", "issue", "comment", issue_url, "-b", msg], env=gh_env, dry=dry)
+        return
+    # check that mandatory fields are present in the new header
+    mandatory = [
+        "id",
+        "author",
+        "title",
+        "keywords",
+        "lang",
+        "solution-size"
+    ]
+    missing = [k for k in mandatory if k not in data]
+    if len(missing) > 0:
+        msg = textwrap.dedent(f"""
+            I can almost accept this update, but not quite. The \
+            following keys are missing in the YAML header: \
+            {','.join(missing)}.
+        """)
+        maybe_run(["gh", "issue", "comment", issue_url, "-b", msg], env=gh_env, dry=dry)
+        return
+    new_header = ["---"] + new_header + ["---"]
+
+    # actually swap header content
+    if not dry:
+        old_content = exfile.read_text("utf-8").splitlines()
+        hstart = old_content.index("---")
+        hend = old_content.index("---", hstart + 1)
+        new_content = old_content[:hstart] + new_header + old_content[hend+1:]
+        exfile.write_text(os.linesep.join(new_content), encoding="utf-8")
+    else:
+        print(f"touch {str(exfile)}")
+
+    # commit changes
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(prog="Porty", description="Your friendly import bot")
