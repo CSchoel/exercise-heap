@@ -303,7 +303,7 @@ def update(event, github_token, dry=False):
         print(f"touch {str(exfile)}")
 
     # commit changes
-    git_commit_as(name, email, branch, "updates YAML header")
+    git_commit_as(name, email, branch, "updates YAML header", dry=dry)
     # message success
     msg = textwrap.dedent("""\
         Thanks for the correction. :bow: I have updated the \
