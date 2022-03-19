@@ -212,7 +212,7 @@ def update(event, github_token, dry=False):
             {traceback.format_exc()}
             ```
         """)
-        porty_comment(msg, issue_url, github_token)
+        porty_comment(msg, issue_url, github_token, dry=dry)
         return
     # extract quoted lines
     new_header = [x.strip() for x in event["comment"]["body"] if x.startswith(">")]
@@ -224,7 +224,7 @@ def update(event, github_token, dry=False):
             Maybe you forgot to add `> ` in front of the code block \
             for the YAML or markdown content that I should update?
         """)
-        porty_comment(msg, issue_url, github_token)
+        porty_comment(msg, issue_url, github_token, dry=dry)
         return
     # check if the quoted block contains a code block
     if not new_header[0].startswith("```") or new_header[0][3:] not in ["yaml"]:
@@ -234,7 +234,7 @@ def update(event, github_token, dry=False):
             that you put `` ```yaml `` before the content that \
             you want me to update.
         """)
-        porty_comment(msg, issue_url, github_token)
+        porty_comment(msg, issue_url, github_token, dry=dry)
         return
     try:
         new_header = new_header[1:new_header.index("```")]
@@ -244,7 +244,7 @@ def update(event, github_token, dry=False):
             quoted block I found contains the start of a code block \
             but the closing `` ``` `` seems to be missing.
         """)
-        porty_comment(msg, issue_url, github_token)
+        porty_comment(msg, issue_url, github_token, dry=dry)
         return
     # check if the content of the code block is valid yaml
     try:
@@ -260,7 +260,7 @@ def update(event, github_token, dry=False):
             {traceback.format_exc()}
             ```
         """)
-        porty_comment(msg, issue_url, github_token)
+        porty_comment(msg, issue_url, github_token, dry=dry)
         return
     # check that mandatory fields are present in the new header
     mandatory = [
@@ -278,7 +278,7 @@ def update(event, github_token, dry=False):
             following keys are missing in the YAML header: \
             {','.join(missing)}.
         """)
-        porty_comment(msg, issue_url, github_token)
+        porty_comment(msg, issue_url, github_token, dry=dry)
         return
     new_header = ["---"] + new_header + ["---"]
 
