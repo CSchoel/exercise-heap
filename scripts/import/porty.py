@@ -181,7 +181,7 @@ def find_exfile(event, dry=False) -> Tuple[Path, str]:
     out = maybe_run(["git", "diff", f"{base}..{head}", "--name-only"], dry=dry, capture_output=True)
     filename = [x for x in out.splitlines() if re.match(r"exercises/.+/.+/.+/.+\.md", x)]
     if len(filename) == 0:
-        raise ValueError(f"Could not find exercise name in changed files: {','.join(out.spltilines())}")
+        raise ValueError(f"Could not find exercise name in changed files: {','.join(out.splitlines())}")
     return Path(filename[0]), head
 
 def porty_comment(msg: str, issue_url: str, gh_token: str, dry: bool=False):
