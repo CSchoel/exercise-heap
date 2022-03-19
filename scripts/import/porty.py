@@ -202,7 +202,7 @@ def update(event, github_token, dry=False):
     name, email = gh_userinfo(event["sender"])
     issue_url = event["issue"]["html_url"]
     try:
-        exfile, branch = find_exfile(event, dry=dry)
+        exfile, branch = find_exfile(event["issue"], dry=dry)
     except ValueError:
         msg = textwrap.dedent(f"""
             There is something wrong with the pull request you are \
