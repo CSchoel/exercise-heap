@@ -21,7 +21,7 @@ from typing import Tuple
 import yaml
 import requests
 
-linesep = os.linesep
+linesep = "\n"
 
 def fs_sanitize(string):
     """
