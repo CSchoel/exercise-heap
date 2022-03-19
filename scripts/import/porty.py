@@ -302,6 +302,7 @@ def update(event, github_token, dry=False):
         Thanks for the correction. :bow: I have updated the \
         YAML header as you requested. :+1: \
     """)
+    porty_comment(msg, issue_url, github_token, dry=dry)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(prog="Porty", description="Your friendly import bot")
