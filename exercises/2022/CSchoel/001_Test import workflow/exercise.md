@@ -4,26 +4,25 @@ author:
 - Porty[bot]
 id: 952f1582-8c18-4687-abbe-56bb011a6a16
 keywords:
-- language: ' java'
-- major: ' computer science'
-- institution: ' Technische Hochschule Mittelhessen'
-- submission: ' code'
-- semester: ' 2'
-- course: ' Algorithmen und Datenstrukturen'
-- teaches: ' pow'
-- teaches: ' workflow'
-- teaches: ' mass'
-- teaches: ' text'
-- teaches: ' import'
-- teaches: ' math'
-- teaches: ' m'
-- teaches: ' bmi'
-- teaches: ' b'
-- teaches: ' ca'
+- language: 'java'
+- major: 'computer science'
+- institution: 'Technische Hochschule Mittelhessen'
+- submission: 'code'
+- semester: '2'
+- course: 'Algorithmen und Datenstrukturen'
+- teaches: 'pow'
+- teaches: 'workflow'
+- teaches: 'mass'
+- teaches: 'text'
+- teaches: 'import'
+- teaches: 'math'
+- teaches: 'm'
+- teaches: 'bmi'
+- teaches: 'b'
+- teaches: 'ca'
 lang: de-DE
 solution-size: 16
 title: Test import workflow
-
 ---
 ## Aufgabe 02 - BMI
 
