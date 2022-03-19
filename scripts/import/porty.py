@@ -16,6 +16,7 @@ import uuid
 import io
 import traceback
 import re
+from typing import Tuple
 
 import yaml
 import requests
@@ -166,7 +167,7 @@ def create_pr(event, github_token, dry=False):
     """)
     maybe_run(["gh", "issue", "comment", issue_url, "-b", msg], env=gh_env, dry=dry)
 
-def find_exfile(event, dry=False):
+def find_exfile(event, dry=False) -> Tuple[Path, str]:
     """
     Finds newly committed exercise file from git logs
     """
@@ -181,7 +182,7 @@ def find_exfile(event, dry=False):
     filename = [x for x in out.splitlines() if re.match(r"exercises/.+/.+/.+/.+\.md", x)]
     if len(filename) == 0:
         raise ValueError(f"Could not find exercise name in changed files: {','.join(out.spltilines())}")
-    return Path(filename[0])
+    return Path(filename[0]), head
 
 def porty_comment(msg: str, issue_url: str, gh_token: str, dry: bool=False):
     """
@@ -201,7 +202,7 @@ def update(event, github_token, dry=False):
     name, email = gh_userinfo(event["sender"])
     issue_url = event["issue"]["html_url"]
     try:
-        exfile = find_exfile(event, dry=dry)
+        exfile, branch = find_exfile(event, dry=dry)
     except ValueError:
         msg = textwrap.dedent(f"""
             There is something wrong with the pull request you are \
@@ -281,6 +282,9 @@ def update(event, github_token, dry=False):
         return
     new_header = ["---"] + new_header + ["---"]
 
+    # switch to the correct branch
+    maybe_run(["git", "checkout", branch])
+
     # actually swap header content
     if not dry:
         old_content = exfile.read_text("utf-8").splitlines()
@@ -292,6 +296,12 @@ def update(event, github_token, dry=False):
         print(f"touch {str(exfile)}")
 
     # commit changes
+    git_commit_as(name, email, branch, "updates YAML header")
+    # message success
+    msg = textwrap.dedent("""\
+        Thanks for the correction. :bow: I have updated the \
+        YAML header as you requested. :+1: \
+    """)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(prog="Porty", description="Your friendly import bot")
