@@ -149,7 +149,7 @@ def create_pr(event, github_token, dry=False):
     branch_name = f"import#{number}"
     maybe_run(["git", "checkout", "-b", branch_name], dry=dry)
     git_setuser(dry=dry)
-    git_commit_as(name, email, branch_name, f"import {title}")
+    git_commit_as(name, email, branch_name, f"import {title}", dry=dry)
     msg = textwrap.dedent(f"""
         Hey, Porty the import bot here. I have created this pull \
         request from issue #{number} for you. If you are not \
