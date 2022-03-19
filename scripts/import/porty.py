@@ -152,9 +152,9 @@ def create_pr(event, github_token, dry=False):
     git_commit_as(name, email, branch_name, f"import {title}")
     msg = textwrap.dedent(f"""
         Hey, Porty the import bot here. I have created this pull \
-        request from issue #{number} for you. Currently you can \
-        only accept it as is, but in the future I will learn to \
-        do some updates if you are not happy right away. :student:
+        request from issue #{number} for you. If you are not \
+        happy right away, you can tell me to do some updates \
+        for you. I will tell you how to do so in the comments.
     """)
     pr_url = maybe_run([
         "gh", "pr", "create", "-d", "--title", f"Import: {title}",
@@ -168,6 +168,20 @@ def create_pr(event, github_token, dry=False):
         See you at the corresponding pull request: {pr_url.strip()}. :smile:
     """)
     maybe_run(["gh", "issue", "comment", issue_url, "-b", msg], env=gh_env, dry=dry)
+    msg = textwrap.dedent(f"""
+        Ok, assuming you are not happy with this magnificent \
+        YAML header I have painstakingly put together for you, \
+        you can quote this message and change the header content. \
+        Just make sure to keep the header in quotes and in a
+        code block. If you then add `#update` somewhere outside of the \
+        quote block, I will try to replace the header with \
+        the new content you gave me.
+
+        ```yaml
+        {header}
+        ```
+    """)
+    porty_comment(msg, pr_url.strip(), github_token, dry=dry)
 
 def find_exfile(event, dry=False) -> Tuple[Path, str]:
     """
