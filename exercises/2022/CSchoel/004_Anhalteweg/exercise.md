@@ -10,7 +10,6 @@ keywords:
 - semester: '2'
 - course: Algorithmen und Datenstrukturen
 - teaches: was
-- teaches: du
 - teaches: java
 - teaches: math
 - teaches: pow
@@ -18,7 +17,6 @@ keywords:
 lang: de-DE
 solution-size: 15
 title: Anhalteweg
-
 ---
 ## Aufgabe 03 - Anhalteweg
 
