@@ -1,3 +1,5 @@
+[![check UUIDs](https://github.com/CSchoel/exercise-heap/actions/workflows/ci.yaml/badge.svg)](https://github.com/CSchoel/exercise-heap/actions/workflows/ci.yaml)
+
 # Exercise Heap
 
 ## Future vision
