@@ -1,6 +1,30 @@
 # Exercise Heap
 
-This repository contains a collection of programming exercises that were created by myself, my tutors, colleagues, and friends.
+## Future vision
+
+Open educational resources are a much-needed means to facilitate cooperation between teachers and to reduce the effort of creating high-quality courses.
+However, I never found myself using any content on existing OER platforms, because it was so difficult and time-consuming to check whether a published item actually contained the puzzle piece that I was currently searching for.
+I believe that a much more fine-grained repository with powerful yet flexible semantic search features is required and that content provision, tagging, and evaluation of OER items should be a community effort with a strong crowdsourcing approach.
+Ideally, you should, for example, be able to perform a query like this:
+
+> Find all exercises that:
+>
+> * teach the concept of `arrays`,
+> * require the submission of `source code`,
+> * do not require students to know about `functions`,
+> * have a community rating of at least `3.5`/5,
+> * have been approved by at least one person with the role `teacher`
+> * require between `10` and `20` lines of code to solve,
+> * and are targeted at `first semester university students`.
+
+You would then be presented with a list of suitable exercises and could select any number of them with a checkbox to download them in an editable format of your choice (LaTeX, LibreOffice, ASCIIdoc, ...) with all associated resources such as images, sample solutions, or unit tests, in a single zip archive.
+Similar queries and tools would be possible for presentation slides or explanatory texts and analogies.
+
+## Current state
+
+This repository is a first small step towards the above vision.
+It contains a collection of programming exercises that were created by myself, my tutors, colleagues, and friends as well as some Python scripts that can perform basic operations such as import, export, or tag suggestions.
+
 I and/or the original authors release this work to the public domain ([CC0](https://creativecommons.org/share-your-work/public-domain/cc0/)).
 I will keep all texts regarding the organization of this repository in English, so that this repository is as useful to international users as possible.
 The exercise texts, however, will be mainly in German, since I teach at German universities.
@@ -22,18 +46,21 @@ Consequently, exercise descriptions are just a Markdown file which is placed in 
 * `test` contains unit tests for automatic assessment of student solutions.
 * `res` contains resources required for solving the exercise such as files that have to be read.
 * `sol` contains sample solutions.
+  * If there is just one sample solution, it can be directly placed in this folder in whatever structure the exercise requires.
+    However, for more than one alternative, there should be another hierarchical layer with folders called `alternative-1`, `alternative-2`, and so on.
 
 The Markdown file containing the exercise description should start with a YAML-Header containing [Pandoc-compliant metadata](https://pandoc.org/MANUAL.html#metadata-variables) as follows:
 
 ```YAML
 ---
 title: The title of the exercise
+id: UUID-of-exercise
 author:
     - First Author
     - Second Author
 keywords:
-    - category: value
-    - category: value
+    - category1: value1
+    - category2: value2
 lang: en-US
 solution-size: 17 # lines of code / number of sentences / ...
 ---
@@ -44,14 +71,17 @@ solution-size: 17 # lines of code / number of sentences / ...
 I plan on using tags for almost any semantic information that further identifies the exercise:
 
 * Exercise context (exam, graded homework, learning material)
+* Type of submission required (code, text, multiple choice, ...)
 * Exercise subject (loops, if-expressions, sorting algorithms, ...)
 * Required preexisting knowledge (loops, if-expressions, sorting algorithms, ...)
-* Programming language (python, java, ...)
+* Programming language (Python, Java, ...)
 * Name of course (Grundlagen der Informatik, Algorithmen und Datenstrukturen)
 * Name of institution (Technische Hochschule Mittelhessen, Justus-Liebig-Universität)
+* Level of experience assumed (Semester 1, semester 2, ...)
 * ...
 
 They should be treated as [semantic triples](https://en.wikipedia.org/wiki/Semantic_triple) with the exercise as the subject, the category as the verb and the value as the object.
+Groups of multiple values for a category can be formed by adding multiple tags with the same category but different values.
 
 ### Links to other exercises
 
@@ -68,6 +98,28 @@ keywords:
     references: 92d4383f-5e4a-42b9-a1ed-4d2fe7098ef7
     requires-solution: 6ca78dd4-48ec-4894-8924-3a7970833105
 ```
+
+## Existing scripting functionality
+
+### Import
+
+Import is currently possible with the following scripts:
+
+* `import_aud.py`: Custom import script for my exercise structure used for the course "Algorithmen und Datenstrukturen"
+* `import_dozeloc.py`: Import script for exercise folders generated for the tool [Dozeloc](https://github.com/CSchoel/dozeloc)
+* `import_tex.py`: Imports exercises from LaTeX documents, assuming that each section of the document is a separate exercise.
+* `porty.py`: Logic for the import bot Porty, which can import exercises from GitHub issues ([see example](https://github.com/CSchoel/exercise-heap/issues/4))
+
+### Export
+
+* `export_dozeloc.py`: Exports all Python exercises that have a unit test attached to the format required by [Dozeloc](https://github.com/CSchoel/dozeloc).
+
+### Tagging support
+
+* `add_uuid.py`: Adds UUIDs for all exercises which currently do not have one.
+* `check_uuids.py`: Checks that all exercises in the repository have a UUID, which is actually unique within the repository.
+* `create_tagnames.py`: Creates list of tag names from Stack Exchange Data Dump.
+* `suggest_tags.py`: Suggests which tags to add or remove for a newly added exercise (based on lists generated by `create_tagnames.py` and a simple nearest-neighbor search).
 
 ## General notes
 
