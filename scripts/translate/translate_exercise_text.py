@@ -5,14 +5,14 @@ from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 class Translator:
     """Translate text from one language into another."""
 
-    def __init__(self, model_name="facebook/nllb-200-distilled-600M", src_lang="ron_Latn"):
+    def __init__(self, model_name="facebook/nllb-200-distilled-600M", source_lang="ron_Latn"):
         """Create new Translator loading a model for NMT from huggingface transformers.
 
         Args:
             model_name (str, optional): Name of the model to load from huggingface
-            src_lang (str, optional): Language (BCP 47) of source texts that will be translated with this model
+            source_lang (str, optional): Language (BCP 47) of source texts that will be translated with this model
         """
-        self.tokenizer = AutoTokenizer.from_pretrained(model_name, use_auth_token=True, src_lang="ron_Latn")
+        self.tokenizer = AutoTokenizer.from_pretrained(model_name, use_auth_token=True, source_lang="ron_Latn")
         self.model = AutoModelForSeq2SeqLM.from_pretrained(model_name, use_auth_token=True)
     def translate(self, text: str, target_lang="deu_Latn"):
         """Translate a text to a target language.
@@ -35,7 +35,7 @@ class Translator:
 
 if __name__ == "__main__":
     # run example from https://github.com/facebookresearch/fairseq/tree/nllb
-    translator = Translator(model_name="facebook/nllb-200-distilled-600M", src_lang="ron_Latn")
+    translator = Translator(model_name="facebook/nllb-200-distilled-600M", source_lang="ron_Latn")
 
     article = "Şeful ONU spune că nu există o soluţie militară în Siria"
     res = translator.translate(article, target_lang="deu_Latn")
