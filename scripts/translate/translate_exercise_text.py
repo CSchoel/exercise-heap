@@ -1,5 +1,7 @@
 """Translate exercise text into another language using language models."""
 
+from pathlib import Path
+
 from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 
 from exercise_heap.header import header_editing
@@ -37,17 +39,17 @@ class Translator:
         return res
 
 
-def translate_exercise(path: str | Path, from_language="de_Latn", to_language="en_Latn"):
+def translate_exercise(path: str | Path, from_language="de_Latn", to_language="eng_Latn"):
     """Translate an exercise from one language to another.
 
     Args:
         path (str | Path): Path to the exercise text.
         from_language (str, optional): Source language. Defaults to "de_Latn".
-        to_language (str, optional): Target language. Defaults to "en_Latn".
+        to_language (str, optional): Target language. Defaults to "eng_Latn".
     """
     translator = Translator(model_name="facebook/nllb-200-distilled-600M", source_lang=from_language)
-    with header_editing(path, dry_run=True) as header:
-        header["title"] = translator.translate(header["title"], source_lang=to_language)
+    with header_editing(Path(path), dry_run=True) as header:
+        header["title"] = translator.translate(header["title"], target_lang=to_language)
 
 if __name__ == "__main__":
-    translate_exercise("exercises/2021/Grundlagen der Informatik (BI Master)/01_01_helloworld/helloworld.md", from_language="de_Latn", to_language="en_Latn")
+    translate_exercise("exercises/2021/Grundlagen der Informatik (BI Master)/01_01_helloworld/helloworld.md", from_language="de_Latn", to_language="eng_Latn")
