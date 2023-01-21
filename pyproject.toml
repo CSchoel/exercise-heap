@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "exercise-heap"
+version = "0.1.0"
+description = "API for interacting with files stored in the exercise heap."
+authors = ["Christopher Schölzel <christopher.schoelzel@mailbox.org>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "exercise_heap"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
