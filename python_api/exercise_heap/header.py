@@ -1,7 +1,7 @@
 """Code that works with YAML headers."""
 
 from pathlib import Path
-from typing import Dict, Any
+from typing import Dict, Any, Optional
 import io
 import os
 import re
@@ -41,7 +41,9 @@ def load_header(exfile: Path, for_editing: bool = False) -> Dict[str, Any]:
 
 
 @contextmanager
-def header_editing(exfile: Path, dry_run=False):
+def header_editing(exfile: Path, outfile: Optional[Path] = None, dry_run=False):
+    if outfile is None:
+        outfile = exfile
     header, rest, yaml = load_header(exfile, for_editing=True)
     yield yaml
     temp = io.StringIO()
@@ -51,4 +53,4 @@ def header_editing(exfile: Path, dry_run=False):
     if dry_run:
         print(new_text)
     else:
-        exfile.write_text(new_text)
+        outfile.write_text(new_text)

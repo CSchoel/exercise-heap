@@ -2,6 +2,9 @@
 
 from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 
+from exercise_heap.header import header_editing
+
+
 class Translator:
     """Translate text from one language into another."""
 
@@ -14,6 +17,7 @@ class Translator:
         """
         self.tokenizer = AutoTokenizer.from_pretrained(model_name, use_auth_token=True, source_lang="ron_Latn")
         self.model = AutoModelForSeq2SeqLM.from_pretrained(model_name, use_auth_token=True)
+
     def translate(self, text: str, target_lang="deu_Latn"):
         """Translate a text to a target language.
 
@@ -31,12 +35,19 @@ class Translator:
         )
         res = self.tokenizer.batch_decode(translated_tokens, skip_special_tokens=True)[0]
         return res
-        
+
+
+def translate_exercise(path: str | Path, from_language="de_Latn", to_language="en_Latn"):
+    """Translate an exercise from one language to another.
+
+    Args:
+        path (str | Path): Path to the exercise text.
+        from_language (str, optional): Source language. Defaults to "de_Latn".
+        to_language (str, optional): Target language. Defaults to "en_Latn".
+    """
+    translator = Translator(model_name="facebook/nllb-200-distilled-600M", source_lang=from_language)
+    with header_editing(path, dry_run=True) as header:
+        header["title"] = translator.translate(header["title"], source_lang=to_language)
 
 if __name__ == "__main__":
-    # run example from https://github.com/facebookresearch/fairseq/tree/nllb
-    translator = Translator(model_name="facebook/nllb-200-distilled-600M", source_lang="ron_Latn")
-
-    article = "Şeful ONU spune că nu există o soluţie militară în Siria"
-    res = translator.translate(article, target_lang="deu_Latn")
-    print(res)
+    translate_exercise("exercises/2021/Grundlagen der Informatik (BI Master)/01_01_helloworld/helloworld.md", from_language="de_Latn", to_language="en_Latn")
