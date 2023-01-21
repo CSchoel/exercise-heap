@@ -48,7 +48,7 @@ def header_editing(exfile: Path, outfile: Optional[Path] = None, dry_run=False):
     yield header
     temp = io.StringIO()
     yaml.dump(header, temp)
-    new_header = os.linesep.join(["---", str(temp), "---"])
+    new_header = os.linesep.join(["---", temp.getvalue(), "---"])
     new_text = new_header + rest
     if dry_run:
         print(new_text)
