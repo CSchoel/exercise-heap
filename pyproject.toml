@@ -9,6 +9,7 @@ packages = [{include = "exercise_heap", from = "python_api" }]
 
 [tool.poetry.dependencies]
 python = "^3.10"
+ruamel-yaml = "^0.17.21"
 
 
 [build-system]
