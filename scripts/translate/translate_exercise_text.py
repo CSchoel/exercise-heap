@@ -4,7 +4,7 @@ from pathlib import Path
 
 from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 
-from exercise_heap.header import header_editing
+from exercise_heap.header import exercise_editing
 
 
 class Translator:
@@ -57,8 +57,9 @@ def translate_exercise(path: str | Path, from_language="de_Latn", to_language="e
     translator = Translator(
         model_name="facebook/nllb-200-distilled-600M", source_lang=from_language
     )
-    with header_editing(Path(path), dry_run=True) as header:
-        header["title"] = translator.translate(header["title"], target_lang=to_language)
+    with exercise_editing(Path(path), dry_run=True) as ex:
+        ex.header["title"] = translator.translate(ex.header["title"], target_lang=to_language)
+        ex.description = translator.translate(ex.description, target_lang=to_language)
 
 
 if __name__ == "__main__":
