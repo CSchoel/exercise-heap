@@ -16,9 +16,9 @@ def get_header(exfile: Path, and_rest=False) -> str:
     if header is None:
         raise Exception(f"{exfile} does not contain a YAML header")
     if header.start() != 0:
-        raise Exception(f"{exfile} has a YAML block, which is not at the beginning of the file but at postion {header.start()}")
+        raise Exception(f"{exfile} has a YAML block, which is not at the beginning of the file but at postion {header.start()}")  # noqa: E501
     if and_rest:
-        return header.group(1), text[len(header.group(0))+1:]
+        return header.group(1), text[len(header.group(0)) + 1:]
     else:
         return header.group(1)
 
@@ -30,6 +30,7 @@ def load_header(exfile: Path, for_editing: bool = False) -> Dict[str, Any]:
         _type_: _description_
     """
     yaml_engine = ruamel.yaml.YAML(typ="safe", pure=True)
+    yaml_engine.preserve_quotes = True
     header_res = get_header(exfile, and_rest=for_editing)
     if for_editing:
         header, rest = header_res
