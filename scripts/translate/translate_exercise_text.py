@@ -10,14 +10,21 @@ from exercise_heap.header import header_editing
 class Translator:
     """Translate text from one language into another."""
 
-    def __init__(self, model_name="facebook/nllb-200-distilled-600M", source_lang="ron_Latn"):
-        """Create new Translator loading a model for NMT from huggingface transformers.
+    def __init__(
+        self, model_name: str = "facebook/nllb-200-distilled-600M",
+        source_lang: str = "ron_Latn"
+    ):
+        """Create new Translator loading a model for NMT from huggingface.
 
         Args:
-            model_name (str, optional): Name of the model to load from huggingface
-            source_lang (str, optional): Language (BCP 47) of source texts that will be translated with this model
+            model_name (str, optional): Name of the model to load \
+                from huggingface
+            source_lang (str, optional): Language (BCP 47) of source texts \
+                that will be translated with this model
         """
-        self.tokenizer = AutoTokenizer.from_pretrained(model_name, use_auth_token=True, source_lang="ron_Latn")
+        self.tokenizer = AutoTokenizer.from_pretrained(
+            model_name, use_auth_token=True, source_lang=source_lang
+        )
         self.model = AutoModelForSeq2SeqLM.from_pretrained(model_name, use_auth_token=True)
 
     def translate(self, text: str, target_lang="deu_Latn"):
@@ -47,9 +54,16 @@ def translate_exercise(path: str | Path, from_language="de_Latn", to_language="e
         from_language (str, optional): Source language. Defaults to "de_Latn".
         to_language (str, optional): Target language. Defaults to "eng_Latn".
     """
-    translator = Translator(model_name="facebook/nllb-200-distilled-600M", source_lang=from_language)
+    translator = Translator(
+        model_name="facebook/nllb-200-distilled-600M", source_lang=from_language
+    )
     with header_editing(Path(path), dry_run=True) as header:
         header["title"] = translator.translate(header["title"], target_lang=to_language)
 
+
 if __name__ == "__main__":
-    translate_exercise("exercises/2021/Grundlagen der Informatik (BI Master)/01_01_helloworld/helloworld.md", from_language="de_Latn", to_language="eng_Latn")
+    translate_exercise(
+        "exercises/2021/Grundlagen der Informatik (BI Master)/01_01_helloworld/helloworld.md",
+        from_language="de_Latn",
+        to_language="eng_Latn"
+    )
