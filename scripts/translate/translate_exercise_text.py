@@ -65,7 +65,6 @@ def translate_exercise(path: str | Path, from_language="de_Latn", to_language="e
             translated = translator.translate(s, target_lang=to_language)
             print(translated)
             ex.description = ex.description.replace(s, translated)
-        ex.description = translator.translate(ex.description, target_lang=to_language)
 
 
 if __name__ == "__main__":
