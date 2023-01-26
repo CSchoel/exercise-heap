@@ -5,6 +5,7 @@ from pathlib import Path
 from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 
 from exercise_heap.header import exercise_editing
+from nltk.tokenize import sent_tokenize
 
 
 class Translator:
@@ -59,6 +60,11 @@ def translate_exercise(path: str | Path, from_language="de_Latn", to_language="e
     )
     with exercise_editing(Path(path), dry_run=True) as ex:
         ex.header["title"] = translator.translate(ex.header["title"], target_lang=to_language)
+        sentences = sent_tokenize(ex.description, language="german")
+        for s in sentences:
+            translated = translator.translate(s, target_lang=to_language)
+            print(translated)
+            ex.description = ex.description.replace(s, translated)
         ex.description = translator.translate(ex.description, target_lang=to_language)
 
 
