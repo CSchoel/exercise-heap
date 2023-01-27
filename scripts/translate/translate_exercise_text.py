@@ -51,7 +51,7 @@ class Translator:
 class HelsinkiNLPTranslator(Translator):
     """Translate text from one language into another using an opus-mt model from HelsinkiNLP."""
 
-    def __init(self, source_lang: str = "de", target_lang: str = "en"):
+    def __init__(self, source_lang: str = "de", target_lang: str = "en"):
         """Creates new translator with specified languages.
 
         Args:
@@ -111,9 +111,10 @@ def translate_exercise(path: str | Path, translator: Translator, **extra_args):
 
 if __name__ == "__main__":
     FROM_LANGUAGE = "de_Latn"
-    _translator = NLLBTranslator(model_name="facebook/nllb-200-distilled-600M", source_lang=FROM_LANGUAGE)
+    # _translator = NLLBTranslator(model_name="facebook/nllb-200-distilled-600M", source_lang=FROM_LANGUAGE)
+    _translator = HelsinkiNLPTranslator(source_lang="de", target_lang="en")
     translate_exercise(
         "exercises/2021/Grundlagen der Informatik (BI Master)/01_01_helloworld/helloworld.md",
         _translator,
-        to_language="eng_Latn",
+        # to_language="eng_Latn",
     )
