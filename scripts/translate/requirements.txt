@@ -1,3 +1,5 @@
 transformers
 torch
 huggingface_hub  # for huggingface cli
+sentencepiece  # for sentencepiece tokenizer used in HelsinkiNLP models
+sacremoses  # recommended by tokenization_marian.py
