@@ -86,7 +86,7 @@ class NLLBTranslator(Translator):
         return super().translate(text, forced_bos_token_id=self.tokenizer.lang_code_to_id[target_lang])
 
 
-def translate_exercise(path: str | Path, from_language="de_Latn", to_language="eng_Latn"):
+def translate_exercise(path: str | Path, translator: Translator, **extra_args):
     """Translate an exercise from one language to another.
 
     Args:
@@ -94,19 +94,20 @@ def translate_exercise(path: str | Path, from_language="de_Latn", to_language="e
         from_language (str, optional): Source language. Defaults to "de_Latn".
         to_language (str, optional): Target language. Defaults to "eng_Latn".
     """
-    translator = NLLBTranslator(model_name="facebook/nllb-200-distilled-600M", source_lang=from_language)
     with exercise_editing(Path(path), dry_run=True) as ex:
-        ex.header["title"] = translator.translate(ex.header["title"], target_lang=to_language)
+        ex.header["title"] = translator.translate(ex.header["title"], **extra_args)
         sentences = sent_tokenize(ex.description, language="german")
         for s in sentences:
-            translated = translator.translate(s, target_lang=to_language)
+            translated = translator.translate(s, **extra_args)
             print(translated)
             ex.description = ex.description.replace(s, translated)
 
 
 if __name__ == "__main__":
+    FROM_LANGUAGE = "de_Latn"
+    _translator = NLLBTranslator(model_name="facebook/nllb-200-distilled-600M", source_lang=FROM_LANGUAGE)
     translate_exercise(
         "exercises/2021/Grundlagen der Informatik (BI Master)/01_01_helloworld/helloworld.md",
-        from_language="de_Latn",
+        _translator,
         to_language="eng_Latn",
     )
