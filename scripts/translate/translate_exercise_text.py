@@ -52,6 +52,12 @@ class HelsinkiNLPTranslator(Translator):
     """Translate text from one language into another using an opus-mt model from HelsinkiNLP."""
 
     def __init(self, source_lang: str = "de", target_lang: str = "en"):
+        """Creates new translator with specified languages.
+
+        Args:
+            source_lang (str, optional): Source language. Defaults to "de".
+            target_lang (str, optional): Target language. Defaults to "en".
+        """
         model_name = f"Helsinki-NLP/opus-mt-{source_lang}-{target_lang}"
         super().__init__(model_name)
 
