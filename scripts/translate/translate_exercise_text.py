@@ -1,7 +1,7 @@
 """Translate exercise text into another language using language models."""
 
 from pathlib import Path
-from typing import Dict, Any
+from typing import Dict, Any, Optional
 
 from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 
@@ -10,7 +10,25 @@ from nltk.tokenize import sent_tokenize
 
 
 class Translator:
-    def __init__(self, model_name: str, tokenizer_args: Dict[str, Any] = {}, model_args: Dict[str, Any] = {}):
+    """Translate text from one language into another."""
+
+    def __init__(
+        self,
+        model_name: str,
+        tokenizer_args: Optional[Dict[str, Any]] = None,
+        model_args: Optional[Dict[str, Any]] = None,
+    ):
+        """Create a new translator using a huggingface AutoModelForSeq2SeqLM.
+
+        Args:
+            model_name: name of the model to load from huggingface
+            tokenizer_args: extra arguments to pass to the tokenizer constructor.
+            model_args: extra arguments to pass to the model constructor.
+        """
+        if tokenizer_args is None:
+            tokenizer_args = {}
+        if model_args is None:
+            model_args = {}
         self.tokenizer = AutoTokenizer.from_pretrained(model_name, **tokenizer_args)
         self.model = AutoModelForSeq2SeqLM.from_pretrained(model_name, **model_args)
 
@@ -36,15 +54,12 @@ class HelsinkiNLPTranslator(Translator):
     def __init(self, source_lang: str = "de", target_lang: str = "en"):
         model_name = f"Helsinki-NLP/opus-mt-{source_lang}-{target_lang}"
         super().__init__(model_name)
-        
+
 
 class NLLBTranslator(Translator):
     """Translate text from one language into another."""
 
-    def __init__(
-        self, model_name: str = "facebook/nllb-200-distilled-600M",
-        source_lang: str = "ron_Latn"
-    ):
+    def __init__(self, model_name: str = "facebook/nllb-200-distilled-600M", source_lang: str = "ron_Latn"):
         """Create new Translator loading a model for NMT from huggingface.
 
         Args:
@@ -55,20 +70,20 @@ class NLLBTranslator(Translator):
         """
         super().__init__(model_name, tokenizer_args={"source_lang": source_lang})
 
-    def translate(self, text: str, target_lang="deu_Latn") -> str:
+    def translate(self, text: str, **extra_args) -> str:
         """Translate a text to a target language.
 
         Args:
             text (str): target language as defined in
+
+        Kwargs:
             target_lang (str, optional): target language (BCP 47). Defaults to "deu_Latn".
 
         Returns:
             str: translated sentence
         """
-        return super().translate(
-            text,
-            forced_bos_token_id=self.tokenizer.lang_code_to_id[target_lang]
-        )
+        target_lang = "deu_Latn" if "target_lang" not in extra_args else extra_args["target_lang"]
+        return super().translate(text, forced_bos_token_id=self.tokenizer.lang_code_to_id[target_lang])
 
 
 def translate_exercise(path: str | Path, from_language="de_Latn", to_language="eng_Latn"):
@@ -79,9 +94,7 @@ def translate_exercise(path: str | Path, from_language="de_Latn", to_language="e
         from_language (str, optional): Source language. Defaults to "de_Latn".
         to_language (str, optional): Target language. Defaults to "eng_Latn".
     """
-    translator = NLLBTranslator(
-        model_name="facebook/nllb-200-distilled-600M", source_lang=from_language
-    )
+    translator = NLLBTranslator(model_name="facebook/nllb-200-distilled-600M", source_lang=from_language)
     with exercise_editing(Path(path), dry_run=True) as ex:
         ex.header["title"] = translator.translate(ex.header["title"], target_lang=to_language)
         sentences = sent_tokenize(ex.description, language="german")
@@ -95,5 +108,5 @@ if __name__ == "__main__":
     translate_exercise(
         "exercises/2021/Grundlagen der Informatik (BI Master)/01_01_helloworld/helloworld.md",
         from_language="de_Latn",
-        to_language="eng_Latn"
+        to_language="eng_Latn",
     )
