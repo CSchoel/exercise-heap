@@ -21,8 +21,10 @@ def get_header_and_rest(exfile: Path) -> (str, str):
     if header is None:
         raise Exception(f"{exfile} does not contain a YAML header")
     if header.start() != 0:
-        raise Exception(f"{exfile} has a YAML block, which is not at the beginning of the file but at postion {header.start()}")  # noqa: E501
-    return header.group(1), text[len(header.group(0)) + 1:]
+        raise Exception(
+            f"{exfile} has a YAML block, which is not at the beginning of the file but at postion {header.start()}"
+        )  # noqa: E501
+    return header.group(1), text[len(header.group(0)) + 1 :]
 
 
 def load_header(exfile: Path, for_editing: bool = False) -> Dict[str, Any]:
@@ -36,6 +38,7 @@ def load_header(exfile: Path, for_editing: bool = False) -> Dict[str, Any]:
     header = get_header(exfile)
     loaded_header = yaml_engine.load(header)
     return loaded_header
+
 
 @dataclass
 class ExerciseWithHeader:
@@ -68,7 +71,6 @@ def exercise_editing(exfile: Path, outfile: Optional[Path] = None, dry_run=False
         print(new_text)
     else:
         outfile.write_text(new_text)
-
 
 
 @contextmanager
