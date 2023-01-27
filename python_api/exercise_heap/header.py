@@ -1,7 +1,7 @@
 """Code that works with YAML headers."""
 
 from pathlib import Path
-from typing import Dict, Any, Optional, Tuple
+from typing import Dict, Any, Optional, Tuple, Union, List, TypeAlias
 import io
 import os
 import re
@@ -40,9 +40,12 @@ def load_header(exfile: Path, for_editing: bool = False) -> Dict[str, Any]:
     return loaded_header
 
 
+yamlobject: TypeAlias = Union[Dict["yamlobject", "yamlobject"], List["yamlobject"], int, float, str, bool]
+
+
 @dataclass
 class ExerciseWithHeader:
-    header: ruamel.yaml.YAMLObject
+    header: Dict[str, yamlobject]
     description: str
     yaml_engine: ruamel.yaml.YAML
 
