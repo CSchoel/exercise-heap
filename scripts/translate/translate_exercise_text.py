@@ -100,7 +100,7 @@ def translate_exercise(path: str | Path, translator: Translator):
         ex.header["title"] = translator.translate(ex.header["title"])
         sentences = [sent for line in ex.description.splitlines() for sent in sent_tokenize(line, language="german")]
         translate_description(ex.description, translator)
-        for s in sentences:
+        for s in sorted(sentences, key=len, reverse=True):
             translated = translator.translate(s)
             ex.description = ex.description.replace(s.strip(), translated.strip())
 
