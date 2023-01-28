@@ -104,22 +104,31 @@ class NLLBTranslator(Translator):
         )
 
 
-def translate_exercise(path: str | Path, translator: Translator):
+def translate_exercise(path: str | Path, translator: Translator, dry_run: bool = False):
     """Translate an exercise from one language to another.
 
+    This will copy the folder that the exercise is in and append the language tag of the
+    translator as a suffix. The title and description text will be translated with the
+    given translator and a ``translated-from: uuid`` keyword will be added to the header.
+
     Args:
-        path (str | Path): Path to the exercise text.
+        path (str | Path): Path to the markdown file containing the exercise text.
         translator: The translator to use
+        dry_run: If true, the new content of the main exercise file will be printed instead of changing any files
     """
     path = Path(path)
     translated_folder = path.parents[1] / f"{path.parent.name}_{translator.target_lang}"
     # if translated_folder.exists():
     #    raise ValueError(f"Path {translated_folder} alreay exists, I wont overwrite the files there.")
-    shutil.rmtree(translated_folder)
-    shutil.copytree(path.parent, translated_folder)
-    translated_file = translated_folder / path.name
+    if dry_run:
+        translated_file = path
+    else:
+        if translated_folder.exists():
+            shutil.rmtree(translated_folder)
+        shutil.copytree(path.parent, translated_folder)
+        translated_file = translated_folder / path.name
 
-    with exercise_editing(Path(translated_file), dry_run=True) as ex:
+    with exercise_editing(Path(translated_file), dry_run=dry_run) as ex:
         ex.header["title"] = translator.translate(ex.header["title"])
         ex.header["lang"] = translator.target_lang
         ex.header["keywords"].append({"translated-from": ex.header["id"]})
