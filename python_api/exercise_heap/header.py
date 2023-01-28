@@ -56,7 +56,7 @@ class ExerciseWithHeader:
 
 
 def load_header_for_editing(exfile: Path) -> ExerciseWithHeader:
-    yaml_engine = ruamel.yaml.YAML(typ="safe", pure=True)
+    yaml_engine = ruamel.yaml.YAML()
     yaml_engine.preserve_quotes = True
     header, rest = get_header_and_rest(exfile)
     loaded_header = yaml_engine.load(header)
