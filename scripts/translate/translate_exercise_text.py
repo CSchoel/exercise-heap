@@ -182,7 +182,8 @@ if __name__ == "__main__":
 
     for expath in [Path(x) for x in args.exercise_files]:
         src_lang = load_header(expath)["lang"]
-        if src_lang not in translators:
-            translators[src_lang] = HelsinkiNLPTranslator(source_lang=src_lang, target_lang=args.target_language)
-        trans = translators[src_lang]
-        translate_exercise(expath, trans)
+        if src_lang != args.target_language:
+            if src_lang not in translators:
+                translators[src_lang] = HelsinkiNLPTranslator(source_lang=src_lang, target_lang=args.target_language)
+            trans = translators[src_lang]
+            translate_exercise(expath, trans)
