@@ -32,6 +32,8 @@ class Translator:
             tokenizer_args = {}
         if model_args is None:
             model_args = {}
+        if generate_args is None:
+            generate_args = {}
         self.tokenizer = AutoTokenizer.from_pretrained(model_name, **tokenizer_args)
         self.model = AutoModelForSeq2SeqLM.from_pretrained(model_name, **model_args)
         self.generate_args = generate_args
@@ -101,6 +103,7 @@ def translate_exercise(path: str | Path, translator: Translator):
             translated = translator.translate(s)
             print(translated)
             ex.description = ex.description.replace(s, translated)
+        translate_description(ex.description, translator)
 
 
 def translate_description(markdown: str, translator: Translator) -> str:
@@ -118,7 +121,8 @@ def translate_description(markdown: str, translator: Translator) -> str:
     """
 
     def translator_func(elem: pf.Element, doc: pf.Doc):
-        translator.translate(elem)
+        pass
+        # translator.translate(elem)
 
     return apply_pandoc_filter(markdown, translator_func)
 
