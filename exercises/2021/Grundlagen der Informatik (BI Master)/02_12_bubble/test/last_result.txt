@@ -1,6 +1,0 @@
-# correct = False
-Traceback (most recent call last):
-  File "/mnt/data/Dokumente/Berufliches/2013-THM/Lehre/GDI-BIM/bimgdi-cs/2021_wise/dozeloc/../uebungen/dozentron/02_12_bubble/test/test_bubblesort.py", line 3, in <module>
-    import bubblesort
-ModuleNotFoundError: No module named 'bubblesort'
-

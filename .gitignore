@@ -8,3 +8,6 @@ export
 tags_to_add.txt
 tags_to_remove.txt
 .porty*
+
+# Python cache
+__pycache__
