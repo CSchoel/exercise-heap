@@ -11,6 +11,8 @@ packages = [{include = "exercise_heap", from = "python_api" }]
 python = "^3.10"
 ruamel-yaml = "^0.17.21"
 nltk = "^3.8.1"
+pypandoc = "^1.10"
+panflute = "^2.3.0"
 
 
 [build-system]
