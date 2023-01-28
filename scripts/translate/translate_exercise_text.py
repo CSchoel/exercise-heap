@@ -4,12 +4,14 @@ from pathlib import Path
 from typing import Dict, Any, Optional
 import shutil
 import uuid
+import sys
+import argparse
 
 from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 from nltk.tokenize import sent_tokenize
 import panflute as pf
 
-from exercise_heap.header import exercise_editing
+from exercise_heap.header import exercise_editing, load_header
 from exercise_heap.description import apply_pandoc_filter
 
 
@@ -168,11 +170,19 @@ def translate_description(markdown: str, translator: Translator) -> str:
 
 
 if __name__ == "__main__":
-    FROM_LANGUAGE = "de_Latn"
-    # _translator = NLLBTranslator(model_name="facebook/nllb-200-distilled-600M", source_lang="de_Latn", target_lang="en_Latn")
-    _translator = HelsinkiNLPTranslator(source_lang="de-DE", target_lang="en-US")
-    translate_exercise(
-        "exercises/2021/Grundlagen der Informatik (BI Master)/01_01_helloworld/helloworld.md",
-        _translator,
-        # to_language="eng_Latn",
+    parser = argparse.ArgumentParser(
+        prog="Exercise translator",
+        description="Translates exercises from one language into another.",
     )
+    parser.add_argument("target_language")
+    parser.add_argument("exercise_files", nargs="+")
+    args = parser.parse_args(sys.argv[1:])
+
+    translators = {}
+
+    for expath in [Path(x) for x in args.exercise_files]:
+        src_lang = load_header(expath)["lang"]
+        if src_lang not in translators:
+            translators[src_lang] = HelsinkiNLPTranslator(source_lang=src_lang, target_lang=args.target_language)
+        trans = translators[src_lang]
+        translate_exercise(expath, trans)
