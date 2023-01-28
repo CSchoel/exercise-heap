@@ -98,12 +98,11 @@ def translate_exercise(path: str | Path, translator: Translator):
     """
     with exercise_editing(Path(path), dry_run=True) as ex:
         ex.header["title"] = translator.translate(ex.header["title"])
-        sentences = sent_tokenize(ex.description, language="german")
+        sentences = [sent for line in ex.description.splitlines() for sent in sent_tokenize(line, language="german")]
+        translate_description(ex.description, translator)
         for s in sentences:
             translated = translator.translate(s)
-            print(translated)
-            ex.description = ex.description.replace(s, translated)
-        translate_description(ex.description, translator)
+            ex.description = ex.description.replace(s.strip(), translated.strip())
 
 
 def translate_description(markdown: str, translator: Translator) -> str:
@@ -119,17 +118,23 @@ def translate_description(markdown: str, translator: Translator) -> str:
     Returns:
         str: Translated exercise description as markdown-formatted string.
     """
+    # TODO should we do this with a pandoc filter or use a different library for parsing markdown?
+    # TODO do we even need this?
 
     def translator_func(elem: pf.Element, doc: pf.Doc):
-        pass
+        # if isinstance(elem.content, pf.ListContainer):
+        #     count_str = sum(1 for x in elem.content.list if isinstance(x, pf.Str))
+        #     if count_str > len(elem.content.list) / 2:
+        #         pass
         # translator.translate(elem)
+        pass
 
     return apply_pandoc_filter(markdown, translator_func)
 
 
 if __name__ == "__main__":
     FROM_LANGUAGE = "de_Latn"
-    # _translator = NLLBTranslator(model_name="facebook/nllb-200-distilled-600M", source_lang=FROM_LANGUAGE)
+    # _translator = NLLBTranslator(model_name="facebook/nllb-200-distilled-600M", source_lang="de_Latn", target_lang="en_Latn")
     _translator = HelsinkiNLPTranslator(source_lang="de", target_lang="en")
     translate_exercise(
         "exercises/2021/Grundlagen der Informatik (BI Master)/01_01_helloworld/helloworld.md",
