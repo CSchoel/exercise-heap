@@ -21,7 +21,7 @@ id: 2a77f627-39bd-45ad-aaf8-e891c94d7787
 Create a `smartsymlist.py` file with a list of `a` which contains elements 1, 5, 9, 13 and 17. Create a second list `b` containing elements 3, 6, 9, 13, 17 and 20. 
 In the set `unique`, save all numbers that **either** are included in list `a` **or** in list `b`, but not the elements that occur in both lists. 
 
-Do not use loops or the `in` operator, but a pre-defined `set` operation by Python.
+Do not use loops or the `in` operator, but a pre-defined `set` operation in Python.
 
 > Tip: Find out what a symmetric difference is and whether there is a corresponding method.
 

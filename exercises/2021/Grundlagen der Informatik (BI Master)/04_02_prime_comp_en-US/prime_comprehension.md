@@ -18,7 +18,7 @@ id: 7f9d9ed8-8df0-41a2-a4b8-9827606e1ad9
 ---
 # Prim numbers Comprehension
 
-This task is about writing a Listcomprehension.
+This task is about writing a list comprehension.
 This is supposed to generate all prime numbers up to 20. 
 The list must be stored in a variable named: result. (Then the test has made it easier)
 Note: The file should be named as follows: prime_comprehension.py

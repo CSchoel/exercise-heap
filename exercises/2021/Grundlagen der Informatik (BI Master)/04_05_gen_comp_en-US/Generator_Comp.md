@@ -21,6 +21,6 @@ id: 0b751445-acb3-4d44-829e-1c1872c5eea0
 Write a `generate(x: int)` function in the `generator_comprehension.py` file.
 
 The function is to create a generator that generates up to the value of `x` numbers and then multiplies them by 2. 
-Use a `Generatorcomprehension` for this. 
+Use a generator comprehension for this. 
 
 Test your function with the value `256` and save the result in a variable named `result`.

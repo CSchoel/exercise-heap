@@ -22,5 +22,5 @@ Create a list `primelist` in the `primelist.py` file containing the numbers 2 an
 
 > Information on prime numbers can be found here: https://en.wikipedia.org/wiki/prim numbers 
 
-> Tip: Prim numbers are numbers that are divisible only by 1 and themselves without the rest; 1 is **no** Prim number*\
-> You should add **not** the numbers manually to the list.
+> Tip: Prime numbers are numbers that are divisible only by 1 and themselves without the rest; 1 is **no** Prim number*\
+> You should **not** add the numbers manually to the list.

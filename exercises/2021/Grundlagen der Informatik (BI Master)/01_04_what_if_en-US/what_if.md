@@ -18,7 +18,7 @@ id: 7171a44c-2ccc-405b-aa11-1823ebf911b6
 ---
 # What_if 1
 
-A questionable scientist has told us that we could get the most important value of his highly explosive laboratory analysis with the following command.
+A questionable scientist has told us that we could get the most important value of his highly controversial laboratory analysis with the following command.
 
 ```python
 import random

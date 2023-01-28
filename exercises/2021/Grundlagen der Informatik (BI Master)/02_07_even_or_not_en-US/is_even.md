@@ -18,4 +18,4 @@ id: d6da3d9b-4c78-41c3-8186-405b955b4b54
 ---
 # Is Even
 
-Read a number by input in the `is_even.py` file. Write `True` in a variable `result`, if the read number is straight, `false` if it is odd.
+Read a number by input in the `is_even.py` file. Write `True` in a variable `result`, if the read number is even, `false` if it is odd.

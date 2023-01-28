@@ -31,7 +31,7 @@ Example:
 ```
 
 
-> Tip: Use the already known splicing operator.
+> Tip: Use the slicing operator.
 
 > You can reuse this feature in future tasks:\
 > Make sure that the file is in the same folder as the new task and use `import splitting`.

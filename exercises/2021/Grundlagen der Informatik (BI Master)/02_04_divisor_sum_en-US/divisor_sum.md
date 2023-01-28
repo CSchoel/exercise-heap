@@ -18,5 +18,5 @@ id: 36c964b1-b711-43b4-96ed-c21fe4c46a4a
 ---
 # Divisor sum
 
-Make the sum of all dividers of the number `8128` (including the trivial divider 1, but without the number itself).
+Calculate the sum of all dividers of the number `8128` (including the trivial divider 1, but without the number itself).
 Save the result in the `result` variable in the `divisor_sum.py` file.

@@ -24,4 +24,4 @@ Save this function in a file named `uniquenumbers.py`.
 You may use a maximum of two lines of code for this. Comments and imports are not counted.
 
 > You can import type definitions (optional) with `from typing import List, Set`. Further imports are neither required nor allowed!
-> Note: What are the special features of a set? Do you need to check for duplicates? Well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well, well.
+> Note: What are the special features of a set? Do you need to check for duplicates? Give reasons.

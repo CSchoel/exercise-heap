@@ -23,4 +23,4 @@ In the set `unique`, save all numbers that **either** are included in list `a` *
 
 Use loops and the `in` operator.
 
-> Tip: an empty set can only be created using the `set()` operator.
+> Tip: An empty set can only be created using the `set()` operator.

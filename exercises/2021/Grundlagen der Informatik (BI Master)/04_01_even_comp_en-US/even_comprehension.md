@@ -18,7 +18,7 @@ id: 1acc73e2-a7e1-4557-8fb4-95d72fe9a365
 ---
 # Straight Numbers Comprehension
 
-This task is about writing a Listcomprehension.
+This task is about writing a list comprehension.
 This should generate all even numbers up to 100 (exclusive).
-The list must be stored in a variable named: result. (Then the test has made it easier)
+The list must be stored in a variable named `result`.
 Note: The file should be named as follows: even_comprehension.py

@@ -24,9 +24,10 @@ Hello World! We want to save this string in a variable.
 
 In Python, this is super easy and fast, unlike other languages, we don't have to specify data types!
 
-So create a variable with the name `hello` in a file `hello_world.py` and save in it: `"Hello World!"'
+So create a variable with the name `hello` in a file `hello_world.py` and save in it: `"Hello World!"`
 
 Notes: 
+
 * Dozeloc always needs a `.py` file as a solution.
     You can select these with the "Browse.." button and then with "Check!" have it checked.
 * The name of the variable is important for the test, please do not name it otherwise.

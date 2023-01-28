@@ -17,7 +17,7 @@ id: e82cfbf9-775c-41ab-92f7-809488ac4a6f
 
 ---
 # DNA test
-Implement a function `dnatest` in `dnatest.py`, which gets a string as input and returns a boolean. The function is to test whether the amino acid lysine is encoded in the input string. If Lysin is coded, return this `True`, otherwise `False`.
+Implement a function `dnatest` in `dnatest.py`, which gets a string as input and returns a boolean. The function should test whether the amino acid lysine is encoded in the input string. If lysine is encoded, return `True`, otherwise `False`.
 
 > Tip: There is more than one coding for lysine
 

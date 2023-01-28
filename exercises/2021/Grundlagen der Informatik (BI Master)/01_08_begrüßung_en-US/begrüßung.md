@@ -27,4 +27,4 @@ name = input("Name:")
 
 Save the greeting formula in a variable `greening` and the name in a variable `name` and then use `print()` to output the greeting formula followed by the name. Example:
 
-Name `Hugo` + greeting formula `Be greeted me, nobler ` returns edition `Be greeted me, noble Hugo`.
+Name `Hugo` + greeting formula `Be greeted me, noble ` returns output `Be greeted me, noble Hugo`.

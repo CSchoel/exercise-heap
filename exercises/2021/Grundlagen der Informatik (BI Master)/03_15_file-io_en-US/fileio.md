@@ -23,12 +23,13 @@ Return all IDs (see below) in a list.
 
 The Fasta file is structured as follows: 
 
-* In ">" the line begins with the ID, which stands between the
+* At ">" the line begins with the ID, which stands between the  |...|, after that there are informations about the sequence and in the next line the sequence itself.
+
 
 ```
->sp的Q6GZW9的006R_FRG3G Uncharacterized protein 006R OS=Frog virus 3 (isolate goorha) GN=FV3-006R PE=4 SV=1
-MYKOMYFLKDQKFSFSGTIRINDKTQSEYGSVWCPGLSITGLHHHHHMFEETY
-YLPPWVQAEYRRIKG
+>sp|Q6GZW9|006R_FRG3G Uncharacterized protein 006R OS=Frog virus 3 (isolate Goorha) GN=FV3-006R PE=4 SV=1
+MYKMYFLKDQKFSLSGTIRINDKTQSEYGSVWCPGLSITGLHHDAIDHNMFEEMETEIIE
+YLGPWVQAEYRRIKG
 ```
 
-> Tip: You can find the file for this task at `dozeloc/03_15_file-io/test/uniprot_small.fasta
+> Tip: You can find the file for this task at `dozeloc/03_15_file-io_en-US/test/uniprot_small.fasta`

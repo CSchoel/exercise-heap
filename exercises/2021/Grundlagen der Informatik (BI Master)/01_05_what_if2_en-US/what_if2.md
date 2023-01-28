@@ -18,9 +18,9 @@ id: 7ffe795a-ecbc-419f-bd2f-ba6db7be0198
 ---
 # What_if 2
 
-In this task it is about checking whether the age of Mannfred allows to see the new John Wick in the cinema.
+In this task it is about checking whether the age of Mannfred allows him to see the new John Wick in the cinema.
 
-Manfred's old we find out with the following piece code
+We find out Mannfred's age with the following piece code:
 
 ```python
 import random

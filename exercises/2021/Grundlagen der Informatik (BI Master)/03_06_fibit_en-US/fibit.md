@@ -18,7 +18,7 @@ id: af9ecea2-981b-4ea0-a546-557fcb420603
 ---
 # Fibonacci iterative
 
-Write a function `fibonacci_iterative(n)` in the file `fibonacci_iterative.py`, which determines the n-te Fibonacci number iterative (that is, with a loop instead of recursion).
+Write a function `fibonacci_iterative(n)` in the file `fibonacci_iterative.py`, which determines the n-th Fibonacci number iteratively (that is, with a loop instead of recursion).
 
 The Fibonacci numbers $F_n$ start with $F_0 = 0$ and $F_1 = 1$. Each further number is then the sum of the two preceding numbers, so that the following result arises:
 

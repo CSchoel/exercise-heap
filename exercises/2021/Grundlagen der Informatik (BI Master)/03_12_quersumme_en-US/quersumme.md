@@ -18,7 +18,7 @@ id: 98f93cc2-b083-4b6f-9fb8-895bc7226a85
 ---
 # Cross sum
 
-Write a function `digit_sum(x)` in the file `digit_sum.py`, which determines the cross sum of the number `x`.
+Write a function `digit_sum(x)` in the file `digit_sum.py`, which determines the digit sum of the number `x`.
 
 Example:
 

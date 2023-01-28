@@ -24,7 +24,7 @@ For this example input
 
 `["foo", "bar", "oooff"]`
 
-So the file should look like this:
+the file should look like this:
 
 ```
 foo;2

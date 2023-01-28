@@ -18,11 +18,11 @@ id: 58d27067-258b-48ec-b719-a2d66bbac403
 ---
 # Sort by number of dividers
 
-Write a `sort_by_divisors(lst)` function in the `sort_by_divisors.py` file, which sorts a list of positive integers ascending by the number of their real dividers (without 1 and themselves). To do this, use only List Comprehensions and no loops. Don't create a new list.
+Write a `sort_by_divisors(lst)` function in the `sort_by_divisors.py` file, which sorts a list of positive integers ascending by the number of their proper divisors (without 1 and themselves). To do this, use only list comprehensions and no loops. Don't create a new list.
 
 *Note: You need the following building blocks:*
 
 * A list comprehension
-* A Lambda expression
+* A lambda expression
 * A call to the `sort` function
 * A call to the `len` function

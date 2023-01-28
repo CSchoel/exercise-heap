@@ -18,7 +18,7 @@ id: a3b4e758-beb7-4bf3-9fb8-ae78f644a60c
 ---
 # Probability
 
-It's about a little crap game.
+This is about a little crappy game.
 It's simple: the 6 wins.
 One of the players wonders how likely it is to roll a 6 three times in a row and so he makes it his task.
 

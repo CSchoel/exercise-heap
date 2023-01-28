@@ -19,15 +19,17 @@ id: d5db866d-e22d-440c-8f84-5664eaaeb2ae
 # Own map function
 
 We already know the map function in the lecture, now we want to write our own map function.
-(This must not be called map! Proposal: my_map)
+(This must not be called `map`! Proposal: `my_map`)
 
 
-The function should be a function zb. take the form of a Lambda expression and an Iterable object zb. a list.
-Then the passed function should be applied for each element in the Iterable, the method should then return a new Iterable zb. a list.
+The function should take a function (e.g. in the form of a lambda expression) and an iterable object (e.g. a list) as arguments.
+The passed function should be applied for each element in the iterable, the method should then return a new iterable, for example a list.
 
 The following list is given: 
-```Python 
+
+```python 
 l = [1, 2, 3]
 ```
-The Lambda expression should multiply to a value of 42, the result of the method must be stored in a variable names **result**.
-Note: The file should be called as follows: my_map.py
+
+The Lambda expression should multiply a value with 42, the result of the method must be stored in a variable named `result`.
+Note: The file should be called as follows: `my_map.py`

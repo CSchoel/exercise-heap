@@ -18,8 +18,6 @@ id: bb31319d-dd7e-43ee-8024-5addefd133e5
 ---
 # Percentages
 
-This is about the percentage!
-
 The teacher of the course wants to prepare a nice potato gratin for his students.
 Unfortunately, his course is very large and he needs a lot of potatoes.
 Therefore, he buys a 25 kg sack of potatoes from the organic farmer around the corner.

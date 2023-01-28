@@ -37,7 +37,7 @@ print(result) # MEVFKAPPIGI
 ```python
 # To make it a little easier, the code sun is given in the form of a dictionary
 # You can copy the values below into your program.
-* Code sun from Wikipedia: https://en.wikipedia.org/wiki/Code sun#/media/File:Aminoacids_table.svg
+# Code sun from Wikipedia: https://en.wikipedia.org/wiki/DNA_and_RNA_codon_tables
 
 protein = {"TTT" : "F", "CTT" : "L", "ATT" : "I", "GTT" : "V",
            "TTC" : "F", "CTC" : "L", "ATC" : "I", "GTC" : "V",

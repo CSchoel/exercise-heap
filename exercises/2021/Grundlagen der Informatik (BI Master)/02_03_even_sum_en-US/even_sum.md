@@ -18,6 +18,6 @@ id: 864cb103-a3c3-4758-b38d-b9f7d4068af1
 ---
 # Even Sum
 
-With a loop, make the sum of all straight numbers from 0 to (including) 100.
+With a loop, make the sum of all even numbers from 0 to (including) 100.
 
 Save the result in the `result` variable in the `even_sum.py` file

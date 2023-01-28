@@ -18,11 +18,11 @@ id: da1e8562-eb2a-43be-8abf-5ac0b7923d31
 ---
 # CountPrimes
 
-Write a function `countPrimes(n: int) -> int`, which takes an integer `n` and returns how many prime numbers exist in the area `[2 - n]`. Assuming that the function is only called with values >=2.
+Write a function `countPrimes(n: int) -> int`, which takes an integer `n` and returns how many prime numbers exist in the area `[2, n]`. Assume that the function is only called with values >=2.
 
 Save this function in a file named `countprimes.py`.
 
-> Information on prime numbers can be found here: https://en.wikipedia.org/wiki/prim numbers 
+> Information on prime numbers can be found here: https://en.wikipedia.org/wiki/Prime_number
 
 > You can reuse functions from previous tasks, such as the `isPrime` function:\
 > Make sure that the file is in the same folder as the previous task and use `import isprime`.

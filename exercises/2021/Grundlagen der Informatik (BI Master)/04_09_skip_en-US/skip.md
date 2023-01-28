@@ -18,7 +18,7 @@ id: 87760164-cccd-4d41-9871-675a69f7f22d
 ---
 # Skip
 
-In the `skip.py` file, write a generator function `skip(n, iterable)`, which takes over an iterable object (e.g. list, set, range,...) `iterable` as a second argument and returns an iterator that skips the first `n` (first argument) elements in the iterator.
+In the `skip.py` file, write a generator function `skip(n, iterable)`, which takes an iterable object (e.g. list, set, range,...) `iterable` as a second argument and returns an iterator that skips the first `n` (first argument) elements in the iterator.
 
 Examples:
 

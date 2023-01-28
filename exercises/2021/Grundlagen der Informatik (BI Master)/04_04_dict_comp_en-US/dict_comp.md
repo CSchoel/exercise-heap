@@ -20,8 +20,8 @@ id: 39f404dc-295b-4fa0-b95c-51496247697b
 
 Write a `make_dict(sentence: str) -> Dict[str, int]` function in the `dictionary_comprehension.py` file.
 This function takes a sentence (see below) and creates a dictionary from it.
-The method is to process the sentence in such a way that the respective word is the key in the dictionary and the length of the word is the value. 
-But we never want to save the word `"the"` in the dictionary! 
+The method should process the sentence in such a way that the dictionary has the words as keys and the length of the respective word is the value. 
+But we never want to save the word `"the"` in the dictionary!
 
 Use Dictionary Comprehensions for this.
 
