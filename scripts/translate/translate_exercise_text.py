@@ -28,8 +28,10 @@ class Translator:
 
         Args:
             model_name: name of the model to load from huggingface
+            target_lang: IETF language tag with subtag of language to translate into.
             tokenizer_args: extra arguments to pass to the tokenizer constructor.
             model_args: extra arguments to pass to the model constructor.
+            generate_args: extra arguments to pass to the huggingface generate() method
         """
         if tokenizer_args is None:
             tokenizer_args = {}
@@ -61,38 +63,42 @@ class Translator:
 class HelsinkiNLPTranslator(Translator):
     """Translate text from one language into another using an opus-mt model from HelsinkiNLP."""
 
-    def __init__(self, source_lang: str = "de", target_lang: str = "en"):
+    def __init__(self, source_lang: str = "de-DE", target_lang: str = "en-US"):
         """Creates new translator with specified languages.
 
         Args:
-            source_lang (str, optional): Source language. Defaults to "de".
-            target_lang (str, optional): Target language. Defaults to "en".
+            source_lang (str, optional): Source language (IETF with subtag, e.g. de-DE)
+            target_lang (str, optional): Target language (IETF with subtag, e.g. en-US)
         """
-        model_name = f"Helsinki-NLP/opus-mt-{source_lang}-{target_lang}"
+        model_name = f"Helsinki-NLP/opus-mt-{source_lang.split('-')[0]}-{target_lang.split('-')[0]}"
         super().__init__(model_name, target_lang=target_lang)
 
 
 class NLLBTranslator(Translator):
     """Translate text from one language into another."""
 
+    IETF_TO_BCP47 = {"de-DE": "deu_Latn", "ro": "ron_Latn", "en-US": "eng_Latn"}
+
     def __init__(
         self,
         model_name: str = "facebook/nllb-200-distilled-600M",
-        source_lang: str = "ron_Latn",
-        target_lang: str = "deu_Latn",
+        source_lang: str = "de-DE",
+        target_lang: str = "en-US",
     ):
         """Create new Translator loading a model for NMT from huggingface.
 
         Args:
             model_name (str, optional): Name of the model to load \
                 from huggingface
-            source_lang (str, optional): Language (BCP 47) of source texts \
+            source_lang (str, optional): Language (IETF with subtag) of source texts \
                 that will be translated with this model
+            target_lang (str, optional): Language (IETF with subtag) into which the
+                model should translate its inputs
         """
         generate_args = dict(forced_bos_token_id=self.tokenizer.lang_code_to_id[target_lang])
         super().__init__(
             model_name,
-            target_lang=target_lang.split("_")[0],
+            target_lang=NLLBTranslator.IETF_TO_BCP47[target_lang],
             tokenizer_args={"source_lang": source_lang},
             generate_args=generate_args,
         )
@@ -155,7 +161,7 @@ def translate_description(markdown: str, translator: Translator) -> str:
 if __name__ == "__main__":
     FROM_LANGUAGE = "de_Latn"
     # _translator = NLLBTranslator(model_name="facebook/nllb-200-distilled-600M", source_lang="de_Latn", target_lang="en_Latn")
-    _translator = HelsinkiNLPTranslator(source_lang="de", target_lang="en")
+    _translator = HelsinkiNLPTranslator(source_lang="de-DE", target_lang="en-US")
     translate_exercise(
         "exercises/2021/Grundlagen der Informatik (BI Master)/01_01_helloworld/helloworld.md",
         _translator,
