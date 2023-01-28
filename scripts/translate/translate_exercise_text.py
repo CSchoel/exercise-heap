@@ -2,6 +2,8 @@
 
 from pathlib import Path
 from typing import Dict, Any, Optional
+import shutil
+import uuid
 
 from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 from nltk.tokenize import sent_tokenize
@@ -17,6 +19,7 @@ class Translator:
     def __init__(
         self,
         model_name: str,
+        target_lang: str,
         tokenizer_args: Optional[Dict[str, Any]] = None,
         model_args: Optional[Dict[str, Any]] = None,
         generate_args: Optional[Dict[str, Any]] = None,
@@ -37,6 +40,7 @@ class Translator:
         self.tokenizer = AutoTokenizer.from_pretrained(model_name, **tokenizer_args)
         self.model = AutoModelForSeq2SeqLM.from_pretrained(model_name, **model_args)
         self.generate_args = generate_args
+        self.target_lang = target_lang
 
     def translate(self, text: str) -> str:
         """Translate a text.
@@ -65,7 +69,7 @@ class HelsinkiNLPTranslator(Translator):
             target_lang (str, optional): Target language. Defaults to "en".
         """
         model_name = f"Helsinki-NLP/opus-mt-{source_lang}-{target_lang}"
-        super().__init__(model_name)
+        super().__init__(model_name, target_lang=target_lang)
 
 
 class NLLBTranslator(Translator):
@@ -86,7 +90,12 @@ class NLLBTranslator(Translator):
                 that will be translated with this model
         """
         generate_args = dict(forced_bos_token_id=self.tokenizer.lang_code_to_id[target_lang])
-        super().__init__(model_name, tokenizer_args={"source_lang": source_lang}, generate_args=generate_args)
+        super().__init__(
+            model_name,
+            target_lang=target_lang.split("_")[0],
+            tokenizer_args={"source_lang": source_lang},
+            generate_args=generate_args,
+        )
 
 
 def translate_exercise(path: str | Path, translator: Translator):
@@ -96,8 +105,19 @@ def translate_exercise(path: str | Path, translator: Translator):
         path (str | Path): Path to the exercise text.
         translator: The translator to use
     """
-    with exercise_editing(Path(path), dry_run=True) as ex:
+    path = Path(path)
+    translated_folder = path.parents[1] / f"{path.parent.name}_{translator.target_lang}"
+    # if translated_folder.exists():
+    #    raise ValueError(f"Path {translated_folder} alreay exists, I wont overwrite the files there.")
+    shutil.rmtree(translated_folder)
+    shutil.copytree(path.parent, translated_folder)
+    translated_file = translated_folder / path.name
+
+    with exercise_editing(Path(translated_file), dry_run=True) as ex:
         ex.header["title"] = translator.translate(ex.header["title"])
+        ex.header["lang"] = translator.target_lang
+        ex.header["keywords"].append({"translated-from": ex.header["id"]})
+        ex.header["id"] = str(uuid.uuid4())
         sentences = [sent for line in ex.description.splitlines() for sent in sent_tokenize(line, language="german")]
         translate_description(ex.description, translator)
         for s in sorted(sentences, key=len, reverse=True):
