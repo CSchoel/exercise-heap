@@ -1,55 +1,55 @@
 #!/usr/bin/env python3
-# Exports all Python exercises that have unit tests to dozeloc exercise folder
-# Usage: ./export_dozeloc.py destination/folder
+"""Exports all Python exercises that have unit tests to dozeloc exercise folder.
+
+Usage: ./export_dozeloc.py [-l language] [-o destination/folder]
+"""
+
 import os
 from pathlib import Path
-import yaml
-import re
-import io
+import operator
 import sys
 import shutil
+import argparse
 
-RE_HEADER = r"^---$(.+?)^---$"
-
-def get_header(exfile: Path) -> dict:
-    text = exfile.read_text(encoding="utf-8")
-    header = re.search(RE_HEADER, text, flags=re.M | re.S)
-    if header is None:
-        raise Exception(f"{exfile} does not contain a YAML header")
-    if header.start() != 0:
-        raise Exception(f"{exfile} has a YAML block, which is not at the beginning of the file but at postion {header.start()}")
-    return yaml.safe_load(io.StringIO(header.group(1)))
-
-def strip_header(exfile: Path):
-    text = exfile.read_text(encoding="utf-8")
-    header = re.search(RE_HEADER, text, flags=re.M | re.S)
-    text = text[header.end(0)+1:]
-    exfile.write_text(text, encoding="utf-8")
+from exercise_heap.header import load_header_for_editing
 
 
 if __name__ == "__main__":
     outdir = Path(__file__).parent.parent / "export" / "dozeloc"
-    if len(sys.argv) > 1:
-        outdir = Path(sys.argv[1]).absolute()
-    outdir.mkdir(parents=True, exist_ok=True)
+    parser = argparse.ArgumentParser("Dozelot exporter", description=__doc__)
+    parser.add_argument("-l", "--language", default="de-DE", help="Desired description language of exercises.")
+    parser.add_argument("-o", "--outdir", default=outdir, help="Output directory for exercises.")
+    parser.add_argument(
+        "-s",
+        "--add-solutions",
+        action="store_true",
+        help="If this is set, sample solutions will also be copied to the output folder.",
+    )
+    args = parser.parse_args(sys.argv[1:])
+
+    args.outdir.mkdir(parents=True, exist_ok=True)
     os.chdir(Path(__file__).parent)
-    exercises =  list(Path("../../exercises").glob("*/*/*/*.md"))
-    headers = [get_header(x) for x in exercises]
-    exercises = [(x, h) for x, h in zip(exercises, headers) if {"language": "python"} in h["keywords"]]
-    exercises.sort()
-    headers = [x[1] for x in exercises]
-    exercises = [x[0] for x in exercises]
-    titles = ["{:03d}_{}".format(i, h["title"].replace("/","_")) for i, h in enumerate(headers)]
-    exercises = [x for x in exercises if (x.parent / "test").is_dir()]
-    for t, ex in zip(titles, exercises):
-        exout = outdir / t
-        print(exout)
-        shutil.copytree(ex.parent, exout, dirs_exist_ok=True)
+    exercise_paths = list(Path("../../exercises").glob("*/*/*/*.md"))
+    exercises = [(load_header_for_editing(p), p) for p in exercise_paths]
+    # filter by programming language
+    exercises = [(ex, p) for ex, p in exercises if {"language": "python"} in ex.header["keywords"]]
+    # filter by description language
+    exercises = [(ex, p) for ex, p in exercises if ex.header["lang"] == args.language]
+    # filter by the existance of tests
+    exercises = [(ex, p) for ex, p in exercises if (p.parent / "test").is_dir()]
+    # sort by path
+    exercises.sort(key=operator.itemgetter(1))
+    exercises_with_dirnames = [
+        ("{:03d}_{}".format(i, h["title"].replace("/", "_")), h, p) for i, (h, p) in enumerate(exercises)
+    ]
+    for dirname, exercise, path in exercises_with_dirnames:
+        exout = args.outdir / dirname
+        print(f"Adding exercise {exout}")
+        shutil.copytree(path.parent, exout, dirs_exist_ok=True)
         # move solutions to "src" subfolder
-        if (exout / "sol").exists() and not (exout / "src").exists():
-            (exout / "sol").rename(exout / "src")
-        if (exout / "sol").exists():
-            shutil.rmtree(exout / "sol")
+        if not args.add_solutions:
+            if (exout / "sol").exists():
+                shutil.rmtree(exout / "sol")
         # copy resources to "test" subfolder
         if (exout / "res").exists():
             for p in (exout / "res").iterdir():
@@ -59,4 +59,4 @@ if __name__ == "__main__":
                     shutil.copy2(p, exout / "test")
             shutil.rmtree(exout / "res")
         # strip header from exercise description
-        strip_header(exout / ex.name)
+        (exout / path.name).write_text(exercise.header, encoding="utf-8")
