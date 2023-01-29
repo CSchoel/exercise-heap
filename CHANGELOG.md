@@ -103,7 +103,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Objektorientierte Programmierung (BI Master) 2015
   - Girl's Day 2019 (full)
 
-[Unreleased]: https://github.com/cschoel/exercise-heap/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/cschoel/exercise-heap/compare/v0.2.1...HEAD
+[0.2.1]: https://github.com/cschoel/exercise-heap/compare/v0.2.0...v0.2.1
 [0.2.0]: https://github.com/cschoel/exercise-heap/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/cschoel/exercise-heap/compare/v0.0.3...v0.0.4
 [0.0.4]: https://github.com/cschoel/exercise-heap/compare/v0.0.3...v0.0.4
