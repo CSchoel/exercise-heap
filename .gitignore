@@ -3,7 +3,7 @@ scripts/import/out
 
 # exported data
 export
-!/sripts/export/*.py
+!scripts/export/*.py
 
 # temp script files
 tags_to_add.txt
