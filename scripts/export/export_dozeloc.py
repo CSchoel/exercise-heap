@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """Exports all Python exercises that have unit tests to dozeloc exercise folder.
 
-Usage: ./export_dozeloc.py [-l language] [-o destination/folder]
+Usage: ./export_dozeloc.py [-l language] [-o destination/folder] [-s]
+
+Example: scripts/export/export_dozeloc.py -l en-US -o scripts/export/dozeloc
 """
 
 import os
