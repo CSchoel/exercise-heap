@@ -23,4 +23,4 @@ Implement a function `dnatest` in `dnatest.py`, which gets a string as input and
 
 > Tip: Make sure that the string appears only as a coherent base string. You can gladly reuse the solution of your previous task `splitting`: \
 > Make sure that the file is in the same folder as the new task and use `import splitting`.
-> You can then access it with `splitting.splitting("ABCDEF", 9)".
+> You can then access it with `splitting.splitting("ABCDEF", 9)`.
