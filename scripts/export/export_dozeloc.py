@@ -26,8 +26,9 @@ if __name__ == "__main__":
         help="If this is set, sample solutions will also be copied to the output folder.",
     )
     args = parser.parse_args(sys.argv[1:])
+    outdir = Path(args.outdir).absolute()
 
-    args.outdir.mkdir(parents=True, exist_ok=True)
+    outdir.mkdir(parents=True, exist_ok=True)
     os.chdir(Path(__file__).parent)
     exercise_paths = list(Path("../../exercises").glob("*/*/*/*.md"))
     exercises = [(load_header_for_editing(p), p) for p in exercise_paths]
@@ -40,10 +41,10 @@ if __name__ == "__main__":
     # sort by path
     exercises.sort(key=operator.itemgetter(1))
     exercises_with_dirnames = [
-        ("{:03d}_{}".format(i, h["title"].replace("/", "_")), h, p) for i, (h, p) in enumerate(exercises)
+        ("{:03d}_{}".format(i, ex.header["title"].replace("/", "_")), ex, p) for i, (ex, p) in enumerate(exercises)
     ]
     for dirname, exercise, path in exercises_with_dirnames:
-        exout = args.outdir / dirname
+        exout = outdir / dirname
         print(f"Adding exercise {exout}")
         shutil.copytree(path.parent, exout, dirs_exist_ok=True)
         # move solutions to "src" subfolder
@@ -59,4 +60,4 @@ if __name__ == "__main__":
                     shutil.copy2(p, exout / "test")
             shutil.rmtree(exout / "res")
         # strip header from exercise description
-        (exout / path.name).write_text(exercise.header, encoding="utf-8")
+        (exout / path.name).write_text(exercise.description, encoding="utf-8")
