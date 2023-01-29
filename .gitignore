@@ -3,6 +3,7 @@ scripts/import/out
 
 # exported data
 export
+!/sripts/export/*.py
 
 # temp script files
 tags_to_add.txt
@@ -11,3 +12,7 @@ tags_to_remove.txt
 
 # Python cache
 __pycache__
+
+# Mypy cache
+.mypy_cache
+
