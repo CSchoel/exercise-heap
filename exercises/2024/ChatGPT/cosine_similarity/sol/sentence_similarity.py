@@ -1,6 +1,6 @@
-from typing import List
 from collections import Counter
 import math
+
 
 def sentence_similarity(sentence1: str, sentence2: str) -> float:
     def vectorize(sentence):
