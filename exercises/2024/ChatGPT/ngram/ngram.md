@@ -17,7 +17,7 @@ Create a class `NgramModel` in `ngram.py` that can generate an ngram model and m
 
 1. `__init__(self, n: int)` - Initialize the ngram model with the value of `n`, the order of the ngrams.
 2. `train(self, text: str)` - Train the model using the provided text. This method should build the ngram model.
-3. `predict(self, prefix: str) -> List[str]` - Given a prefix, predict the next word based on the trained ngram model. Return a list of possible predictions sorted by their probabilities.
+3. `predict(self, prefix: str) -> List[str]` - Given a prefix, predict the next word based on the trained ngram model. Return a list of up to 10 possible predictions sorted by their probabilities (descending).
 
 Example:
 
