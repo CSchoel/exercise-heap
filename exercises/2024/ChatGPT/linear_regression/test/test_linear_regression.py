@@ -1,9 +1,11 @@
 import unittest
+import math
 
 from linear_regression import linear_regression
 
+
 class TestLinearRegression(unittest.TestCase):
-    
+
     def test_basic_regression(self):
         X = [0, 1, 2, 3, 4, 5]
         Y = [0, 1, 2, 3, 4, 5]
@@ -22,8 +24,9 @@ class TestLinearRegression(unittest.TestCase):
         X = [2, 2, 2, 2, 2]
         Y = [0, 1, 2, 3, 4]
         slope, intercept = linear_regression(X, Y)
-        self.assertAlmostEqual(slope, float('inf'))
-        self.assertAlmostEqual(intercept, float('nan'))
+        self.assertTrue(math.isnan(slope))
+        self.assertTrue(math.isnan(intercept))
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()
