@@ -2,16 +2,17 @@ import unittest
 
 from longest_common_substring import longest_common_substring
 
+
 class TestLongestCommonSubstring(unittest.TestCase):
-    
+
     def testExample1(self):
         result = longest_common_substring("abcdefg", "xyzabcdeftuvw")
-        self.assertEqual("abcde", result)
+        self.assertEqual("abcdef", result)
 
     def testExample2(self):
         result = longest_common_substring("aaa", "aaab")
         self.assertEqual("aaa", result)
-    
+
     def testEmptyStrings(self):
         result = longest_common_substring("", "")
         self.assertEqual("", result)
@@ -33,8 +34,11 @@ class TestLongestCommonSubstring(unittest.TestCase):
         self.assertEqual("abcdefg", result)
 
     def testLongStrings(self):
-        result = longest_common_substring("x" * 1000 + "abc" + "y" * 1000, "z" * 500 + "abc" + "w" * 500)
+        result = longest_common_substring(
+            "x" * 1000 + "abc" + "y" * 1000, "z" * 500 + "abc" + "w" * 500
+        )
         self.assertEqual("abc", result)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()
