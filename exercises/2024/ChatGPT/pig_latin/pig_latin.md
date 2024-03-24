@@ -8,7 +8,7 @@ keywords:
 - course: Introduction to Python for computational linguists
 lang: en-US
 solution-size: 11  # measured in lines of code
-id: 5111a717-e313-49b5-b95f-8bec5a07e30e
+id: 6efc1e1b-95b2-4658-811e-8c33b3914f6a
 ---
 
 # Pig Latin Translation

@@ -8,7 +8,7 @@ keywords:
 - course: Introduction to Python for computational linguists
 lang: en-US
 solution-size: 10  # measured in lines of code
-id: 5111a717-e313-49b5-b95f-8bec5a07e30f
+id: 04d8b3e0-a963-46ee-aee1-9fd9f9341ac4
 ---
 
 # Correlation Coefficient 

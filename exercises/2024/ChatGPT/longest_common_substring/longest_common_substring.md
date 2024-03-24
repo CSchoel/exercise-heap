@@ -8,7 +8,7 @@ keywords:
 - course: Introduction to Python for computational linguists
 lang: en-US
 solution-size: 12  # measured in lines of code
-id: 5111a717-e313-49b5-b95f-8bec5a07e30f
+id: 3bc81529-7a87-400a-82b1-2864b772ca3f
 ---
 
 # Longest Common Substring 
