@@ -33,7 +33,7 @@ Example:
 data = [3.4, 2.7, 4.1, 3.9, 2.8, 3.5, 3.7]
 confidence_level = 0.95
 result = calculate_confidence_interval(data, confidence_level)
-print(result)  # Example output: (3.033, 3.767)
+print(result)  # Example output: (3.051, 3.835)
 ```
 
 > Note: Although Python provides functions in `scipy.stats` or other libraries to calculate confidence intervals easily, in this exercise, implement the calculation manually for learning purposes.
