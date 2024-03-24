@@ -1,9 +1,11 @@
 import unittest
+import math
 
 from correlation import correlation_coefficient
 
+
 class TestCorrelationCoefficient(unittest.TestCase):
-    
+
     def test_perfect_positive_correlation(self):
         X = [1, 2, 3, 4, 5]
         Y = [2, 4, 6, 8, 10]
@@ -18,7 +20,7 @@ class TestCorrelationCoefficient(unittest.TestCase):
 
     def test_no_correlation(self):
         X = [1, 2, 3, 4, 5]
-        Y = [10, 20, 30, 40, 50]
+        Y = [-1, 0, 1, 0, -1]
         result = correlation_coefficient(X, Y)
         self.assertAlmostEqual(result, 0.0)
 
@@ -26,13 +28,14 @@ class TestCorrelationCoefficient(unittest.TestCase):
         X = [1, 2, 3, 4, 5]
         Y = [2, 4, 7, 8, 11]
         result = correlation_coefficient(X, Y)
-        self.assertAlmostEqual(result, 0.9607689228305227)
+        self.assertAlmostEqual(result, 0.9918365981341756)
 
     def test_empty_lists(self):
         X = []
         Y = []
         result = correlation_coefficient(X, Y)
-        self.assertAlmostEqual(result, 0.0)
+        print("Test: " + str(result))
+        self.assertTrue(math.isnan(result))
 
     def test_different_lengths(self):
         X = [1, 2, 3]
@@ -40,5 +43,6 @@ class TestCorrelationCoefficient(unittest.TestCase):
         with self.assertRaises(ValueError):
             correlation_coefficient(X, Y)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()
