@@ -13,7 +13,7 @@ id: 3c3153c7-21aa-4c56-9231-5d4b8e2de8e3
 
 # Linear Regression
 
-Implement a simple linear regression algorithm in `linear_regression.py` which takes a dataset in the form of two lists: `X` (independent variable) and `Y` (dependent variable), and returns the slope `m` and intercept `b` of the regression line.
+Implement a [simple linear regression algorithm](https://en.wikipedia.org/wiki/Simple_linear_regression) in `linear_regression.py` which takes a dataset in the form of two lists: `X` (independent variable) and `Y` (dependent variable), and returns the slope `m` and intercept `b` of the regression line.
 
 The formula for the linear regression line is: 
 
