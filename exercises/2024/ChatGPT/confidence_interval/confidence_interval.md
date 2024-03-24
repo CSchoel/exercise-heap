@@ -25,7 +25,7 @@ where:
 - \(s\) is the standard deviation of the sample
 - \(n\) is the sample size
 
-You can use the `scipy.stats` module to obtain the z-score using `scipy.stats.norm.ppf()`.
+> Hint: You can use the `NormalDist` class from the `statistics` module to get the z-score with `NormalDist.inv_cdf`. You might need to Google a bit to find the correct argument. That's okay, but try to understand any code that you copy before you use it.
 
 Example:
 
