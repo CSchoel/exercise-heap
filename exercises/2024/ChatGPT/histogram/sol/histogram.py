@@ -1,13 +1,17 @@
-from typing import List, Dict, Optional
-from collections import defaultdict
+from typing import List, Tuple
 
-def generate_histogram(data: List[int], bucket_size: Optional[int] = None) -> Dict[int, int]:
-    histogram = defaultdict(int)
-    if bucket_size:
-        for num in data:
-            bucket = num // bucket_size
-            histogram[bucket] += 1
-    else:
-        for num in data:
-            histogram[num] += 1
-    return dict(histogram)
+def calculate_histogram(data: List[float], bucket_size: float) -> Tuple[List[float], List[int]]:
+    if not data:
+        return [0.0], [0]
+
+    min_val = min(data)
+    max_val = max(data)
+    num_buckets = int((max_val - min_val) / bucket_size) + 1
+    bucket_limits = [min_val + i * bucket_size for i in range(num_buckets)]
+    bucket_counts = [0] * num_buckets
+
+    for value in data:
+        bucket_index = int((value - min_val) / bucket_size)
+        bucket_counts[bucket_index] += 1
+
+    return bucket_limits, bucket_counts

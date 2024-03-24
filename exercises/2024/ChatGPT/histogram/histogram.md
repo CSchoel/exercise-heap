@@ -1,5 +1,5 @@
 ---
-title: Histogram with Bucket Size
+title: Calculate Histogram
 author:
 - ChatGPT
 - Christopher Schölzel
@@ -7,28 +7,21 @@ keywords:
 - language: python
 - course: Introduction to Python for computational linguists
 lang: en-US
-solution-size: 10  # measured in lines of code
-id: c25a78b7-8776-4486-a8b0-2e3eb3d6f3d7
+solution-size: 6  # measured in lines of code
+id: 891d8aa7-8573-40b5-bf80-4785eb93a12b
 ---
 
-# Histogram with Bucket Size
+# Calculate Histogram
 
-Modify the function `generate_histogram(data: List[int], bucket_size: Optional[int] = None) -> Dict[int, int]` in `histogram.py` so that it takes an optional parameter `bucket_size`. If `bucket_size` is provided, the function should create buckets of that size and count the occurrences of numbers falling into each bucket. If `bucket_size` is not provided (i.e., `None`), the function should behave as before, counting the occurrences of each unique value in the data.
+Implement a function `calculate_histogram(data: List[float], bucket_size: float) -> Tuple[List[float], List[int]]` in `histogram.py` which calculates a histogram from a dataset with an arbitrary bucket size. The function should return a tuple containing two lists: the lower limits of each bucket, and the counts of the buckets.
 
 Example:
 
 ```python
-data = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4]
-result = generate_histogram(data, bucket_size=2)
-print(result)  # -> {1: 1, 2: 2, 3: 3, 4: 4}
-
-result = generate_histogram(data, bucket_size=3)
-print(result)  # -> {1: 1, 2: 3, 3: 6, 4: 4}
-
-result = generate_histogram(data)
-print(result)  # -> {1: 1, 2: 2, 3: 3, 4: 4}
+result = calculate_histogram([1.2, 3.4, 5.6, 7.8, 9.0, 11.1, 13.3], 3)
+print(result) # -> ([1.0, 4.0, 7.0, 10.0, 13.0], [1, 2, 2, 1, 1])
 ```
 
-> Tip: You can use integer division (`//`) to determine the bucket index for each number.
+Do not use any functions from the Python standard library that would make this task trivial.
 
-Make sure to save the function in a file called `histogram.py` so that it can be imported with `from histogram import generate_histogram`.
+Make sure to save the function in a file called `histogram.py` so that it can be imported with `from histogram import calculate_histogram`.
