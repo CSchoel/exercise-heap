@@ -37,18 +37,15 @@ def parse_file(path: Path, output_directory: Path):
         <description>
         (?P<description>.*)
         </description>
-        <unittest>
-        \s*
+        <unittest>\s*
         ```python
         (?P<unittest>.*)
-        ```
-        \s*
+        ```\s*
         </unittest>
-        <example_solution>
-        \s*
+        <example_solution>\s*
         ```python
         (?P<example_solution>.*)
-        ```
+        ```\s*
         </example_solution>
         </exercise>
         """
