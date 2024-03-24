@@ -81,7 +81,9 @@ def batchify(input: str, batchSize: int) -> List[str]:
 </example_solution>
 </exercise>
 
-Please answer with the same structure as above for the following type of exercise: Create a ngram class that can generate an ngram model and make predictions based on it.
+Please answer with the same structure as above for the following type of exercise: Calculate Mode: Create a function to determine the mode of a list of numbers.
+
+If there is a function in the Python standard library that makes this task trivial, add a hint that this function should not be used. Ensure that the unit tests cover edge cases and a diverse range of inputs.
 
 ## Variants of final Paragraph
 
@@ -93,3 +95,11 @@ Please answer with the same structure as above for the following type of exercis
 ## Prompts for exercise ideas
 
 Please give me examples of programming exercises for an introductory Python course for computational linguists. The exercises should require to write a single function or class. Please list 10 easy, 10 medium, and 10 hard examples. Just write one sentence per example that gives a general idea what the exercise should be about. The exercises should only require to use the Python standard library and take no more than one hour.
+
+---
+
+Can you give me examples of good exercises for an introductory Python course for data analysis and statistics? Let's start with simple exercises that only use the Python standard library. Give me 20 different exercises, only describing the main idea with a single sentence.
+
+Please give me 20 more comples examples, involving libaries like numpy and pandas and having more specific problems that are closer to real-world applications. Focus more on data analysis than on statistics and make at least half the exercises about string-based data.
+
+---
