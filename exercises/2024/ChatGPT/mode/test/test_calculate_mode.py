@@ -2,8 +2,9 @@ import unittest
 
 from calculate_mode import calculate_mode
 
+
 class TestCalculateMode(unittest.TestCase):
-    
+
     def testSingleMode(self):
         numbers = [1, 2, 3, 4, 4, 5, 5, 6]
         result = calculate_mode(numbers)
@@ -12,7 +13,7 @@ class TestCalculateMode(unittest.TestCase):
     def testNoMode(self):
         numbers = [1, 2, 3, 4, 5, 6]
         result = calculate_mode(numbers)
-        self.assertEqual([], result)
+        self.assertEqual([1, 2, 3, 4, 5, 6], result)
 
     def testMultipleModes(self):
         numbers = [1, 2, 2, 3, 4, 5, 5, 6, 6]
@@ -29,5 +30,6 @@ class TestCalculateMode(unittest.TestCase):
         result = calculate_mode(numbers)
         self.assertEqual([1], result)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

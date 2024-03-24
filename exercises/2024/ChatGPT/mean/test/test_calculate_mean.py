@@ -3,8 +3,9 @@ import math
 
 from calculate_mean import calculate_mean
 
+
 class TestMeanCalculation(unittest.TestCase):
-    
+
     def testMeanOfIntegers(self):
         input = [1, 2, 3, 4, 5]
         result = calculate_mean(input)
@@ -35,5 +36,6 @@ class TestMeanCalculation(unittest.TestCase):
         result = calculate_mean(input)
         self.assertAlmostEqual(-0.6, result)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

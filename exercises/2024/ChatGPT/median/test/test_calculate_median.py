@@ -1,8 +1,10 @@
 import unittest
+import math
 from calculate_median import calculate_median
 
+
 class TestCalculateMedian(unittest.TestCase):
-    
+
     def testOddLength(self):
         numbers = [1, 2, 3, 4, 5]
         result = calculate_median(numbers)
@@ -16,7 +18,7 @@ class TestCalculateMedian(unittest.TestCase):
     def testEmptyList(self):
         numbers = []
         result = calculate_median(numbers)
-        self.assertIsNone(result)
+        self.assertTrue(math.isnan(result))
 
     def testSingleElement(self):
         numbers = [5]
@@ -31,7 +33,8 @@ class TestCalculateMedian(unittest.TestCase):
     def testDuplicateValues(self):
         numbers = [2, 2, 3, 3, 4, 4]
         result = calculate_median(numbers)
-        self.assertEqual(3.5, result)
+        self.assertEqual(3, result)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()
