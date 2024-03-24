@@ -1,16 +1,19 @@
 from typing import List, Tuple
 import math
 
+
 def mean(sample: List[float]) -> float:
     return sum(sample) / len(sample)
+
 
 def variance(sample: List[float]) -> float:
     sample_mean = mean(sample)
     return sum((x - sample_mean) ** 2 for x in sample) / (len(sample) - 1)
 
+
 def t_test(sample1: List[float], sample2: List[float]) -> Tuple[float, float]:
     if not sample1 or not sample2:
-        return 0.0, 0.0
+        return float("nan"), float("nan")
 
     n1 = len(sample1)
     n2 = len(sample2)
@@ -27,5 +30,6 @@ def t_test(sample1: List[float], sample2: List[float]) -> Tuple[float, float]:
 
     # Calculate p-value using t-distribution
     from scipy.stats import t
+
     p_value = 2 * (1 - t.cdf(abs(t_statistic), df))
     return t_statistic, p_value
