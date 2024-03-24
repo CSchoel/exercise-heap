@@ -16,3 +16,5 @@ __pycache__
 # Mypy cache
 .mypy_cache
 
+# Raw responses from ChatGPT
+notes/raw_chatgpt_responses
